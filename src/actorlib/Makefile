@@ -7,16 +7,19 @@ OBJECT = $(patsubst %,$(BLD)/%, $(notdir $(SOURCE:.cpp=.o)))
 
 CC = g++
 
-IFLAGS = -I/home/amartya/local/include
+#IFLAGS = -I/home/amartya/local/include
 UTILFLAGS = -I./utils
-LFLAGS = -L/home/amartya/local/lib64
-CFLAGS = -lGPI2 -pthread
+#LFLAGS = -L/home/amartya/local/lib64
+#CFLAGS = -lGPI2 -pthread
+
+LFLAGS = -w -O0 -pipe $(GPI_2_INC)
+CFLAGS = -lGPI2 -lpthread -libverbs
 
 all: $(OBJECT)
 
 $(BLD)/%.o: $(SRC)/%.cpp $(SRC)/%.hpp
 	mkdir -p $(dir $@)
-	$(CC) $(IFLAGS) $(UTILFLAGS) $(LFLAGS) -c $< -o $@ $(CFLAGS)
+	$(CC) $(UTILFLAGS) $(LFLAGS) -c $< -o $@ $(CFLAGS)
 
 .PHONY: clean
 
