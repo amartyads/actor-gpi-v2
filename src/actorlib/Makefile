@@ -19,6 +19,7 @@ all: $(OBJECT)
 
 $(BLD)/%.o: $(SRC)/%.cpp $(SRC)/%.hpp
 	mkdir -p $(dir $@)
+	#$(CC) $(IFLAGS) $(UTILFLAGS) $(LFLAGS) -c $< -o $@ $(CFLAGS)
 	$(CC) $(UTILFLAGS) $(LFLAGS) -c $< -o $@ $(CFLAGS)
 
 .PHONY: clean
