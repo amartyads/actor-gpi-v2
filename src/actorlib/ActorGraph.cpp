@@ -115,6 +115,7 @@ void ActorGraph::syncActors()
     uint64_t *remoteArray = (uint64_t*) (gpi_util::create_segment_return_ptr(segment_id_rem_array, segSize));
     
     int localOffset = 0;
+	queue_id = 0;
 
 	//read in remote actor IDs
 	for(int i = 0; i < totNoThreads; i++)
