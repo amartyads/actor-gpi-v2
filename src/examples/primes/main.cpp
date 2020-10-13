@@ -10,12 +10,17 @@
 #include <iostream>
 #include <string>
 
+#include <mpi.h>
+#include <omp.h>
+
 #ifndef ASSERT
 #define ASSERT(ec) gpi_util::success_or_exit(__FILE__,__LINE__,ec)
 #endif
 
 int main(int argc, char *argv[])
 {
+	MPI_Init(&argc, &argv);
+
 	gaspi_rank_t rank, num;
 	gaspi_return_t ret;
 
@@ -77,6 +82,7 @@ int main(int argc, char *argv[])
 	//std::cout << "Rank " <<rank<<" offset string " << offstr << std::endl;*/
 
 	ASSERT( gaspi_proc_term(GASPI_BLOCK) );
+	MPI_Finalize();
 	std::cout << "post proc term" <<std::endl;
 	return EXIT_SUCCESS;
 }
