@@ -100,7 +100,8 @@ void ActorGraph::syncActors()
 		localArray[i] = localActorIDList[i];
 
     //flush queues, make segment for storing external actor IDs
-
+	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
+	std::cout << "preflush 1" << std::endl;
     gpi_util::wait_for_flush_queues();
 
 	int segSize = 0;
@@ -132,7 +133,8 @@ void ActorGraph::syncActors()
 	         );
 		localOffset += actorElemSize * remoteNoActors[i];
 	}
-
+	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
+	std::cout << "preflush 2" << std::endl;
 	gpi_util::wait_for_flush_queues();
 
 	//use segment pointer and push back actors
