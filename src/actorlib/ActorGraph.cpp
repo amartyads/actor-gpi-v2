@@ -94,7 +94,7 @@ void ActorGraph::syncActors()
     }
 
     //overlap some computation before flushing queues; paste local ID list into segment
-    uint64_t *localArray = (uint64_t*) (gpi_util::create_segment_return_ptr(segment_id_loc_array, sizeof(int)));
+     uint64_t *localArray = (uint64_t*) (gpi_util::create_segment_return_ptr(segment_id_loc_array, actorElemSize * localActorRefList.size()));
 
     for(int i = 0; i < *locSize; i++)
 		localArray[i] = localActorIDList[i];
