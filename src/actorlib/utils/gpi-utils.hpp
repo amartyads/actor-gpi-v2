@@ -10,11 +10,13 @@
 
 namespace gpi_util
 {
-	static void success_or_exit(const char* file, const int line, const int ec)
+	static void success_or_exit(const char* file, const int line, const gaspi_return_t ec)
 	{
 		if(ec!=GASPI_SUCCESS)
 		{
 			gaspi_printf("Assertions failed in %s[%i]:%d\n",file,line,ec);
+			gaspi_string_t error = gaspi_error_str(ec);
+			gaspi_printf("Error string: %s\n", error);
 			exit(EXIT_FAILURE);
 		}
 	}
