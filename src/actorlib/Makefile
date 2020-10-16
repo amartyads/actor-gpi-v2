@@ -13,7 +13,7 @@ UTILFLAGS = -I./utils
 #LFLAGS = -L/home/amartya/local/lib64
 #CFLAGS = -lGPI2 -pthread
 
-LFLAGS = -w -O0 -pipe -g $(GPI_2_INC)
+LFLAGS = -w -O0 -pipe $(GPI_2_INC)
 CFLAGS = -lGPI2 -lpthread -libverbs
 
 all: $(OBJECT)
