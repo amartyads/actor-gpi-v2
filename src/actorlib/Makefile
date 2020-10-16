@@ -5,8 +5,8 @@ SOURCE = $(wildcard $(SRC)/*.cpp)
 INCLUDE = $(wildcard $(SRC)/*.hpp)
 OBJECT = $(patsubst %,$(BLD)/%, $(notdir $(SOURCE:.cpp=.o)))
 
-#CC = g++
-CC = mpicc
+CC = g++
+#CC = mpicc
 
 #IFLAGS = -I/home/amartya/local/include
 UTILFLAGS = -I./utils

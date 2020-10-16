@@ -11,8 +11,8 @@ LOCSOURCE =  $(wildcard *.cpp)
 LOCINCLUDE = $(wildcard *.hpp)
 LOCOBJECT = $(patsubst %,$(LOCBLD)/%, $(notdir $(LOCSOURCE:.cpp=.o)))
 
-#CC = g++
-CC = mpicc
+CC = g++
+#CC = mpicc
 
 #IFLAGS = -I/home/amartya/local/include
 UTILFLAGS = -I$(SRC)/utils
