@@ -83,6 +83,6 @@ int main(int argc, char *argv[])
 
 	ASSERT( gaspi_proc_term(GASPI_BLOCK) );
 //	MPI_Finalize();
-	std::cout << "post proc term" <<std::endl;
+	std::cout << "post proc term rank " <<rank <<std::endl;
 	return EXIT_SUCCESS;
 }
