@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 	}
 	gaspi_printf("Rank %d done.\n",rank);	
 	
-	gpi_util::wait_for_flush_queues();
+	//gpi_util::wait_for_flush_queues();
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
 	//ag.sortConnections();
 	//ag.genOffsets();
