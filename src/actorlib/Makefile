@@ -14,7 +14,7 @@ UTILFLAGS = -I./utils
 #CFLAGS = -lGPI2 -pthread
 
 LFLAGS = -w -O0 -pipe $(GPI_2_INC)
-CFLAGS = -lGPI2 -lpthread -libverbs
+CFLAGS = -lGPI2-dbg -lpthread -libverbs
 
 all: $(OBJECT)
 
