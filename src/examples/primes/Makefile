@@ -20,7 +20,7 @@ UTILFLAGS = -I$(SRC)/utils
 #CFLAGS = -lGPI2 -pthread
 
 LFLAGS = -w -O0 -pipe $(GPI_2_INC)
-CFLAGS = -lGPI2-dbg -lpthread -libverbs
+CFLAGS = -lGPI2 -lpthread -libverbs
 
 $(TARGET) :  $(LOCOBJECT) $(LIBOBJECT)
 	#$(CC) $(IFLAGS) $(UTILFLAGS) $(LFLAGS) -o $@ $^ $(CFLAGS)
