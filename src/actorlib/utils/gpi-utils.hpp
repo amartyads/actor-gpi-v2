@@ -24,6 +24,7 @@ namespace gpi_util
 	{
 		const gaspi_segment_id_t tempID = segmentID;
 		const gaspi_size_t tempSize = segmentSize;
+		gaspi_printf("Creating segment ID %d of size %ul\n", segmentID, segmentSize);
 		success_or_exit(__FILE__, __LINE__, gaspi_segment_create(tempID, tempSize
 								, GASPI_GROUP_ALL, GASPI_BLOCK
 								, GASPI_ALLOC_DEFAULT
