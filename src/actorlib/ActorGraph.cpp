@@ -25,6 +25,9 @@
 #define ASSERT(ec) gpi_util::success_or_exit(__FILE__,__LINE__,ec)
 #endif
 
+#ifndef MAX
+#define MAX(a,b) a>b?a:b
+#endif
 
 ActorGraph::ActorGraph() : ActorGraph(0,1) { }
 
@@ -310,12 +313,12 @@ void ActorGraph::finalizeInitialization()
 	segmentIDLocalCache = 4;
 	segmentIDRemoteVecSize = 5;
 
-	gasptrRemoteLookup = gpi_util::create_segment_return_ptr(segmentIDRemoteLookup, noLocalRemoteChannels * sizeof(uint64_t) * dataQueueLen); // will have databank offset (minBlockSize * fixedOffset)
-	gasptrLocalClear = gpi_util::create_segment_return_ptr(segmentIDLocalClear, noLocalRemoteChannels * sizeof(uint64_t) * dataQueueLen); // will paste tha read databank offset
-	gasptrLocalTrigger = gpi_util::create_segment_return_ptr(segmentIDLocalTrigger, noRemoteLocalChannels * sizeof(uint64_t) * dataQueueLen);	//will paste dstID
+	gasptrRemoteLookup = gpi_util::create_segment_return_ptr(segmentIDRemoteLookup, MAX(noLocalRemoteChannels,1) * sizeof(uint64_t) * dataQueueLen); // will have databank offset (minBlockSize * fixedOffset)
+	gasptrLocalClear = gpi_util::create_segment_return_ptr(segmentIDLocalClear, MAX(noLocalRemoteChannels,1) * sizeof(uint64_t) * dataQueueLen); // will paste tha read databank offset
+	gasptrLocalTrigger = gpi_util::create_segment_return_ptr(segmentIDLocalTrigger, MAX(noRemoteLocalChannels,1) * sizeof(uint64_t) * dataQueueLen);	//will paste dstID
 	gasptrDatabank = gpi_util::create_segment_return_ptr(segmentIDDatabank, fullSizeOfSpace);
 	gasptrLocalCache = gpi_util::create_segment_return_ptr(segmentIDLocalCache, maxIncomingBlockSize);
-	gasptrRemoteVecSize = gpi_util::create_segment_return_ptr(segmentIDRemoteVecSize, noLocalRemoteChannels * sizeof(uint64_t) * dataQueueLen); // will have size of vector
+	gasptrRemoteVecSize = gpi_util::create_segment_return_ptr(segmentIDRemoteVecSize, MAX(noLocalRemoteChannels,1) * sizeof(uint64_t) * dataQueueLen); // will have size of vector
 
 	//std::cout << "rank " <<threadRank << " segs made" <<std::endl;
 	//reset lookup table
