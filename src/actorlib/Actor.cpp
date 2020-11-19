@@ -1,6 +1,9 @@
 #include "Actor.hpp"
 #include "InPort.hpp"
 #include "OutPort.hpp"
+#include "gpi-utils.hpp"
+
+#include <GASPI.h>
 #include <stdlib.h>
 #include <vector>
 #include <string>
@@ -10,16 +13,70 @@
 
 #include <iostream>
 
+#ifndef ASSERT
+#define ASSERT(ec) gpi_util::success_or_exit(__FILE__,__LINE__,ec)
+#endif
+
+uint64_t Actor::localRank = -10;
+uint64_t Actor::localSrNo = 0;
+std::set<uint64_t> Actor::takenSrNos;
+
 Actor::Actor(std::string name, uint64_t threadRank, uint64_t actorSrNo)
 {
+	objectInit(name, threadRank, actorSrNo);
+}
+Actor::Actor(uint64_t threadRank, uint64_t actorSrNo) 
+{
+	objectInit("A-"+std::to_string(threadRank)+"-"+std::to_string(actorSrNo), threadRank, actorSrNo);
+}
+Actor::Actor(uint64_t actorSrNo)
+{
+	if(Actor::localRank == -10)
+	{
+		gaspi_rank_t rank = 0;
+		ASSERT( gaspi_proc_rank(&rank) );
+		Actor::localRank = rank;
+	}
+	objectInit("A-"+std::to_string(Actor::localRank)+"-"+std::to_string(actorSrNo), Actor::localRank, actorSrNo);
+}
+Actor::Actor(std::string name)
+{
+	if(Actor::localRank == -10)
+	{
+		gaspi_rank_t rank = 0;
+		ASSERT( gaspi_proc_rank(&rank) );
+		Actor::localRank = rank;
+	}
+	objectInit(name, Actor::localRank, Actor::localSrNo);
+}
+Actor::Actor()
+{
+	if(Actor::localRank == -10)
+	{
+		gaspi_rank_t rank = 0;
+		ASSERT( gaspi_proc_rank(&rank) );
+		Actor::localRank = rank;
+	}
+	objectInit("A-"+std::to_string(Actor::localRank)+"-"+std::to_string(Actor::localSrNo), Actor::localRank, Actor::localSrNo);
+}
+
+void Actor::objectInit(std::string name, uint64_t threadRank, uint64_t actorSrNo)
+{
+	Actor::takenSrNos.insert(actorSrNo);
 	this->name = name;
 	this->threadRank = threadRank;
 	this->actorSrNo = actorSrNo;
 	this->actorGlobID = Actor::encodeGlobID(threadRank, actorSrNo);
 	this->triggers = 0;
 	finished = false;
+	Actor::setNextSrNo();
 }
-Actor::Actor(uint64_t rank, uint64_t srno) : Actor("A-"+std::to_string(rank)+"-"+std::to_string(srno), rank, srno) { }
+
+void Actor::setNextSrNo() //static
+{
+	while(Actor::takenSrNos.count(Actor::localSrNo) != 0) //while number exists in set
+		Actor::localSrNo++;
+}
 
 Actor::~Actor()
 {

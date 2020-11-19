@@ -11,6 +11,8 @@
 
 PingPongActor::PingPongActor(uint64_t rank, uint64_t srno) : Actor(rank, srno) { }
 
+PingPongActor::PingPongActor() : Actor() { }
+
 void PingPongActor::act()
 {
     if(finished) return;

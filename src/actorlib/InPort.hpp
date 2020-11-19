@@ -19,6 +19,7 @@ public:
 
     T read();     // read from channel, return
     uint64_t available(); // poll channel to see if data available
+    T peek();     // get element without popping
 
     ~InPort();
 	InPort(InPort &other) = delete;
@@ -48,4 +49,8 @@ template <typename T, int capacity> uint64_t InPort <T, capacity> :: available()
     return (connChannel->isAvailableToPull());
 }
 
+template <typename T, int capacity> T InPort <T, capacity> :: peek()
+{
+    return (connChannel->peekData());
+}
 #endif

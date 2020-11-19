@@ -19,6 +19,7 @@ public:
 
     void pushData(T ndata);
     T pullData();
+    T peekData();
 
     uint64_t isAvailableToPush();
     uint64_t isAvailableToPull();
@@ -34,6 +35,7 @@ public:
 
     void pushData(std::vector<T> &ndata);
     std::vector<T> pullData();
+    std::vector<T> peekData();
 
     uint64_t isAvailableToPush();
     uint64_t isAvailableToPull();
@@ -77,6 +79,18 @@ template <typename T, int capacity> T LocalChannel <T, capacity> :: pullData()
         throw std::runtime_error("No data in channel");
     }
 }
+template <typename T, int capacity> T LocalChannel <T, capacity> :: peekData()
+{
+    if(this->isAvailableToPull())
+    {
+        T toRet = data.front();
+        return toRet;
+    }
+    else
+    {
+        throw std::runtime_error("No data in channel");
+    }
+}
 template <typename T, int capacity> void LocalChannel <T, capacity> :: pushData(T ndata)
 {
     std::cout << "in channel write" <<std::endl;
@@ -101,6 +115,18 @@ template <typename T, int capacity> std::vector<T> LocalChannel <std::vector<T>,
         std::vector<T> toRet = data.front();
         data.pop();
         this->curQueueSize++;
+        return toRet;
+    }
+    else
+    {
+        throw std::runtime_error("No data in channel");
+    }
+}
+template <typename T, int capacity> std::vector<T> LocalChannel <std::vector<T>, capacity> :: peekData()
+{
+    if(this->isAvailableToPull())
+    {
+        std::vector<T> toRet = data.front();
         return toRet;
     }
     else

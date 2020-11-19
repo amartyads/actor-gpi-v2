@@ -15,6 +15,7 @@ public:
     virtual T pullData() = 0;
     virtual uint64_t isAvailableToPush() = 0;
     virtual uint64_t isAvailableToPull() = 0;
+    virtual T peekData() = 0;
 };
 
 template <typename T, int capacity> class Channel <std::vector<T>, capacity>: public AbstractChannel
@@ -24,6 +25,7 @@ public:
     virtual std::vector<T> pullData() = 0;
     virtual uint64_t isAvailableToPush() = 0;
     virtual uint64_t isAvailableToPull() = 0;
+    virtual std::vector<T> peekData() = 0;
 };
 
 #endif

@@ -14,22 +14,22 @@ LOCOBJECT = $(patsubst %,$(LOCBLD)/%, $(notdir $(LOCSOURCE:.cpp=.o)))
 CC = g++
 #CC = mpicc
 
-#IFLAGS = -I/home/amartya/local/include
+IFLAGS = -I/home/amartya/local/include
 UTILFLAGS = -I$(SRC)/utils
-#LFLAGS = -L/home/amartya/local/lib64
-#CFLAGS = -lGPI2 -pthread
+LFLAGS = -L/home/amartya/local/lib64
+CFLAGS = -lGPI2 -pthread
 
-LFLAGS = -w -O0 -pipe $(GPI_2_INC)
-CFLAGS = -lGPI2 -lpthread -libverbs
+#LFLAGS = -w -O0 -pipe $(GPI_2_INC)
+#CFLAGS = -lGPI2 -lpthread -libverbs
 
 $(TARGET) :  $(LOCOBJECT) $(LIBOBJECT)
-	#$(CC) $(IFLAGS) $(UTILFLAGS) $(LFLAGS) -o $@ $^ $(CFLAGS)
-	$(CC) $(UTILFLAGS) $(LFLAGS) -o $@ $^ $(CFLAGS)
+	$(CC) $(IFLAGS) $(UTILFLAGS) $(LFLAGS) -o $@ $^ $(CFLAGS)
+	#$(CC) $(UTILFLAGS) $(LFLAGS) -o $@ $^ $(CFLAGS)
 
 $(LOCOBJECT): $(LOCBLD)/%.o: %.cpp $(LOCINCLUDE)
 	mkdir -p $(dir $@)
-	#$(CC) $(IFLAGS) -I$(SRC) $(UTILFLAGS) $(LFLAGS) -c $< -o $@ $(CFLAGS)
-	$(CC) -I$(SRC) $(UTILFLAGS) $(LFLAGS) -c $< -o $@ $(CFLAGS)
+	$(CC) $(IFLAGS) -I$(SRC) $(UTILFLAGS) $(LFLAGS) -c $< -o $@ $(CFLAGS)
+	#$(CC) -I$(SRC) $(UTILFLAGS) $(LFLAGS) -c $< -o $@ $(CFLAGS)
 
 $(LIBOBJECT): $(LIBSOURCE) $(LIBINCLUDE)
 	cd $(SRC) && $(MAKE)

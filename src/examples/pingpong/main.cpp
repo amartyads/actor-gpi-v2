@@ -32,10 +32,10 @@ int main(int argc, char *argv[])
 	ASSERT( gaspi_proc_rank(&rank));
 	ASSERT( gaspi_proc_num(&num) );
 
-	Actor *localActor1 = new PingPongActor(rank,0);
-	Actor *localActor2 = new PingPongActor(rank,1);
-	Actor *localActor3 = new PingPongActor(rank,2);
-	Actor *localActor4 = new PingPongActor(rank,3);
+	Actor *localActor1 = new PingPongActor();
+	Actor *localActor2 = new PingPongActor();
+	Actor *localActor3 = new PingPongActor();
+	Actor *localActor4 = new PingPongActor();
 
 	//ag.addActor(localActor3);
 	ag.addActor(localActor1);
@@ -110,6 +110,7 @@ int main(int argc, char *argv[])
 	gaspi_printf("Rank %d done.\n",rank);	
 	
 	gpi_util::wait_for_flush_queues();
+	// ag.printActors();
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
 	//ag.sortConnections();
 	//ag.genOffsets();

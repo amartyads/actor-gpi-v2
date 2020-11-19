@@ -8,6 +8,7 @@
 #include <unordered_map>
 #include <string>
 #include <cstdint>
+#include <set>
 
 #include "Port.hpp"
 #include "InPort.hpp"
@@ -36,7 +37,10 @@ public:
     template<typename T, int capacity> OutPort<T, capacity> * getOutPort(const std::string &portName);
 
 	Actor(std::string name, uint64_t threadRank, uint64_t actorSrNo);
-	Actor(uint64_t threadRank, uint64_t ActorSrNo);
+	Actor(uint64_t threadRank, uint64_t actorSrNo);
+	Actor(uint64_t actorSrNo);
+	Actor(std::string name);
+	Actor();
 
 	virtual ~Actor();
 	Actor(Actor &other) = delete;
@@ -46,9 +50,18 @@ public:
 	//void act();
 	bool finished;
 	//statics
+	void finish() { finished = true; }
+  	void stop() { finish(); }
+
 	static uint64_t encodeGlobID(uint64_t procNo, uint64_t actNo);
 	static std::pair<uint64_t,uint64_t> decodeGlobID(uint64_t inpGlobId);
 
+private:
+	void objectInit(std::string name, uint64_t threadRank, uint64_t actorSrNo);
+	static uint64_t localRank;
+	static uint64_t localSrNo;
+	static std::set<uint64_t> takenSrNos;
+	static void setNextSrNo();
 };
 
 template <typename T, int capacity> InPort <T, capacity> * Actor :: getInPort(const std::string &portName)
