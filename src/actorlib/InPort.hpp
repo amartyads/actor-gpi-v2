@@ -21,6 +21,8 @@ public:
     uint64_t available(); // poll channel to see if data available
     T peek();     // get element without popping
 
+    std::queue<T> dataStash;
+
     ~InPort();
 	InPort(InPort &other) = delete;
 	InPort & operator=(InPort &other) = delete;
@@ -41,7 +43,11 @@ template <typename T, int capacity> InPort <T, capacity> :: ~InPort()
 
 template <typename T, int capacity> T InPort <T, capacity> :: read()
 {
-    return (connChannel->pullData());
+    if(dataStash.empty())
+        dataStash.push(connChannel->pullData());
+    T temp = dataStash.front();
+    dataStash.pop();
+    return T;
 }
 
 template <typename T, int capacity> uint64_t InPort <T, capacity> :: available()
@@ -51,6 +57,8 @@ template <typename T, int capacity> uint64_t InPort <T, capacity> :: available()
 
 template <typename T, int capacity> T InPort <T, capacity> :: peek()
 {
-    
+    if(dataStash.empty())
+        dataStash.push(connChannel->pullData());
+    return dataStash.front();
 }
 #endif
