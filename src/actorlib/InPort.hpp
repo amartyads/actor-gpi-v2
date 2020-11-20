@@ -51,6 +51,6 @@ template <typename T, int capacity> uint64_t InPort <T, capacity> :: available()
 
 template <typename T, int capacity> T InPort <T, capacity> :: peek()
 {
-    return (connChannel->peekData());
+    
 }
 #endif

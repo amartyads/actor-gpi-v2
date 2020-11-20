@@ -11,7 +11,6 @@
 #include <GASPI.h>
 #include <GASPI_Ext.h>
 #include <vector>
-#include <queue>
 #include <iostream>
 
 #include <stdexcept>
