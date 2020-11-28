@@ -1,7 +1,6 @@
 #ifndef ACTORGPI_UTILS_HPP
 #define ACTORGPI_UTILS_HPP
 
-
 #include <GASPI.h>
 #include <GASPI_Ext.h>
 #include <stdlib.h>
@@ -11,6 +10,12 @@
 
 namespace gpi_util
 {
+	namespace
+	{
+		static gaspi_rank_t local_rank = 65535;
+		static gaspi_rank_t total_ranks = 65535;
+	}
+
 	static void success_or_exit(const char* file, const int line, const gaspi_return_t ec)
 	{
 		if(ec!=GASPI_SUCCESS)
@@ -21,11 +26,23 @@ namespace gpi_util
 			exit(EXIT_FAILURE);
 		}
 	}
+	static gaspi_rank_t get_local_rank()
+	{
+		if(local_rank == 65535)
+			success_or_exit(__FILE__,__LINE__,gaspi_proc_rank(&local_rank));
+		return local_rank;
+	}
+	static gaspi_rank_t get_total_ranks()
+	{
+		if(total_ranks == 65535)
+			success_or_exit(__FILE__,__LINE__,gaspi_proc_num(&total_ranks));
+		return total_ranks;
+	}
 	static gaspi_pointer_t create_segment_return_ptr(int segmentID, uint64_t segmentSize)
 	{
 		const gaspi_segment_id_t tempID = segmentID;
 		const gaspi_size_t tempSize = segmentSize;
-		gaspi_printf("Creating segment ID %d of size %" PRIu64 "\n", segmentID, segmentSize);
+		// gaspi_printf("Creating segment ID %d of size %" PRIu64 "\n", segmentID, segmentSize);
 		success_or_exit(__FILE__, __LINE__, gaspi_segment_create(tempID, tempSize
 								, GASPI_GROUP_ALL, GASPI_BLOCK
 								, GASPI_ALLOC_DEFAULT
@@ -42,7 +59,7 @@ namespace gpi_util
 		gaspi_queue_id_t queue = 0;
 		while(queue < queue_num)
 		{
-			gaspi_printf("flushing queue %d\n",queue);
+			// gaspi_printf("flushing queue %d\n",queue);
 			success_or_exit(__FILE__, __LINE__, gaspi_wait(queue, GASPI_BLOCK));
 			++queue;
 		}

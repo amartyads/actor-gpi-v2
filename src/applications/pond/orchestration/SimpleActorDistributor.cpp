@@ -24,23 +24,28 @@
  *
  * TODO
  */
-
+#include <GASPI.h>
+#include <actorlib/utils/gpi-utils.hpp>
 #include "orchestration/SimpleActorDistributor.hpp"
 
 #include "util/Logger.hh"
 
 #include <cmath>
-
+#ifndef ASSERT
+#define ASSERT(ec) gpi_util::success_or_exit(__FILE__,__LINE__,ec)
+#endif
 static tools::Logger &l = tools::Logger::logger;
 
 SimpleActorDistributor::SimpleActorDistributor(size_t xSize, size_t ySize)
     : ActorDistributor(xSize, ySize) {
-    auto tmp1 = static_cast<double>(xSize) / std::sqrt(static_cast<double>(mpi::world()));
-    l.cout() << xSize << "/ sqrt(" << mpi::world() << ") = " << tmp1 << std::endl;
+    gaspi_rank_t totProc;
+    ASSERT( gaspi_proc_num(&totProc));
+    auto tmp1 = static_cast<double>(xSize) / std::sqrt(static_cast<double>(totProc));
+    l.cout() << xSize << "/ sqrt(" <<totProc << ") = " << tmp1 << std::endl;
     double xBlockSize = std::floor(tmp1);
     l.cout() << xBlockSize << std::endl;
     size_t xSplits = std::max(xSize / static_cast<size_t>(xBlockSize), 1ul);
-    size_t ySplits = mpi::world() / xSplits;
+    size_t ySplits = totProc / xSplits;
 #ifndef NDEBUG
     l.cout() <<"xSplits: " << xSplits << " ySplits: " << ySplits << std::endl;
 #endif
@@ -50,12 +55,14 @@ SimpleActorDistributor::SimpleActorDistributor(size_t xSize, size_t ySize)
 }
 
 void SimpleActorDistributor::putInitial(size_t xSplits, size_t ySplits) {
+    gaspi_rank_t totProc;
+    ASSERT( gaspi_proc_num(&totProc));
     for (size_t x = 0; x < xSize; x++) {
         for (size_t y = 0; y < ySize; y++) {
             auto tmpX = x / (xSize / xSplits);
             auto tmpY = y / (ySize / ySplits);
-            auto res = static_cast<mpi::rank>(tmpX * ySplits + tmpY);
-            actorDistribution[x * ySize + y] = std::min(res, mpi::world() - 1);
+            auto res = static_cast<gaspi_rank_t>(tmpX * ySplits + tmpY);
+            actorDistribution[x * ySize + y] = std::min((int)res, totProc - 1);
         }
     }
 }

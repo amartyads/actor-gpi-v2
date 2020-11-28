@@ -29,8 +29,11 @@ int main(int argc, char *argv[])
 
 	ActorGraph ag(maxVals, queueMax);
 
-	ASSERT( gaspi_proc_rank(&rank));
-	ASSERT( gaspi_proc_num(&num) );
+	// ASSERT( gaspi_proc_rank(&rank));
+	// ASSERT( gaspi_proc_num(&num) );
+	rank = gpi_util::get_local_rank();
+	num = gpi_util::get_total_ranks();
+	std::cout << "Rank " << rank << " Num " << num << std::endl;
 
 	Actor *localActor1 = new PingPongActor();
 	Actor *localActor2 = new PingPongActor();
@@ -110,7 +113,7 @@ int main(int argc, char *argv[])
 	gaspi_printf("Rank %d done.\n",rank);	
 	
 	gpi_util::wait_for_flush_queues();
-	// ag.printActors();
+	ag.printActors();
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
 	//ag.sortConnections();
 	//ag.genOffsets();

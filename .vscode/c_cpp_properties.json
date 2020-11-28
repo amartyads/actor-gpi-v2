@@ -4,7 +4,9 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/home/amartya/local/include"
+                "/home/amartya/local/include",
+                "${workspaceFolder}/src",
+                "${workspaceFolder}/src/actorlib/utils"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

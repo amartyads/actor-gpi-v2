@@ -12,6 +12,7 @@
 #include <vector>
 #include <queue>
 #include <cstdint>
+#include <stdexcept>
 
 #include "LocalChannel.hpp"
 #include "RemoteChannel.hpp"
@@ -19,6 +20,7 @@
 #include "InPort.hpp"
 #include "OutPort.hpp"
 #include "Actor.hpp"
+#include "DummyRemoteActor.hpp"
 #include "connection-type-util.hpp"
 
 class ActorGraph
@@ -27,8 +29,10 @@ public:
 
 	gaspi_rank_t threadRank, totNoThreads;
 	std::vector<Actor* > localActorRefList;
+	std::vector<Actor* > remoteActorRefList;
 	std::vector<uint64_t> localActorIDList;
 	std::vector<uint64_t> remoteActorIDList;
+	std::vector<std::string> remoteActorNameList;
 	std::unordered_map<uint64_t, Actor* > localActorRefMap;
 	std::queue<uint64_t> localChannelTriggers;
 
@@ -66,6 +70,9 @@ public:
 	
 	Actor* getLocalActor(uint64_t globID);
 	Actor* getLocalActor(std::string actName);
+	Actor* getRemoteActor(uint64_t globID);
+	Actor* getRemoteActor(std::string actName);
+	Actor* getActor(std::string actName);
 
 	bool isLocalActor(uint64_t globID);
 	bool isLocalActor(std::string actName);
@@ -76,6 +83,7 @@ public:
 	ActorConnectionType getActorConnectionType(uint64_t globIDSrcActor, uint64_t globIDDestActor);
 	ActorConnectionType getActorConnectionType(std::pair<uint64_t, uint64_t> curPair);
 	template <typename T, int capacity> void connectPorts (uint64_t srcGlobID, std::string srcPortLabel, uint64_t destGlobID, std::string destPortLabel);
+	template <typename T, int capacity> void connectPorts (Actor* scrActor, std::string srcPortLabel, Actor* dstActor, std::string destPortLabel);
 	void sortConnections();
 	void makeConnections();
 
@@ -83,6 +91,7 @@ public:
 	std::string getOffsetString();
 
 	double run(int nunNo);
+	void clearDataAreas();
 
 	ActorGraph();
 	ActorGraph(int dataQueueLen);
@@ -94,6 +103,7 @@ public:
 	void addActor(Actor* newActor);
 	void syncActors();
 	void printActors();
+
 	void printLookupSegment();
 	void printCacheSegment();
 	void printTriggerSegment();
@@ -104,6 +114,15 @@ public:
 };
 
 // have to define templated method in header file, or provide all possible instantiations in cpp
+template <typename T, int capacity> void ActorGraph :: connectPorts(Actor* scrActor, std::string srcPortLabel, Actor* dstActor, std::string destPortLabel)
+{
+	uint64_t srcGlobID, dstGlobID;
+	if(scrActor == nullptr || dstActor == nullptr)
+		throw std::runtime_error("Actor not valid");
+	srcGlobID = scrActor->actorGlobID;
+	dstGlobID = dstActor->actorGlobID;
+	connectPorts<T, capacity>(srcGlobID, srcPortLabel, dstGlobID, destPortLabel);
+}
 template <typename T, int capacity> void ActorGraph :: connectPorts(uint64_t srcGlobID, std::string srcPortLabel, uint64_t destGlobID, std::string destPortLabel)
 {
 	ActorConnectionType currentConnectionType = getActorConnectionType(srcGlobID, destGlobID);

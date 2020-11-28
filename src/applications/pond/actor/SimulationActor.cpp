@@ -64,7 +64,7 @@ SimulationActor::SimulationActor(Configuration &config, size_t xPos, size_t yPos
             position[0] * config.patchSize, 
             position[1] * config.patchSize);
 #else
-    #error "Undefined!"
+    //#error "Undefined!"
     writer = nullptr;
 #endif
 }

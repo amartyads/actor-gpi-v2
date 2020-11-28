@@ -31,6 +31,7 @@
 
 #include <cmath>
 #include <iomanip>
+#include "actorlib/utils/gpi-utils.hpp"
 
 #if defined(METIS_PARTITIONING)
 #include "orchestration/MetisActorDistributor.hpp"
@@ -49,7 +50,7 @@ ActorDistributor::~ActorDistributor() = default;
 
 std::string ActorDistributor::toString() const {
   std::stringstream ss;
-  mpi::rank places = mpi::world();
+  gaspi_rank_t places = gpi_util::get_total_ranks();
   int digits = ceil(std::log10(places - 1));
   ss << "\n";
   for (size_t y = 0; y < xSize; y++) {
@@ -65,7 +66,7 @@ std::vector<Coordinates> ActorDistributor::getLocalActorCoordinates() const {
   std::vector<Coordinates> res;
   for (size_t x = 0; x < xSize; x++) {
     for (size_t y = 0; y < ySize; y++) {
-      if (actorDistribution[x * ySize + y] == mpi::me()) {
+      if (actorDistribution[x * ySize + y] == gpi_util::get_local_rank()) {
         res.emplace_back(Coordinates(x, y));
       }
     }

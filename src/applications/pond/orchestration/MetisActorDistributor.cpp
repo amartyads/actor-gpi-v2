@@ -27,7 +27,9 @@
 
 #include "orchestration/MetisActorDistributor.hpp"
 #include "util/Logger.hh"
-#include "actorlib/utils/mpi_synchronization.hpp"
+//#include "actorlib/utils/mpi_synchronization.hpp
+#include "actorlib/utils/gpi-utils.hpp"
+#include <GASPI.h>
 
 extern "C" {
 #include <metis.h>
@@ -53,7 +55,7 @@ struct MetisState {
         metisOptions[METIS_OPTION_NITER] = 2; /* Try 2 times in each refinement step take the best */
         metisOptions[METIS_OPTION_UFACTOR] = 100; /* Max imbalance of 10% */
 #ifndef NDEBUG
-        metisOptions[METIS_OPTION_DBGLVL] = ((mpi::me() == 0) ? (METIS_DBG_INFO) : 0);
+        metisOptions[METIS_OPTION_DBGLVL] = ((gpi_util::get_local_rank() == 0) ? (METIS_DBG_INFO) : 0);
 #endif
     }
 };
@@ -151,7 +153,7 @@ struct MetisAdjacencyGraph {
                 throw std::runtime_error("An undocumented METIS error occurred.");
             }
         }
-        std::vector<mpi::rank> res;
+        std::vector<gaspi_rank_t> res;
         moveFrom(partitions, res);
         return res;
     }
@@ -175,8 +177,9 @@ MetisActorDistributor::MetisActorDistributor(size_t xSize, size_t ySize)
     : ActorDistributor(xSize, ySize){
     MetisState state;
     MetisAdjacencyGraph graph(xSize, ySize, actorDistribution);
+    gaspi_rank_t locRank = gpi_util::get_local_rank();
     try {
-        if (!mpi::me()) {
+        if (!locRank) {
             actorDistribution = graph.partition(&state);   
         }
     } catch (std::runtime_error &e) {
@@ -185,5 +188,5 @@ MetisActorDistributor::MetisActorDistributor(size_t xSize, size_t ySize)
     }
     assert(actorDistribution.size() == xSize * ySize);
     mpi::broadcast(actorDistribution);
-    if (!mpi::me()) l.cout() << "\n" << this->toString() << std::endl;
+    if (!locRank) l.cout() << "\n" << this->toString() << std::endl;
 }

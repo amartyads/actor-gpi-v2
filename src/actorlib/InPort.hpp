@@ -47,7 +47,7 @@ template <typename T, int capacity> T InPort <T, capacity> :: read()
         dataStash.push(connChannel->pullData());
     T temp = dataStash.front();
     dataStash.pop();
-    return T;
+    return temp;
 }
 
 template <typename T, int capacity> uint64_t InPort <T, capacity> :: available()

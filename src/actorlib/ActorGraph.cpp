@@ -63,12 +63,15 @@ void ActorGraph::addActor(Actor* newActor)
 void ActorGraph::syncActors()
 {
     int actorElemSize = sizeof(uint64_t);
+	
 
-    //declate segment IDs
+    //declare segment IDs
     const gaspi_segment_id_t segment_id_loc_size = 0;
   	const gaspi_segment_id_t segment_id_rem_size = 1;
     const gaspi_segment_id_t segment_id_loc_array = 2;
 	const gaspi_segment_id_t segment_id_rem_array = 3;
+	const gaspi_segment_id_t segment_id_loc_names = 4;
+	const gaspi_segment_id_t segment_id_rem_names = 5;
 
     //set up exchange for array sizes
     int* locSize = (int*) (gpi_util::create_segment_return_ptr(segment_id_loc_size, sizeof(int)));
@@ -78,8 +81,18 @@ void ActorGraph::syncActors()
 
     gaspi_queue_id_t queue_id = 0;
     
+	//find max name size
+	int localMaxNameSize = 0, globalMaxNameSize = 0;
+	for(int i = 0; i < localActorRefList.size(); i++)
+		localMaxNameSize = std::max(localMaxNameSize, (int)localActorRefList[i]->name.size());
+	gaspi_pointer_t loc_size_ptr = &localMaxNameSize;
+	gaspi_pointer_t glob_max_size_ptr = &globalMaxNameSize;
+	ASSERT( gaspi_allreduce(loc_size_ptr, glob_max_size_ptr, 1, GASPI_OP_MAX, GASPI_TYPE_INT, GASPI_GROUP_ALL, GASPI_BLOCK) );
+	
+	globalMaxNameSize += 2;
+
     //exchange array sizes
-    ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
+    // ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
 
     for(int i = 0; i < totNoThreads; i++)
 	{
@@ -96,27 +109,48 @@ void ActorGraph::syncActors()
              );
     }
 
-    //overlap some computation before flushing queues; paste local ID list into segment
-     uint64_t *localArray = (uint64_t*) (gpi_util::create_segment_return_ptr(segment_id_loc_array, actorElemSize * localActorRefList.size()));
-
+    //overlap some computation before flushing queues
+	//create segments
+    uint64_t *localArray = (uint64_t*) (gpi_util::create_segment_return_ptr(segment_id_loc_array, actorElemSize * localActorRefList.size()));
+	char* localNameSegment = (char *)(gpi_util::create_segment_return_ptr(segment_id_loc_names, localActorRefList.size() * globalMaxNameSize * sizeof(char)));
+	
+	//copy local IDs
     for(int i = 0; i < *locSize; i++)
 		localArray[i] = localActorIDList[i];
+	
+	//copy local names
+	std::string tempName;
+	for(int i = 0; i < localActorRefList.size(); i++)
+	{
+		tempName = localActorRefList[i]->name;
+		tempName.copy(&localNameSegment[i * globalMaxNameSize], tempName.size(), 0);
+	}
 
-    //flush queues, make segment for storing external actor IDs
+    //flush queues
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
-	std::cout << "preflush 1" << std::endl;
     gpi_util::wait_for_flush_queues();
 
-	int segSize = 0;
+	//segsize for IDs
+	int64_t segSize = 0;
 	for(int i = 0; i < totNoThreads; i++)
 	{
 		if(i == threadRank)
 			continue;
 		segSize += remoteNoActors[i] * actorElemSize;
 	}
+	//segsize for names
+	int64_t segSize2 = 0;
+	for(int i = 0; i < totNoThreads; i++)
+	{
+		if(i == threadRank)
+			continue;
+		segSize2 += remoteNoActors[i] * globalMaxNameSize * sizeof(char);
+	}
 
+	//declare segs
     uint64_t *remoteArray = (uint64_t*) (gpi_util::create_segment_return_ptr(segment_id_rem_array, segSize));
-    
+    char* remoteNameSegment = (char *)(gpi_util::create_segment_return_ptr(segment_id_rem_names, segSize2));
+
     int localOffset = 0;
 	queue_id = 0;
 
@@ -137,8 +171,27 @@ void ActorGraph::syncActors()
 	         );
 		localOffset += actorElemSize * remoteNoActors[i];
 	}
-	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
-	std::cout << "preflush 2" << std::endl;
+
+	//read in names
+	localOffset = 0;
+
+	for(int i = 0; i < totNoThreads; i++)
+	{
+		if(i == threadRank)
+			continue;
+
+		const gaspi_size_t segment_size_cur_rem_arr = globalMaxNameSize * remoteNoActors[i] * sizeof(char);
+		const gaspi_offset_t loc_segment_offset = localOffset;
+
+		gpi_util::wait_for_queue_entries(&queue_id, 1);
+		ASSERT (gaspi_read ( segment_id_rem_names, loc_segment_offset
+	                     , i, segment_id_loc_names, 0
+	                     , segment_size_cur_rem_arr, queue_id, GASPI_BLOCK
+	                     )
+	         );
+		localOffset += globalMaxNameSize * remoteNoActors[i] * sizeof(char);
+	}
+
 	gpi_util::wait_for_flush_queues();
 
 	//use segment pointer and push back actors
@@ -146,16 +199,27 @@ void ActorGraph::syncActors()
 	{
 		remoteActorIDList.push_back(remoteArray[j]);
 	}
+	for(int i = 0; i < segSize2/sizeof(char); i+= globalMaxNameSize)
+	{
+		std::string temp(&remoteNameSegment[i], globalMaxNameSize);
+		remoteActorNameList.push_back(temp);
+	}
+	
+	for(int i = 0; i < remoteActorIDList.size(); i++)
+	{
+		std::pair<int, int> temp = Actor::decodeGlobID(remoteActorIDList[i]);
+		remoteActorRefList.push_back(new DummyRemoteActor(remoteActorNameList[i], temp.first, temp.second));
+	}
 
     //clean up
 	ASSERT (gaspi_segment_delete(segment_id_loc_size) );
 	ASSERT (gaspi_segment_delete(segment_id_rem_size) );
 	ASSERT (gaspi_segment_delete(segment_id_loc_array ) );
 	ASSERT (gaspi_segment_delete(segment_id_rem_array ) );
+	ASSERT (gaspi_segment_delete(segment_id_loc_names ) );
+	ASSERT (gaspi_segment_delete(segment_id_rem_names ) );
 
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
-
-	//make segments?
 }
 
 void ActorGraph::printActors()
@@ -169,7 +233,7 @@ void ActorGraph::printActors()
 	{
 		std::pair<int, int> temp = Actor::decodeGlobID(remoteActorIDList[i]);
 
-		gaspi_printf("Non local actor ID %" PRIu64 " no %" PRIu64 " of rank %" PRIu64 " \n", remoteActorIDList[i],temp.second, temp.first);
+		gaspi_printf("Non local actor ID %" PRIu64 " name %s no %" PRIu64 " of rank %" PRIu64 " \n", remoteActorIDList[i], remoteActorNameList[i].c_str(), temp.second, temp.first);
 	}
 }
 
@@ -190,6 +254,31 @@ Actor* ActorGraph::getLocalActor(std::string actName)
 			return localActorRefList[i];
 	}
 	return nullptr;
+}
+Actor* ActorGraph::getRemoteActor(uint64_t globID)
+{
+	for(int i = 0; i < remoteActorRefList.size(); i++)
+	{
+		if(remoteActorRefList[i]->actorGlobID == globID)
+			return remoteActorRefList[i];
+	}
+	return nullptr;
+}
+Actor* ActorGraph::getRemoteActor(std::string actName)
+{
+	for(int i = 0; i < remoteActorRefList.size(); i++)
+	{
+		if(remoteActorRefList[i]->name == actName)
+			return remoteActorRefList[i];
+	}
+	return nullptr;
+}
+Actor* ActorGraph::getActor(std::string actName)
+{
+	Actor* temp = getLocalActor(actName);
+	if(temp != nullptr) return temp;
+	temp = getRemoteActor(actName);
+	return temp;
 }
 bool ActorGraph::isLocalActor(uint64_t globID)
 {
@@ -378,6 +467,7 @@ double ActorGraph::run(int runNo)
 	if(finished)
 	{
 		gaspi_printf("Rank %d done running.\n",threadRank);
+		clearDataAreas();
 		auto end = std::chrono::steady_clock::now();
 		double runTime = std::chrono::duration<double, std::ratio<1>>(end - start).count();
 		return runTime;
@@ -419,7 +509,22 @@ double ActorGraph::run(int runNo)
 	//std::cout << "Rank " <<threadRank << " Run " << runNo << " post all actors run " << std::endl;
 	//clear data banks
 	//while clearing, read the channel offset in the slot, look into the channel map and increment queue current capacity
+	clearDataAreas();
+
+	//std::cout << "Rank " <<threadRank << " Run " << runNo << " post clears " << std::endl;
+	//printLookupSegment();
+	//printCacheSegment();
+	if(threadRank == 1)
+		printLocalLookup();
+	auto end = std::chrono::steady_clock::now();
+	double runTime = std::chrono::duration<double, std::ratio<1>>(end - start).count();
+	return runTime;
+}
+
+void ActorGraph::clearDataAreas()
+{
 	int64_t *clearPtr = (int64_t *) gasptrLocalClear;
+	int64_t *offsetPtr;
 	for(uint64_t i = 0; i < noLocalRemoteChannels * dataQueueLen; i++)
 	{
 		if(clearPtr[i] == -1)
@@ -440,15 +545,6 @@ double ActorGraph::run(int runNo)
 		}
 		clearPtr[i] = -1;
 	}
-
-	//std::cout << "Rank " <<threadRank << " Run " << runNo << " post clears " << std::endl;
-	//printLookupSegment();
-	//printCacheSegment();
-	if(threadRank == 1)
-		printLocalLookup();
-	auto end = std::chrono::steady_clock::now();
-	double runTime = std::chrono::duration<double, std::ratio<1>>(end - start).count();
-	return runTime;
 }
 
 void ActorGraph::printLookupSegment()

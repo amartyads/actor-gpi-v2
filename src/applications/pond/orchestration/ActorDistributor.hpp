@@ -25,7 +25,9 @@
  * TODO
  */
 
-#include "actorlib/utils/mpi_consts.hpp"
+//#include "actorlib/utils/mpi_consts.hpp"
+
+#include <GASPI.h>
 
 #include <cstddef>
 #include <memory>
@@ -54,7 +56,7 @@ public:
   auto getXSize() const { return xSize; }
   auto getYSize() const { return ySize; }
 
-  mpi::rank getRankFor(Coordinates c) const {
+  gaspi_rank_t getRankFor(Coordinates c) const {
     return actorDistribution[c.x * ySize + c.y];
   }
 
@@ -66,7 +68,7 @@ protected:
   size_t xSize;
   size_t ySize;
 
-  std::vector<mpi::rank> actorDistribution;
+  std::vector<gaspi_rank_t> actorDistribution;
 };
 
 std::unique_ptr<ActorDistributor> createActorDistributor(size_t xSize,

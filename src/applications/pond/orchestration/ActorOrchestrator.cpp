@@ -31,13 +31,17 @@
 #include "orchestration/ActorDistributor.hpp"
 #include "util/Configuration.hpp"
 #include "util/Logger.hh"
-#include "actorlib/utils/utils.hpp"
+#include "actorlib/utils/gen_utils.hpp"
 #include "actorlib/utils/mpi_synchronization.hpp"
 
 #include <chrono>
 #include <vector>
 #include <algorithm>
 #include <limits>
+
+#ifndef ASSERT
+#define ASSERT(ec) gpi_util::success_or_exit(__FILE__,__LINE__,ec)
+#endif
 
 static tools::Logger &l = tools::Logger::logger;
 
@@ -59,7 +63,7 @@ void ActorOrchestrator::initActorGraph() {
 
     connectActors(sd.get());
 
-    mpi::barrier();
+    ASSERT( gaspi_barrier(GASPI_GROUP_ALL, GASPI_BLOCK) );
 
     initializeActors();
 }
@@ -130,8 +134,8 @@ void ActorOrchestrator::connectToNeighbors(Coordinates coords, size_t xActors,
     l.cout(false) << "Connecting " << oa << " (" << op << ") -> (" << ip << ") "
                   << ia << std::endl;
 #endif
-    ag.connectPorts<std::vector<float>, 32>(oa, op, ia, ip,
-                                            3 * config.patchSize);
+    ag.connectPorts<std::vector<float>, 32>(oa, op, ia, ip);
+                                          //  3 * config.patchSize); communicationCount?
   };
 
   if (coords.x > 0) {
