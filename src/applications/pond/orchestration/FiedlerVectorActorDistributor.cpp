@@ -43,7 +43,7 @@
 #include <cassert>
 #include <cmath>
 #include <sstream>
-#include "actorlib/utils/gpi-utils.hpp"
+#include "actorlib/utils/gpi_utils.hpp"
 
 using namespace Eigen;
 

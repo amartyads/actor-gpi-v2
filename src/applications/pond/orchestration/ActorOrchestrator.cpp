@@ -34,7 +34,7 @@
 #include "actorlib/utils/gen_utils.hpp"
 //#include "actorlib/utils/mpi_synchronization.hpp"
 
-#include "actorlib/utils/gpi-utils.hpp"
+#include "actorlib/utils/gpi_utils.hpp"
 
 #include <chrono>
 #include <vector>

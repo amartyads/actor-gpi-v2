@@ -25,7 +25,7 @@
  * TODO
  */
 #include <GASPI.h>
-#include "actorlib/utils/gpi-utils.hpp"
+#include "actorlib/utils/gpi_utils.hpp"
 #include "orchestration/SimpleActorDistributor.hpp"
 
 #include "util/Logger.hh"

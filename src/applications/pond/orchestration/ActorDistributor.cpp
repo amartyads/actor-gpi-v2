@@ -31,7 +31,7 @@
 
 #include <cmath>
 #include <iomanip>
-#include "actorlib/utils/gpi-utils.hpp"
+#include "actorlib/utils/gpi_utils.hpp"
 
 #if defined(METIS_PARTITIONING)
 #include "orchestration/MetisActorDistributor.hpp"
