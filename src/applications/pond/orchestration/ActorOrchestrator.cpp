@@ -116,7 +116,6 @@ void ActorOrchestrator::simulate() {
     int runTime = 0;
     l.printString("********************** End Simulation ***********************", false);
     uint64_t localPatchUpdates = 0;
-    uint64_t totalPatchUpdates = 0;
     for (SimulationActor *a : localActors) {
         localPatchUpdates += a->getNumberOfPatchUpdates();
     }
