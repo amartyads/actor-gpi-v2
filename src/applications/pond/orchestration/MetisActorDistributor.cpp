@@ -27,7 +27,7 @@
 
 #include "orchestration/MetisActorDistributor.hpp"
 #include "util/Logger.hh"
-#include "actorlib/utils/mpi_synchronization.hpp
+#include "actorlib/utils/mpi_synchronization.hpp"
 #include "actorlib/utils/gpi_utils.hpp"
 #include <GASPI.h>
 
