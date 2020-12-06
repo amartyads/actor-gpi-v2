@@ -8,7 +8,7 @@
 #include <iostream>
 #include <string>
 
-//#include <mpi.h>
+#include <mpi.h>
 //#include <omp.h>
 
 #ifndef ASSERT
@@ -17,7 +17,7 @@
 
 int main(int argc, char *argv[])
 {
-//	MPI_Init(&argc, &argv);
+	MPI_Init(&argc, &argv);
 
 	gaspi_rank_t rank, num;
 	gaspi_return_t ret;
@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
 	//std::cout << "Rank " <<rank<<" offset string " << offstr << std::endl;*/
 
 	ASSERT( gaspi_proc_term(GASPI_BLOCK) );
-//	MPI_Finalize();
+	MPI_Finalize();
 	std::cout << "post proc term" <<std::endl;
 	return EXIT_SUCCESS;
 }
