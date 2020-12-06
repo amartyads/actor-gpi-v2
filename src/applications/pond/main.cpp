@@ -29,6 +29,9 @@
 #include <string>
 
 #include "actorlib/utils/mpi_synchronization.hpp"
+#include "actorlib/utils/gpi_utils.hpp"
+
+#include <GASPI.h>
 
 #include "orchestration/ActorOrchestrator.hpp"
 
@@ -39,6 +42,10 @@
 
 using namespace std;
 
+#ifndef ASSERT
+#define ASSERT(ec) gpi_util::success_or_exit(__FILE__,__LINE__,ec)
+#endif
+
 void initLogger();
 
 static tools::Logger &l = tools::Logger::logger;
@@ -46,18 +53,21 @@ static tools::Logger &l = tools::Logger::logger;
 int main(int argc, char **argv) {
     mpi::init();
     {
-        initLogger();
-        auto config = Configuration::build(argc, argv, mpi::me());
-        if (!mpi::me()) cout << config.toString();
+        ASSERT( gaspi_proc_init(GASPI_BLOCK));
+        gaspi_rank_t rank = gpi_util::get_local_rank();
+        initLogger(rank);
+        auto config = Configuration::build(argc, argv, rank);
+        if (!rank) cout << config.toString();
         ActorOrchestrator orch(config);
         orch.initActorGraph();
-        mpi::barrier();
+        ASSERT(gaspi_barrier(GASPI_GROUP_ALL, GASPI_BLOCK));
         orch.simulate();
+        ASSERT( gaspi_proc_term(GASPI_BLOCK));
     }
     mpi::finalize();
 }
 
-void initLogger() {
-    l.setProcessRank(mpi::me());
+void initLogger(gaspi_rank_t rank) {
+    l.setProcessRank(rank);
     l.printWelcomeMessage();
 }
