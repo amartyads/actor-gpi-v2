@@ -32,7 +32,9 @@
 #include "util/Configuration.hpp"
 #include "util/Logger.hh"
 #include "actorlib/utils/gen_utils.hpp"
-#include "actorlib/utils/mpi_synchronization.hpp"
+//#include "actorlib/utils/mpi_synchronization.hpp"
+
+#include "actorlib/utils/gpi-utils.hpp"
 
 #include <chrono>
 #include <vector>
@@ -94,7 +96,12 @@ void ActorOrchestrator::initializeActors() {
         std::cout << "Safe timestep on actor " << a->getName() << " is " << blockSafeTs << " current min: " << safeTimestep << std::endl;
 #endif
     }
-    float globalSafeTs = mpi::allReduce(safeTimestep, MPI_MIN);
+    float globalSafeTs = 0.0;
+    gaspi_pointer_t local = &safeTimestep;
+    gaspi_pointer_t global = &globalSafeTs;
+    ASSERT( gaspi_allreduce(local, global, 1, GASPI_OP_MIN, GASPI_TYPE_FLOAT, GASPI_GROUP_ALL, GASPI_BLOCK) );
+
+    //globalSafeTs = mpi::allReduce(safeTimestep, MPI_MIN);
 #ifndef NDEBUG
     l.cout() << "Received safe timestep: " << globalSafeTs << " local was " << safeTimestep << std::endl;
 #endif
@@ -105,15 +112,20 @@ void ActorOrchestrator::initializeActors() {
 
 void ActorOrchestrator::simulate() {
     l.printString("********************* Start Simulation **********************", false);
-    auto runTime = ag.run();
+    //auto runTime = ag.run(); //error here
+    int runTime = 0;
     l.printString("********************** End Simulation ***********************", false);
     uint64_t localPatchUpdates = 0;
     uint64_t totalPatchUpdates = 0;
     for (SimulationActor *a : localActors) {
         localPatchUpdates += a->getNumberOfPatchUpdates();
     }
-    totalPatchUpdates = mpi::allReduce(localPatchUpdates, MPI_SUM);
-    if (!mpi::me()) {
+    uint64_t totalPatchUpdates = 0;
+    gaspi_pointer_t local = &localPatchUpdates;
+    gaspi_pointer_t global = &totalPatchUpdates;
+    ASSERT( gaspi_allreduce(local, global, 1, GASPI_OP_SUM, GASPI_TYPE_ULONG, GASPI_GROUP_ALL, GASPI_BLOCK) );//maybe keep mpi? since ulong?
+    //totalPatchUpdates = mpi::allReduce(localPatchUpdates, MPI_SUM);
+    if (!gpi_util::get_local_rank()) {
         l.cout() << "Performed " << totalPatchUpdates << " patch updates in " << runTime << " seconds." << std::endl;
         l.cout() << "Performed " << (totalPatchUpdates * config.patchSize * config.patchSize) << " cell updates in " << runTime << " seconds." << std::endl;
         l.cout() << "=> " <<  (static_cast<double>(totalPatchUpdates * config.patchSize * config.patchSize) / runTime)<< " CellUpdates/s" << std::endl;

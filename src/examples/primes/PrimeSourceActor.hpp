@@ -1,4 +1,4 @@
-#include "Actor.hpp"
+#include "actorlib/Actor.hpp"
 #include <vector>
 
 class PrimeSourceActor: public Actor

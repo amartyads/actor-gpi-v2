@@ -1,8 +1,8 @@
 #include <GASPI.h>
 #include <GASPI_Ext.h>
-#include "gpi-utils.hpp"
+#include "actorlib/utils/gpi_utils.hpp"
 #include "PingPongActor.hpp"
-#include "ActorGraph.hpp"
+#include "actorlib/ActorGraph.hpp"
 #include <stdlib.h>
 #include <cstdint>
 #include <iostream>

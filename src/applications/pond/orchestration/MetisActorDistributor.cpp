@@ -82,7 +82,7 @@ struct MetisAdjacencyGraph {
     std::vector<idx_t> vertexAdjacencyListStarts;
     std::vector<idx_t> vertexAdjacencies;
 
-    MetisAdjacencyGraph(size_t xSize, size_t ySize, std::vector<mpi::rank> &partitions)
+    MetisAdjacencyGraph(size_t xSize, size_t ySize, std::vector<gaspi_rank_t> &partitions)
         : xSize(xSize),
           ySize(ySize) {
         idx_t numAdjacencies = 0;
@@ -115,14 +115,14 @@ struct MetisAdjacencyGraph {
         vertexAdjacencyListStarts.push_back(numAdjacencies);
     }
 
-    std::vector<mpi::rank> partition(MetisState *metisOptions) {
+    std::vector<gaspi_rank_t> partition(MetisState *metisOptions) {
         idx_t numberOfVertices = xSize * ySize;
         idx_t numberOfConstraints = 1;
-        idx_t numberOfPartitions = mpi::world();
+        idx_t numberOfPartitions = gpi_util::get_total_ranks();
         idx_t finalEdgeCut = 0;
         std::vector<idx_t> partitions(xSize * ySize, 0);
         int metisResult;
-        if (mpi::world() > 1) {
+        if (gpi_util::get_total_ranks() > 1) {
             metisResult = METIS_PartGraphKway(
                 &numberOfVertices,
                 &numberOfConstraints,
@@ -187,6 +187,6 @@ MetisActorDistributor::MetisActorDistributor(size_t xSize, size_t ySize)
         abort();
     }
     assert(actorDistribution.size() == xSize * ySize);
-    mpi::broadcast(actorDistribution);
+    mpi::broadcast(actorDistribution); //need this for now
     if (!locRank) l.cout() << "\n" << this->toString() << std::endl;
 }

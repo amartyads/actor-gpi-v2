@@ -11,8 +11,8 @@
 
 #include <GASPI.h>
 #include <GASPI_Ext.h>
-#include "gpi-utils.hpp"
-#include "connection-type-util.hpp"
+#include "utils/gpi_utils.hpp"
+#include "utils/connection_type_util.hpp"
 #include "Actor.hpp"
 #include "ActorGraph.hpp"
 #include "InPort.hpp"
@@ -222,6 +222,11 @@ void ActorGraph::syncActors()
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
 }
 
+void ActorGraph::synchronizeActors()
+{
+	syncActors();
+}
+
 void ActorGraph::printActors()
 {
 	for(int i = 0; i <localActorRefList.size(); i++)
@@ -273,12 +278,13 @@ Actor* ActorGraph::getRemoteActor(std::string actName)
 	}
 	return nullptr;
 }
-Actor* ActorGraph::getActor(std::string actName)
+Actor& ActorGraph::getActor(std::string actName)
 {
 	Actor* temp = getLocalActor(actName);
-	if(temp != nullptr) return temp;
+	if(temp != nullptr) return *temp;
 	temp = getRemoteActor(actName);
-	return temp;
+	if(temp != nullptr) return *temp;
+	 throw std::runtime_error("Could not find actor " + actName + ".");
 }
 bool ActorGraph::isLocalActor(uint64_t globID)
 {

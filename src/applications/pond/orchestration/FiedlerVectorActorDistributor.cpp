@@ -43,6 +43,7 @@
 #include <cassert>
 #include <cmath>
 #include <sstream>
+#include "actorlib/utils/gpi-utils.hpp"
 
 using namespace Eigen;
 
@@ -206,7 +207,7 @@ void kMeans(MatrixXf &input, size_t numPatches, size_t numRanks) {
   l.cout(false) << distances << std::endl;
   l.cout(false) << partition << std::endl;
 
-  std::vector<int> patchesPerPartition(mpi::me());
+  std::vector<int> patchesPerPartition(gpi_util::get_local_rank());
   for (int i = 0; i < partition.size(); i++) {
     auto idx = static_cast<size_t>(partition(i));
     patchesPerPartition[idx]++;
@@ -233,11 +234,11 @@ FiedlerVectorActorDistributor::FiedlerVectorActorDistributor(size_t xSize,
                 << es.eigenvalues() << std::endl;
   l.cout(false) << "The matrix of eigenvectors of m is\n"
                 << es.eigenvectors() << std::endl;
-  l.cout(false) << "Create matrix of " << mpi::me() << " smallest eigenvectors"
+  l.cout(false) << "Create matrix of " << gpi_util::get_local_rank() << " smallest eigenvectors"
                 << std::endl;
-  MatrixXf U = createEigenvectorMatrix(es, xSize * ySize, mpi::me());
+  MatrixXf U = createEigenvectorMatrix(es, xSize * ySize, gpi_util::get_local_rank());
   l.cout(false) << "\n" << U << std::endl;
-  kMeans(U, xSize * ySize, mpi::me());
+  kMeans(U, xSize * ySize, gpi_util::get_local_rank());
 }
 
 #else

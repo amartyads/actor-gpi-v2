@@ -1,6 +1,6 @@
-#include "Actor.hpp"
-#include "InPort.hpp"
-#include "OutPort.hpp"
+#include "actorlib/Actor.hpp"
+#include "actorlib/InPort.hpp"
+#include "actorlib/OutPort.hpp"
 #include "PrimePrintActor.hpp"
 #include <stdlib.h>
 #include <vector>

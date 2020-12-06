@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include "connection-type-util.hpp"
-#include "gpi-utils.hpp"
+#include "utils/connection_type_util.hpp"
+#include "utils/gpi_utils.hpp"
 #include "AbstractChannel.hpp"
 #include "Channel.hpp"
 

@@ -1,7 +1,7 @@
 #include "Actor.hpp"
 #include "InPort.hpp"
 #include "OutPort.hpp"
-#include "gpi-utils.hpp"
+#include "utils/gpi_utils.hpp"
 
 #include <GASPI.h>
 #include <stdlib.h>
@@ -10,6 +10,7 @@
 #include <utility>
 #include <cstdint>
 #include <stdexcept>
+#include <sstream>
 
 #include <iostream>
 
@@ -20,6 +21,11 @@
 uint64_t Actor::localRank = -10;
 uint64_t Actor::localSrNo = 0;
 std::set<uint64_t> Actor::takenSrNos;
+
+std::ostream &operator<<(std::ostream &os, Actor const &actor) {
+  return os << "[ Rank: " << actor.getRank() << ""
+            << ", Name: " << actor.getName() << " ]";
+}
 
 Actor::Actor(std::string name, uint64_t threadRank, uint64_t actorSrNo)
 {

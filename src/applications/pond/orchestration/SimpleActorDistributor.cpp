@@ -25,7 +25,7 @@
  * TODO
  */
 #include <GASPI.h>
-#include <actorlib/utils/gpi-utils.hpp>
+#include "actorlib/utils/gpi-utils.hpp"
 #include "orchestration/SimpleActorDistributor.hpp"
 
 #include "util/Logger.hh"
@@ -38,8 +38,7 @@ static tools::Logger &l = tools::Logger::logger;
 
 SimpleActorDistributor::SimpleActorDistributor(size_t xSize, size_t ySize)
     : ActorDistributor(xSize, ySize) {
-    gaspi_rank_t totProc;
-    ASSERT( gaspi_proc_num(&totProc));
+    gaspi_rank_t totProc = gpi_util::get_total_ranks();
     auto tmp1 = static_cast<double>(xSize) / std::sqrt(static_cast<double>(totProc));
     l.cout() << xSize << "/ sqrt(" <<totProc << ") = " << tmp1 << std::endl;
     double xBlockSize = std::floor(tmp1);
@@ -55,8 +54,7 @@ SimpleActorDistributor::SimpleActorDistributor(size_t xSize, size_t ySize)
 }
 
 void SimpleActorDistributor::putInitial(size_t xSplits, size_t ySplits) {
-    gaspi_rank_t totProc;
-    ASSERT( gaspi_proc_num(&totProc));
+    gaspi_rank_t totProc = gpi_util::get_total_ranks();
     for (size_t x = 0; x < xSize; x++) {
         for (size_t y = 0; y < ySize; y++) {
             auto tmpX = x / (xSize / xSplits);

@@ -13,10 +13,14 @@
 #include "Port.hpp"
 #include "InPort.hpp"
 #include "OutPort.hpp"
+#include "utils/gpi_utils.hpp"
 
 
 class Actor
 {
+
+	friend std::ostream &operator<<(std::ostream &, Actor const &);
+
 public:
 	std::string name;
 	uint64_t threadRank;
@@ -49,10 +53,15 @@ public:
 	virtual void act() = 0;
 	//void act();
 	bool finished;
-	//statics
 	void finish() { finished = true; }
   	void stop() { finish(); }
 
+	inline const auto &getName() const { return name; }
+	inline auto getRank() const { return threadRank; }
+	inline auto isLocal() const { return threadRank == gpi_util::get_local_rank(); }
+	inline auto isRemote() const { return threadRank != gpi_util::get_local_rank(); }
+
+	//statics
 	static uint64_t encodeGlobID(uint64_t procNo, uint64_t actNo);
 	static std::pair<uint64_t,uint64_t> decodeGlobID(uint64_t inpGlobId);
 

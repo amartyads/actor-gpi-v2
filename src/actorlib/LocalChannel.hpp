@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "connection-type-util.hpp"
+#include "utils/connection_type_util.hpp"
 #include "Channel.hpp"
 
 #include <vector>
