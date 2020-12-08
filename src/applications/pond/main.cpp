@@ -46,7 +46,7 @@ using namespace std;
 #define ASSERT(ec) gpi_util::success_or_exit(__FILE__,__LINE__,ec)
 #endif
 
-void initLogger();
+void initLogger(gaspi_rank_t rank);
 
 static tools::Logger &l = tools::Logger::logger;
 
