@@ -275,17 +275,7 @@ Actor* ActorGraph::getRemoteActor(std::string actName)
 	for(int i = 0; i < remoteActorRefList.size(); i++)
 	{
 		if(remoteActorRefList[i]->name == actName)
-		{
 			return remoteActorRefList[i];
-		}
-		std::cout << remoteActorRefList[i]->name << " does not match " << actName << " (" << (remoteActorRefList[i]->name.compare(actName)) <<")." <<std::endl;
-		std::cout << remoteActorRefList[i]->name << " length: " <<remoteActorRefList[i]->name.length() << " "<< actName <<" length: "<< actName.length() <<std::endl;
-		if(i == 1)
-		{
-			std::cout << "Printing chars of " << remoteActorRefList[i]->name << ":" << std::endl;
-			for(int j = 0; j < remoteActorRefList[i]->name.length(); j++)
-				std::cout << "Char "<<j<< ": " << remoteActorRefList[i]->name[j] << " ASCII " << int(remoteActorRefList[i]->name[j])<< std::endl;
-		}
 	}
 	return nullptr;
 }
