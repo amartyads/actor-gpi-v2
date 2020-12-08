@@ -17,7 +17,7 @@ target_sources(
     utils/connection_type_util.hpp
     utils/gen_utils.hpp
     utils/mpi_consts.hpp
-    utils/mpi_type_traits.hpp
+    utils/mpi_type_traits.h
     utils/mpi_synchronization.hpp
     
     PRIVATE
