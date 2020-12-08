@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 	// ASSERT( gaspi_proc_num(&num) );
 	rank = gpi_util::get_local_rank();
 	num = gpi_util::get_total_ranks();
-	std::cout << "Rank " << rank << " Num " << num << std::endl;
+	//std::cout << "Rank " << rank << " Num " << num << std::endl;
 
 	Actor *localActor1 = new PingPongActor();
 	Actor *localActor2 = new PingPongActor();
@@ -66,9 +66,9 @@ int main(int argc, char *argv[])
 	ag.connectPorts<double, 1>(Actor::encodeGlobID(2,2),"PREV", Actor::encodeGlobID(2,3), "NEXT");
 	ag.connectPorts<double, 1>(Actor::encodeGlobID(2,3),"PREV", Actor::encodeGlobID(1,3), "NEXT");
 	ag.connectPorts<double, 1>(Actor::encodeGlobID(1,3),"PREV", Actor::encodeGlobID(0,3), "NEXT");
-	std::cout << "rank " <<rank << "made connections" <<std::endl;
+	//std::cout << "rank " <<rank << "made connections" <<std::endl;
 	ag.finalizeInitialization();
-	std::cout << "rank " <<rank << "inited" <<std::endl;
+	//std::cout << "rank " <<rank << "inited" <<std::endl;
 	
 	/*int i;
 	for(i = 0; i < num - 1; i++)

@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 	ag.connectPorts<int, 3>(Actor::encodeGlobID(0,0),"PREV", Actor::encodeGlobID(1,0), "NEXT");
     ag.connectPorts<std::vector<int>, 3>(Actor::encodeGlobID(1,0),"PREV", Actor::encodeGlobID(2,0), "NEXT");
 	ag.finalizeInitialization();
-	std::cout << "rank " <<rank << "inited" <<std::endl;
+	//std::cout << "rank " <<rank << "inited" <<std::endl;
 
 	int i = 0;
 	while(! (ag.finished))// && localActor3->receivedData))

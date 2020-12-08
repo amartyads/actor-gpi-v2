@@ -377,10 +377,10 @@ void ActorGraph::finalizeInitialization()
 	//calculate no of blocks
 	fullSizeOfSpace = minBlockSize * maxBlocksNeeded;
 
-	uint64_t hardlimit = sizeof(int8_t) * 1024 * 2;  //2 kB
+	uint64_t hardlimit = sizeof(int8_t) * 1024 * 1024 * 2;  //2 MB
 	//fullSizeOfSpace = (fullSizeOfSpace < hardlimit)? fullSizeOfSpace : hardlimit;
 	fullSizeOfSpace = hardlimit;
-	minBlockSize = sizeof(int8_t) * 128; // 128 B
+	minBlockSize = sizeof(int8_t) * 1024 ; // 1 kB
 
 	noBlocks = fullSizeOfSpace / minBlockSize;
 	fullSizeOfSpace = noBlocks * minBlockSize;
