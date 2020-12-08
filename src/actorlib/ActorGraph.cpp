@@ -202,6 +202,7 @@ void ActorGraph::syncActors()
 	for(int i = 0; i < segSize2/sizeof(char); i+= globalMaxNameSize)
 	{
 		std::string temp(&remoteNameSegment[i], globalMaxNameSize);
+		temp.erase(std::find(temp.begin(), temp.end(), '\0'), temp.end());
 		remoteActorNameList.push_back(temp);
 	}
 	
