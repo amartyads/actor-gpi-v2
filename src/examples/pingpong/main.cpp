@@ -49,11 +49,16 @@ int main(int argc, char *argv[])
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
 
 	ag.syncActors();
-	//ag.printActors();
+	ag.printActors();
 
 	if(localActor1->actorGlobID == 0) localActor1->trigger();
 	if(localActor3->actorGlobID == 2) localActor3->trigger();
 
+	if(rank == 0)
+	{
+		Actor temp = ag.getActor("A-1-1");
+		std::cout << "Found " << temp.actorGlobID << std::endl;
+	}
 	
 	ag.connectPorts<double, 1>(0,"PREV", Actor::encodeGlobID(1,0), "NEXT");
 	ag.connectPorts<double, 1>(Actor::encodeGlobID(1,0),"PREV", Actor::encodeGlobID(2,1), "NEXT");
@@ -67,6 +72,7 @@ int main(int argc, char *argv[])
 	ag.connectPorts<double, 1>(Actor::encodeGlobID(2,3),"PREV", Actor::encodeGlobID(1,3), "NEXT");
 	ag.connectPorts<double, 1>(Actor::encodeGlobID(1,3),"PREV", Actor::encodeGlobID(0,3), "NEXT");
 	//std::cout << "rank " <<rank << "made connections" <<std::endl;
+	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
 	ag.finalizeInitialization();
 	//std::cout << "rank " <<rank << "inited" <<std::endl;
 	
