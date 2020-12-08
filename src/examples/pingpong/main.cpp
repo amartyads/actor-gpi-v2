@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 
 	if(rank == 0)
 	{
-		Actor temp = ag.getActor("A-1-1");
+		auto &temp = ag.getActor("A-1-1");
 		std::cout << "Found " << temp.actorGlobID << std::endl;
 	}
 	
