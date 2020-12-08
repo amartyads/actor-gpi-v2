@@ -277,7 +277,7 @@ Actor* ActorGraph::getRemoteActor(std::string actName)
 		{
 			return remoteActorRefList[i];
 		}
-		std::cout << remoteActorRefList[i]->name << " does not match " << actName << "(" << (remoteActorRefList[i]->name == actName) <<"." <<std::endl;
+		std::cout << remoteActorRefList[i]->name << " does not match " << actName << " (" << (remoteActorRefList[i]->name.compare(actName)) <<")." <<std::endl;
 	}
 	return nullptr;
 }
