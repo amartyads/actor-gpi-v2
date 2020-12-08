@@ -391,7 +391,7 @@ void ActorGraph::finalizeInitialization()
 	//calculate max incoming block size
 	//maxIncomingBlockSize = *std::max_element(dataBlockSize.begin(), dataBlockSize.end());
 	maxIncomingBlockSize = minBlockSize;
-	std::cout << "rank " <<threadRank << " sizes calced" <<std::endl;
+	//std::cout << "rank " <<threadRank << " sizes calced" <<std::endl;
 	/* Segment list:
 		1: LOCAL_REMOTE: Store block number for reading data, local access (remoteLookup)
 		2: LOCAL_REMOTE: Store block number after reading data, remote access (localClear)
@@ -520,8 +520,8 @@ double ActorGraph::run(int runNo)
 	//std::cout << "Rank " <<threadRank << " Run " << runNo << " post clears " << std::endl;
 	//printLookupSegment();
 	//printCacheSegment();
-	if(threadRank == 1)
-		printLocalLookup();
+	//if(threadRank == 1)
+	//	printLocalLookup();
 	auto end = std::chrono::steady_clock::now();
 	double runTime = std::chrono::duration<double, std::ratio<1>>(end - start).count();
 	return runTime;

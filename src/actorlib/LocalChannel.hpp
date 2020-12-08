@@ -79,12 +79,12 @@ template <typename T, int capacity> T LocalChannel <T, capacity> :: pullData()
 }
 template <typename T, int capacity> void LocalChannel <T, capacity> :: pushData(T ndata)
 {
-    std::cout << "in channel write" <<std::endl;
+    //std::cout << "in channel write" <<std::endl;
     if(this->isAvailableToPush())
     {
         T localCpy = ndata;
         data.push(localCpy);
-        std::cout <<"Pushed" <<std::endl;
+        //std::cout <<"Pushed" <<std::endl;
         this->curQueueSize--;
         triggerQueue->push(this->dstID);
     }

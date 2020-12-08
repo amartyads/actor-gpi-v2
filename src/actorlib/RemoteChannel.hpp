@@ -389,19 +389,19 @@ template <typename T, int capacity> uint64_t RemoteChannel <T, capacity> :: isAv
             );
     ASSERT (gaspi_wait (queue_id, GASPI_BLOCK));
     
-    std::stringstream ss;
+    //std::stringstream ss;
     int totElements = 0;
-    ss << "At dest " << this->dstID << ": ";
+    //ss << "At dest " << this->dstID << ": ";
     int64_t* scan = (int64_t *)(this->cachePtr);
     for(int i = 0; i < this->maxQueueSize; i++)
     {
         if(scan[i] != -1)
             totElements++;
-        ss << scan[i] << " ";
+      //  ss << scan[i] << " ";
     }
     //std::cout << "At dest " << this->dstID << " readables: " << totElements << std::endl;
-    ss << std::endl;
-    std::cout << ss.str();
+    //ss << std::endl;
+    //std::cout << ss.str();
     return totElements;
     //return (this->curQueueSize < this->maxQueueSize);
 }
@@ -441,18 +441,18 @@ template <typename T, int capacity> uint64_t RemoteChannel <std::vector<T>, capa
             );
     ASSERT (gaspi_wait (queue_id, GASPI_BLOCK));
     int totElements = 0;
-    std::stringstream ss;
-    ss << "At dest " << this->dstID << ":";
+    //std::stringstream ss;
+    //ss << "At dest " << this->dstID << ":";
     int64_t* scan = (int64_t *)(this->cachePtr);
     for(int i = 0; i < this->maxQueueSize; i++)
     {
         if(scan[i] != -1)
             totElements++;
-        ss << scan[i] << " ";
+    //    ss << scan[i] << " ";
     }
     //std::cout << "At dest " << this->dstID << " readables: " << totElements << std::endl;
-    ss << std::endl;
-    std::cout << ss.str();
+    //ss << std::endl;
+    //std::cout << ss.str();
     return totElements;
     //return (this->curQueueSize < this->maxQueueSize);
 }

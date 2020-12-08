@@ -57,12 +57,12 @@ add_library(actorlib)
 add_executable(pingpong_example)
 add_executable(primes_example)
 
-add_executable(pond)
+#add_executable(pond)
 
 add_subdirectory(src/actorlib)
 add_subdirectory(src/examples/pingpong)
 add_subdirectory(src/examples/primes)
-add_subdirectory(src/applications/pond)
+#add_subdirectory(src/applications/pond)
 
 #target_link_libraries(actorlib PRIVATE OpenMP::OpenMP_CXX)
 message(STATUS "Gaspi at : ${GPI_INCLUDE_PATH}")
@@ -108,12 +108,12 @@ endif()
 target_include_directories(pingpong_example PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_include_directories(primes_example PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-target_include_directories(pond PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
-target_include_directories(pond PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/applications/pond)
-target_compile_definitions(pond PRIVATE WAVE_PROPAGATION_SOLVER=3)
-target_compile_options(pond PRIVATE -fstrict-aliasing -fargument-noalias)
+#target_include_directories(pond PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+#target_include_directories(pond PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/applications/pond)
+#target_compile_definitions(pond PRIVATE WAVE_PROPAGATION_SOLVER=3)
+#target_compile_options(pond PRIVATE -fstrict-aliasing -fargument-noalias)
 
-if(BUILD_RELEASE)
+#[[if(BUILD_RELEASE)
     message(STATUS "Configure Pond for Release mode")
     if(NOT IS_CROSS_COMPILING)
         target_compile_options(pond PRIVATE -march=native)
@@ -157,19 +157,19 @@ endif()
 if(NOT ENABLE_FILE_OUTPUT)
     message(STATUS "Disable writing of time step files in Pond")
     target_compile_definitions(pond PRIVATE NOWRITE)
-endif()
+endif()]]
 
 target_link_libraries(pingpong_example PUBLIC actorlib)
 target_link_libraries(primes_example PUBLIC actorlib)
 
-target_link_libraries(pond PUBLIC actorlib)
+#target_link_libraries(pond PUBLIC actorlib)
 
 set_property(TARGET actorlib PROPERTY POSITION_INDEPENDENT_CODE ON)
 set_property(TARGET actorlib PROPERTY CXX_STANDARD 14)
 
 set_property(TARGET pingpong_example PROPERTY CXX_STANDARD 14)
 set_property(TARGET primes_example PROPERTY CXX_STANDARD 14)
-set_property(TARGET pond PROPERTY CXX_STANDARD 14)
+#set_property(TARGET pond PROPERTY CXX_STANDARD 14)
 
 # Export compiler commands for use in YouCompleteMe
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

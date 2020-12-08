@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
 
 	ag.syncActors();
-	ag.printActors();
+	//ag.printActors();
 
 	if(localActor1->actorGlobID == 0) localActor1->trigger();
 	if(localActor3->actorGlobID == 2) localActor3->trigger();
@@ -113,7 +113,7 @@ int main(int argc, char *argv[])
 	gaspi_printf("Rank %d done.\n",rank);	
 	
 	gpi_util::wait_for_flush_queues();
-	ag.printActors();
+	//ag.printActors();
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
 	//ag.sortConnections();
 	//ag.genOffsets();
