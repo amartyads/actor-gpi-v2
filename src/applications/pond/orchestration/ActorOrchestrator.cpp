@@ -113,7 +113,6 @@ void ActorOrchestrator::initializeActors() {
 void ActorOrchestrator::simulate() {
     l.printString("********************* Start Simulation **********************", false);
     auto runTime = ag.run();
-    int runTime = 0;
     l.printString("********************** End Simulation ***********************", false);
     uint64_t localPatchUpdates = 0;
     for (SimulationActor *a : localActors) {
