@@ -90,7 +90,7 @@ public:
 	void genOffsets();
 	std::string getOffsetString();
 
-	double run(int nunNo);
+	double run();
 	void clearDataAreas();
 
 	ActorGraph();

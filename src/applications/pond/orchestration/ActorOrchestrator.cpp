@@ -62,7 +62,7 @@ void ActorOrchestrator::initActorGraph() {
 #ifndef NDEBUG
     l.printString(utils::to_string(ag));
 #endif
-    ag.printActors();
+    //ag.printActors();
     connectActors(sd.get());
 
     ASSERT( gaspi_barrier(GASPI_GROUP_ALL, GASPI_BLOCK) );
@@ -112,7 +112,7 @@ void ActorOrchestrator::initializeActors() {
 
 void ActorOrchestrator::simulate() {
     l.printString("********************* Start Simulation **********************", false);
-    //auto runTime = ag.run(); //error here
+    auto runTime = ag.run();
     int runTime = 0;
     l.printString("********************** End Simulation ***********************", false);
     uint64_t localPatchUpdates = 0;

@@ -60,17 +60,9 @@ int main(int argc, char *argv[])
 	ag.finalizeInitialization();
 	//std::cout << "rank " <<rank << "inited" <<std::endl;
 
-	int i = 0;
-	while(! (ag.finished))// && localActor3->receivedData))
-	//while(i < 30)
-	{
-		gaspi_printf("Run %d from rank %d\n",i++,rank);
-		double rt = ag.run(i);
-		gaspi_printf("Runtime from rank %d: %lf\n",rank,rt);
-		//if(rank == 0)
-			std::cout << std::endl;
-		//ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
-	}
+	double rt = ag.run();
+	gaspi_printf("Runtime from rank %d: %lf\n",rank,rt);
+	//if(rank == 0)
 	gaspi_printf("Rank %d done.\n",rank);	
 	
 	//gpi_util::wait_for_flush_queues();

@@ -456,76 +456,78 @@ void ActorGraph::finalizeInitialization()
 	}
 }
 
-double ActorGraph::run(int runNo)
+double ActorGraph::run()
 {
 	auto start = std::chrono::steady_clock::now();
 	//if all actors finished, quit
 	//std::cout << "Rank " <<threadRank << " Run " << runNo << std::endl;
-	finished = true;
-	for (int i = 0; i < localActorRefList.size(); i++)
+	while(!finished)
 	{
-		if(!(localActorRefList[i]->finished))
+		finished = true;
+		for (int i = 0; i < localActorRefList.size(); i++)
 		{
-			finished = false;
-			break;
+			if(!(localActorRefList[i]->finished))
+			{
+				finished = false;
+				break;
+			}
 		}
-	}
-	//std::cout << "Rank " <<threadRank << " Run " << runNo << " actor finish checked " << std::endl;
-	if(finished)
-	{
-		gaspi_printf("Rank %d done running.\n",threadRank);
+		//std::cout << "Rank " <<threadRank << " Run " << runNo << " actor finish checked " << std::endl;
+		if(finished)
+		{
+			gaspi_printf("Rank %d done running.\n",threadRank);
+			clearDataAreas();
+			auto end = std::chrono::steady_clock::now();
+			double runTime = std::chrono::duration<double, std::ratio<1>>(end - start).count();
+			return runTime;
+
+		}
+		
+		//printTriggerSegment();
+		//std::cout << "Rank " <<threadRank << " Run " << runNo << " pre local trigger " << std::endl;
+		//trigger actors (local_local)
+		int64_t curActor;
+		while(!localChannelTriggers.empty())
+		{
+			curActor = localChannelTriggers.front();
+			localChannelTriggers.pop();
+			localActorRefMap[curActor]->trigger();
+		}
+		//std::cout << "Rank " <<threadRank << " Run " << runNo << " post local trigger " << std::endl;
+		//trigger actors (remote_local)
+		int64_t *triggerSegment = (int64_t *)gasptrLocalTrigger;
+		for(uint64_t i = 0; i < noRemoteLocalChannels * dataQueueLen; i++)
+		{
+			if(triggerSegment[i] == -1)
+				continue;
+			localActorRefMap[triggerSegment[i]]->trigger();
+			triggerSegment[i] = -1;
+		}
+		//std::cout << "Rank " <<threadRank << " Run " << runNo << " post remote trigger " << std::endl;
+		//run triggred actors
+		for (int i = 0; i < localActorRefList.size(); i++)
+		{
+			if(localActorRefList[i]->isTriggered())
+			{
+				//std::cout << localActorRefList[i]->actorGlobID << " triggered " << std::endl;
+				localActorRefList[i]->act();
+				//std::cout << localActorRefList[i]->actorGlobID << " acted " << std::endl;
+				localActorRefList[i]->detrigger();
+			}
+		}
+		//std::cout << "Rank " <<threadRank << " Run " << runNo << " post all actors run " << std::endl;
+		//clear data banks
+		//while clearing, read the channel offset in the slot, look into the channel map and increment queue current capacity
 		clearDataAreas();
-		auto end = std::chrono::steady_clock::now();
-		double runTime = std::chrono::duration<double, std::ratio<1>>(end - start).count();
-		return runTime;
-
 	}
-	
-	//printTriggerSegment();
-	//std::cout << "Rank " <<threadRank << " Run " << runNo << " pre local trigger " << std::endl;
-	//trigger actors (local_local)
-	int64_t curActor;
-	while(!localChannelTriggers.empty())
-	{
-		curActor = localChannelTriggers.front();
-		localChannelTriggers.pop();
-		localActorRefMap[curActor]->trigger();
-	}
-	//std::cout << "Rank " <<threadRank << " Run " << runNo << " post local trigger " << std::endl;
-	//trigger actors (remote_local)
-	int64_t *triggerSegment = (int64_t *)gasptrLocalTrigger;
-	for(uint64_t i = 0; i < noRemoteLocalChannels * dataQueueLen; i++)
-	{
-		if(triggerSegment[i] == -1)
-			continue;
-		localActorRefMap[triggerSegment[i]]->trigger();
-		triggerSegment[i] = -1;
-	}
-	//std::cout << "Rank " <<threadRank << " Run " << runNo << " post remote trigger " << std::endl;
-	//run triggred actors
-	for (int i = 0; i < localActorRefList.size(); i++)
-	{
-		if(localActorRefList[i]->isTriggered())
-		{
-			//std::cout << localActorRefList[i]->actorGlobID << " triggered " << std::endl;
-			localActorRefList[i]->act();
-			//std::cout << localActorRefList[i]->actorGlobID << " acted " << std::endl;
-			localActorRefList[i]->detrigger();
-		}
-	}
-	//std::cout << "Rank " <<threadRank << " Run " << runNo << " post all actors run " << std::endl;
-	//clear data banks
-	//while clearing, read the channel offset in the slot, look into the channel map and increment queue current capacity
-	clearDataAreas();
-
 	//std::cout << "Rank " <<threadRank << " Run " << runNo << " post clears " << std::endl;
 	//printLookupSegment();
 	//printCacheSegment();
 	//if(threadRank == 1)
-	//	printLocalLookup();
-	auto end = std::chrono::steady_clock::now();
-	double runTime = std::chrono::duration<double, std::ratio<1>>(end - start).count();
-	return runTime;
+	// printLocalLookup();
+	// auto end = std::chrono::steady_clock::now();
+	// double runTime = std::chrono::duration<double, std::ratio<1>>(end - start).count();
+	// return runTime;
 }
 
 void ActorGraph::clearDataAreas()
