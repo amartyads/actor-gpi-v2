@@ -62,7 +62,7 @@ void ActorOrchestrator::initActorGraph() {
 #ifndef NDEBUG
     l.printString(utils::to_string(ag));
 #endif
-
+    ag.printActors();
     connectActors(sd.get());
 
     ASSERT( gaspi_barrier(GASPI_GROUP_ALL, GASPI_BLOCK) );

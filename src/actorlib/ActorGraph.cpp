@@ -284,7 +284,7 @@ Actor& ActorGraph::getActor(std::string actName)
 	if(temp != nullptr) return *temp;
 	temp = getRemoteActor(actName);
 	if(temp != nullptr) return *temp;
-	 throw std::runtime_error("Could not find actor " + actName + ".");
+	throw std::runtime_error("Could not find actor " + actName + ".");
 }
 bool ActorGraph::isLocalActor(uint64_t globID)
 {
