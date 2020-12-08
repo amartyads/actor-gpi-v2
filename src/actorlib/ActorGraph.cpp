@@ -284,7 +284,7 @@ Actor* ActorGraph::getRemoteActor(std::string actName)
 		{
 			std::cout << "Printing chars of " << remoteActorRefList[i]->name << ":" << std::endl;
 			for(int j = 0; j < remoteActorRefList[i]->name.length(); j++)
-				std::cout << "Char "<<j<< ": " << remoteActorRefList[i]->name[j] << std::endl;
+				std::cout << "Char "<<j<< ": " << remoteActorRefList[i]->name[j] << " ASCII " << int(remoteActorRefList[i]->name[j])<< std::endl;
 		}
 	}
 	return nullptr;
