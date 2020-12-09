@@ -57,17 +57,17 @@ int main(int argc, char *argv[])
 		std::cout << "Found " << temp.actorGlobID << std::endl;
 	}
 	
-	ag.connectPorts<double, 1>(0,"PREV", Actor::encodeGlobID(1,0), "NEXT");
-	ag.connectPorts<double, 1>(Actor::encodeGlobID(1,0),"PREV", Actor::encodeGlobID(2,1), "NEXT");
-	ag.connectPorts<double, 1>(Actor::encodeGlobID(2,1),"PREV", Actor::encodeGlobID(2,0), "NEXT");
-	ag.connectPorts<double, 1>(Actor::encodeGlobID(2,0),"PREV", Actor::encodeGlobID(1,1), "NEXT");
-	ag.connectPorts<double, 1>(Actor::encodeGlobID(1,1),"PREV", Actor::encodeGlobID(0,1), "NEXT");
+	ag.connectPorts<double, 1>(0,"NEXT", Actor::encodeGlobID(1,0), "PREV");
+	ag.connectPorts<double, 1>(Actor::encodeGlobID(1,0),"NEXT", Actor::encodeGlobID(2,1), "PREV");
+	ag.connectPorts<double, 1>(Actor::encodeGlobID(2,1),"NEXT", Actor::encodeGlobID(2,0), "PREV");
+	ag.connectPorts<double, 1>(Actor::encodeGlobID(2,0),"NEXT", Actor::encodeGlobID(1,1), "PREV");
+	ag.connectPorts<double, 1>(Actor::encodeGlobID(1,1),"NEXT", Actor::encodeGlobID(0,1), "PREV");
 
-	ag.connectPorts<double, 1>(2,"PREV", Actor::encodeGlobID(1,2), "NEXT");
-	ag.connectPorts<double, 1>(Actor::encodeGlobID(1,2),"PREV", Actor::encodeGlobID(2,2), "NEXT");
-	ag.connectPorts<double, 1>(Actor::encodeGlobID(2,2),"PREV", Actor::encodeGlobID(2,3), "NEXT");
-	ag.connectPorts<double, 1>(Actor::encodeGlobID(2,3),"PREV", Actor::encodeGlobID(1,3), "NEXT");
-	ag.connectPorts<double, 1>(Actor::encodeGlobID(1,3),"PREV", Actor::encodeGlobID(0,3), "NEXT");
+	ag.connectPorts<double, 1>(2,"NEXT", Actor::encodeGlobID(1,2), "PREV");
+	ag.connectPorts<double, 1>(Actor::encodeGlobID(1,2),"NEXT", Actor::encodeGlobID(2,2), "PREV");
+	ag.connectPorts<double, 1>(Actor::encodeGlobID(2,2),"NEXT", Actor::encodeGlobID(2,3), "PREV");
+	ag.connectPorts<double, 1>(Actor::encodeGlobID(2,3),"NEXT", Actor::encodeGlobID(1,3), "PREV");
+	ag.connectPorts<double, 1>(Actor::encodeGlobID(1,3),"NEXT", Actor::encodeGlobID(0,3), "PREV");
 	//std::cout << "rank " <<rank << "made connections" <<std::endl;
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
 	//std::cout << "rank " <<rank << "inited" <<std::endl;

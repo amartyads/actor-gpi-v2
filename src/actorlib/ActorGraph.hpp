@@ -135,13 +135,13 @@ template <typename T, int capacity> void ActorGraph :: connectPorts(uint64_t src
 			Actor* ac2 = getLocalActor(destGlobID);
 			//establish channel
 			LocalChannel<T, capacity> *channel = new LocalChannel<T, capacity>(capacity, srcGlobID, destGlobID, localChannelCt);
-			channel->name = std::to_string(srcGlobID) + srcPortLabel + std::to_string(destGlobID) + destPortLabel;
+			channel->name = std::to_string(srcGlobID) + " " + srcPortLabel + " " + std::to_string(destGlobID) + " " + destPortLabel;
 			channel->triggerQueue = &localChannelTriggers;
 			localChannelList.push_back(channel);
 			localChannelCt++;
 			//make ports
-			Port* inPort = new InPort<T, capacity>(channel, srcPortLabel);
-			Port* outPort = new OutPort<T, capacity>(channel, destPortLabel);
+			Port* inPort = new InPort<T, capacity>(channel, destPortLabel);
+			Port* outPort = new OutPort<T, capacity>(channel, srcPortLabel);
 
 			ac1->addOutPort(outPort);
 			ac2->addInPort(inPort);
@@ -164,7 +164,7 @@ template <typename T, int capacity> void ActorGraph :: connectPorts(uint64_t src
 				channel->name = std::to_string(srcGlobID) + srcPortLabel + std::to_string(destGlobID) + destPortLabel;
 				remoteChannelList.push_back(channel);
 				//create port
-				Port* outPort = new OutPort<T, capacity>(channel, destPortLabel);
+				Port* outPort = new OutPort<T, capacity>(channel, srcPortLabel);
 				//link up
 				ac1->addOutPort(outPort);
 
@@ -180,7 +180,7 @@ template <typename T, int capacity> void ActorGraph :: connectPorts(uint64_t src
 				//add channel to channel list
 				remoteChannelList.push_back(channel);
 				//create port
-				Port* inPort = new InPort<T, capacity>(channel, srcPortLabel);
+				Port* inPort = new InPort<T, capacity>(channel, destPortLabel);
 				//link up
 				ac1->addInPort(inPort);
 

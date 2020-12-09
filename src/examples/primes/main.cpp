@@ -55,8 +55,8 @@ int main(int argc, char *argv[])
 	//if(localActor1->actorGlobID == 0) localActor1->triggers = 5;
 
 	
-	ag.connectPorts<int, 3>(Actor::encodeGlobID(0,0),"PREV", Actor::encodeGlobID(1,0), "NEXT");
-    ag.connectPorts<std::vector<int>, 3>(Actor::encodeGlobID(1,0),"PREV", Actor::encodeGlobID(2,0), "NEXT");
+	ag.connectPorts<int, 3>(Actor::encodeGlobID(0,0),"NEXT", Actor::encodeGlobID(1,0), "PREV");
+    ag.connectPorts<std::vector<int>, 3>(Actor::encodeGlobID(1,0),"NEXT", Actor::encodeGlobID(2,0), "PREV");
 	//std::cout << "rank " <<rank << "inited" <<std::endl;
 
 	double rt = ag.run();
