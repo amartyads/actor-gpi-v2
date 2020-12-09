@@ -76,6 +76,12 @@ private:
 template <typename T, int capacity> InPort <T, capacity> * Actor :: getInPort(const std::string &portName)
 {
     auto it = inPortList.find(portName);
+	std::cout << "Actor ID: " << this->actorGlobID << std::endl;
+	std::cout << "List of InPorts: " << std::endl;
+	for(auto const& pair: inPortList)
+	{
+		std::cout << "{" << pair.first << ": " << pair.second << "}\n";
+	}
     if (it == inPortList.end())
         throw std::runtime_error("Could not find InPort " + portName);
     return static_cast <InPort <T, capacity> *> (it->second);
