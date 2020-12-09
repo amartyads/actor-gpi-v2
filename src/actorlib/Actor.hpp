@@ -83,7 +83,7 @@ template <typename T, int capacity> InPort <T, capacity> * Actor :: getInPort(co
 		std::cout << "{" << pair.first << ": " << pair.second << "}\n";
 	}
     if (it == inPortList.end())
-        throw std::runtime_error("Could not find InPort " + portName);
+        throw std::runtime_error("Could not find InPort " + portName + " at actor ID "+std::to_string(this->actorGlobID));
     return static_cast <InPort <T, capacity> *> (it->second);
 }
 template <typename T, int capacity> OutPort <T, capacity> * Actor :: getOutPort(const std::string &portName)
