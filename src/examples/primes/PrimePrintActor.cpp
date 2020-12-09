@@ -30,8 +30,8 @@ void PrimePrintActor::act()
     }
     else
     {
-        std::cout << "print triggered without input data! How?" << std::endl;
-        this->trigger();
+        std::cout << "print triggered without input data!" << std::endl;
+        //this->trigger();
     }
 	
 	if(recdNos == 5)

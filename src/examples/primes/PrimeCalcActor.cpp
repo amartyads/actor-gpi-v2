@@ -36,8 +36,8 @@ void PrimeCalcActor::act()
         }
         else
         {
-            std::cout << "primer triggered without input data! How?" << std::endl;
-            this->trigger();
+            std::cout << "primer triggered without input data!" << std::endl;
+            //this->trigger();
             return;
         }
         //at this point data is received

@@ -458,6 +458,16 @@ void ActorGraph::finalizeInitialization()
 
 double ActorGraph::run()
 {
+	this->finalizeInitialization();
+	//trigger all local actors
+	for (int i = 0; i < localActorRefList.size(); i++)
+	{
+		if(!(localActorRefList[i]->finished))
+		{
+			localActorRefList[i]->trigger();
+		}
+	}
+		//
 	auto start = std::chrono::steady_clock::now();
 	//if all actors finished, quit
 	//std::cout << "Rank " <<threadRank << " Run " << runNo << std::endl;
