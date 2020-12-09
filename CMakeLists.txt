@@ -5,7 +5,7 @@ project(ActorGPI)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMake-Aux/Modules/")
 
 option(ENABLE_FILE_OUTPUT "Disable file output for Pond." OFF)
-option(BUILD_RELEASE "Builds with optimizations enabled." ON)
+option(BUILD_RELEASE "Builds with optimizations enabled." OFF)
 option(ENABLE_LOGGING "Builds with logging enabled." OFF)
 option(ENABLE_MEMORY_SANITATION "Enable GCC Address sanitation. Only supported with GCC toolchain." OFF)
 option(ENABLE_ADVANCED_GRAPH_PARTITIONING "Enable better graph partitioning using the Eigen library." OFF)
