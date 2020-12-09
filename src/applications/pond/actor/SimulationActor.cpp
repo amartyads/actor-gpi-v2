@@ -236,15 +236,15 @@ void SimulationActor::loadPorts() {
   auto yPos = position[1];
 
   using dataType = std::vector<float>;
-  std::stringstream ss;
-	ss << "Actor ID: " << this->actorGlobID << " ";
-	ss << "List of InPorts: " << std::endl;
-	for(auto const& pair: inPortList)
-	{
-		ss << "{" << pair.first << ": " << pair.second << "}\n";
-	}
-    ss << "XPOS " << xPos << " YPOS " << yPos << "TOTAL X " << totalX << " TOTAl Y " << totalY << "\n=================================\n";
-	std::cout << ss.str();
+//   std::stringstream ss;
+// 	ss << "Actor ID: " << this->actorGlobID << " ";
+// 	ss << "List of InPorts: " << std::endl;
+// 	for(auto const& pair: inPortList)
+// 	{
+// 		ss << "{" << pair.first << ": " << pair.second << "}\n";
+// 	}
+//     ss << "XPOS " << xPos << " YPOS " << yPos << "TOTAL X " << totalX << " TOTAl Y " << totalY << "\n=================================\n";
+// 	std::cout << ss.str();
 
   dataIn[BND_LEFT] =
       (xPos != 0) ? getInPort<dataType, 32>("BND_LEFT") : nullptr;

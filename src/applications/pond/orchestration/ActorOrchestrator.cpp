@@ -150,35 +150,24 @@ void ActorOrchestrator::connectToNeighbors(Coordinates coords, size_t xActors,
                                           //  3 * config.patchSize); communicationCount?
   };
   
-  stringstream ss;
-  if(curActor.actorGlobID == 0)
-  {
-      ss << "Actor ID 0 connection time\n";
-      ss << "Coords are x:" << coords.x << " y:" <<coords.y <<"\n";
-  }
   if (coords.x > 0) {
     auto leftSimArea = makePatchArea(config, coords.x - 1, coords.y);
     auto &leftActor = ag.getActor(leftSimArea.toString());
-    if(curActor.actorGlobID == 0) ss << "In x>0, connecting left\n";
     connect(curActor, "BND_LEFT", leftActor, "BND_RIGHT");
   }
   if (coords.x < xActors - 1) {
     auto rightSimArea = makePatchArea(config, coords.x + 1, coords.y);
     auto &rightActor = ag.getActor(rightSimArea.toString());
-    if(curActor.actorGlobID == 0) ss << "In x<num-1, connecting right\n";
     connect(curActor, "BND_RIGHT", rightActor, "BND_LEFT");
   }
   if (coords.y > 0) {
     auto bottomSimArea = makePatchArea(config, coords.x, coords.y - 1);
     auto &bottomActor = ag.getActor(bottomSimArea.toString());
-    if(curActor.actorGlobID == 0) ss << "In y>0, connecting bottom\n";
     connect(curActor, "BND_BOTTOM", bottomActor, "BND_TOP");
   }
   if (coords.y < yActors - 1) {
     auto topSimArea = makePatchArea(config, coords.x, coords.y + 1);
     auto &topActor = ag.getActor(topSimArea.toString());
-    if(curActor.actorGlobID == 0) ss << "In y<num-1, connecting top\n";
     connect(curActor, "BND_TOP", topActor, "BND_BOTTOM");
   }
-  if(curActor.actorGlobID == 0) std::cout << ss.str();
 }
