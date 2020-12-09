@@ -108,9 +108,9 @@ void SimulationActor::act() {
   loadPorts();
 
   if (currentState == SimulationActorState::INITIAL && mayWrite()) {
-#ifndef NDEBUG
+//#ifndef NDEBUG
         l.cout() << name << " sending initial data to neighbors." << std::endl;
-#endif
+//#endif
 #ifndef NOWRITE
         writeTimeStep(0.0f);
 #endif
@@ -118,9 +118,9 @@ void SimulationActor::act() {
         currentState = SimulationActorState::RUNNING;
     } else if (currentState == SimulationActorState::RUNNING && currentTime < endTime
                 && !hasReceivedTerminationSignal() && mayRead() && mayWrite() ) {
-#ifndef NDEBUG
+//#ifndef NDEBUG
         l.cout() << name << " iteration at " << currentTime << std::endl;
-#endif
+//#endif
         receiveData();
         block.setGhostLayer();
         block.computeNumericalFluxes();
@@ -135,16 +135,16 @@ void SimulationActor::act() {
 #endif
         patchUpdates++;
         if (currentTime > endTime) {
-#ifndef NDEBUG
+//#ifndef NDEBUG
             l.cout() << name << "\treached endTime." << std::endl;
-#endif
+//#endif
             currentState = SimulationActorState::FINISHED;
             trigger();
         }
     } else if ((currentState == SimulationActorState::FINISHED || hasReceivedTerminationSignal())) {
-#ifndef NDEBUG
+//#ifndef NDEBUG
         l.cout() << name << " terminating at " << currentTime << std::endl;
-#endif
+//#endif
 //        sendTerminationSignal();
         currentState = SimulationActorState::TERMINATED;
         stop();
