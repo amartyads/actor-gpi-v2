@@ -243,7 +243,7 @@ void SimulationActor::loadPorts() {
 	{
 		ss << "{" << pair.first << ": " << pair.second << "}\n";
 	}
-    ss << "XPOS " << xPos << " YPOS " << yPos << "\n=================================\n";
+    ss << "XPOS " << xPos << " YPOS " << yPos << "TOTAL X " << totalX << " TOTAl Y " << totalY << "\n=================================\n";
 	std::cout << ss.str();
 
   dataIn[BND_LEFT] =
