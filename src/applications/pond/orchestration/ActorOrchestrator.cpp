@@ -68,6 +68,8 @@ void ActorOrchestrator::initActorGraph() {
     ASSERT( gaspi_barrier(GASPI_GROUP_ALL, GASPI_BLOCK) );
 
     initializeActors();
+
+    ag.finalizeInitialization();
 }
 
 void ActorOrchestrator::createActors(ActorDistributor *ad) {
