@@ -18,6 +18,9 @@
 #include "actorlib/OutPort.hpp"
 #include "util/Logger.hh"
 
+#include <sstream>
+#include <iostream>
+
 static tools::Logger &l = tools::Logger::logger;
 
 SimulationActor::SimulationActor(Configuration &config, size_t xPos, size_t yPos)
@@ -233,6 +236,15 @@ void SimulationActor::loadPorts() {
   auto yPos = position[1];
 
   using dataType = std::vector<float>;
+  std::stringstream ss;
+	ss << "Actor ID: " << this->actorGlobID << " ";
+	ss << "List of InPorts: " << std::endl;
+	for(auto const& pair: inPortList)
+	{
+		ss << "{" << pair.first << ": " << pair.second << "}\n";
+	}
+    ss << "XPOS " << xPos << " YPOS " << yPos << "\n=================================\n";
+	std::cout << ss.str();
 
   dataIn[BND_LEFT] =
       (xPos != 0) ? getInPort<dataType, 32>("BND_LEFT") : nullptr;
