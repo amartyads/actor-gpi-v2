@@ -167,6 +167,7 @@ bool SimulationActor::mayRead() {
     for (int i = 0; i < 4; i++) {
         res &= (!this->dataIn[i] || this->dataIn[i]->available() > 0);
     }
+    std::cout << "Actor no: " << this->actorGlobID << " Name: " << this->name << " mayread: " << res << std::endl;
     return res;
 }
 
@@ -175,6 +176,7 @@ bool SimulationActor::mayWrite() {
     for (int i = 0; i < 4; i++) {
         res &= (!this->dataOut[i] || this->dataOut[i]->freeCapacity() > 0);
     }
+    std::cout << "Actor no: " << this->actorGlobID << " Name: " << this->name << " maywrite: " << res << std::endl;
     return res;
 }
 
@@ -186,6 +188,7 @@ bool SimulationActor::hasReceivedTerminationSignal() {
             dataIn[i]->read();
         }
     }
+    std::cout << "Actor no: " << this->actorGlobID << " Name: " << this->name << " hasrecdtermsig: " << res << std::endl;
     return res;
 }
 
