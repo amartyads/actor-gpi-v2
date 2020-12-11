@@ -249,6 +249,7 @@ template <typename T, int capacity> T RemoteChannel <T, capacity> :: pullData()
 
 template <typename T, int capacity> void RemoteChannel <std::vector<T>, capacity> :: pushData (std::vector<T> &ndata)
 {
+    std::cout << "in push Max queue: " << this->maxQueueSize << " cur queue: " << this->curQueueSize << std::endl;
     this->noOfDatablocksUsed = (((ndata.size() * sizeof(T) )- 1) / this->minBlockSize) + 1;
     uint64_t slot;
     bool notFound = true;
