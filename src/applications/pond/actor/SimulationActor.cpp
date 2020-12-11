@@ -168,7 +168,7 @@ bool SimulationActor::mayRead() {
     ss << "Actor no: " << this->actorGlobID << " Name: " << this->name << std::endl;
     for (int i = 0; i < 4; i++) {
         res &= (!this->dataIn[i] || this->dataIn[i]->available() > 0);
-        ss << "i: " << i << " port at i: " << this->dataIn[i] << " data avail: " << this->dataIn[i]->available() << std::endl;
+        ss << "i: " << i << " port at i data avail: " << this->dataIn[i]->available() << std::endl;
     }
     ss << " mayread: " << res << std::endl;
     std::cout << ss.str();
