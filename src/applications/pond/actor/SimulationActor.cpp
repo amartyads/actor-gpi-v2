@@ -163,11 +163,15 @@ void SimulationActor::writeTimeStep(float currentTime) {
 }
 
 bool SimulationActor::mayRead() {
+    std::stringstream ss;
     bool res = true;
+    ss << "Actor no: " << this->actorGlobID << " Name: " << this->name << std::endl;
     for (int i = 0; i < 4; i++) {
         res &= (!this->dataIn[i] || this->dataIn[i]->available() > 0);
+        ss << "i: " << i << " port at i: " << this->dataIn[i] << " data avail: " << this->dataIn[i]->available() << std::endl;
     }
-    std::cout << "Actor no: " << this->actorGlobID << " Name: " << this->name << " mayread: " << res << std::endl;
+    ss << " mayread: " << res << std::endl;
+    std::cout << ss.str();
     return res;
 }
 
