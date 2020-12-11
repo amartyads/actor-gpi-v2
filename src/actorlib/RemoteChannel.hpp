@@ -32,7 +32,7 @@ public:
     
     int queueLocation;
     gaspi_queue_id_t queue_id;
-    RemoteChannel(int queueCapacity, ActorConnectionType currConnectionType, uint64_t srcID, uint64_t dstID);
+    RemoteChannel(ActorConnectionType currConnectionType, uint64_t srcID, uint64_t dstID);
 };
 
 template <typename T, int capacity> class RemoteChannel<std::vector <T> ,capacity>: public Channel<std::vector<T>, capacity>
@@ -50,7 +50,7 @@ public:
     
     int queueLocation;
     gaspi_queue_id_t queue_id;
-    RemoteChannel(int queueCapacity, ActorConnectionType currConnectionType, uint64_t srcID, uint64_t dstID);
+    RemoteChannel(ActorConnectionType currConnectionType, uint64_t srcID, uint64_t dstID);
 };
 
 
@@ -59,11 +59,11 @@ public:
 #endif
 
 
-template <typename T, int capacity> RemoteChannel<T, capacity>::RemoteChannel(int queueCapacity, ActorConnectionType currConnectionType, uint64_t srcID, uint64_t dstID)
+template <typename T, int capacity> RemoteChannel<T, capacity>::RemoteChannel(ActorConnectionType currConnectionType, uint64_t srcID, uint64_t dstID)
 {
     this->currConnectionType = currConnectionType;
-    this->maxQueueSize = queueCapacity;
-    this->curQueueSize = queueCapacity;
+    this->maxQueueSize = capacity;
+    this->curQueueSize = capacity;
     this->dstID = dstID;
     this->srcID = srcID;
     queueLocation = 0;
@@ -72,11 +72,11 @@ template <typename T, int capacity> RemoteChannel<T, capacity>::RemoteChannel(in
     this->initialized = false;
 }
 
-template <typename T, int capacity> RemoteChannel<std::vector<T>, capacity>::RemoteChannel(int queueCapacity, ActorConnectionType currConnectionType, uint64_t srcID, uint64_t dstID)
+template <typename T, int capacity> RemoteChannel<std::vector<T>, capacity>::RemoteChannel(ActorConnectionType currConnectionType, uint64_t srcID, uint64_t dstID)
 {
     this->currConnectionType = currConnectionType;
-    this->maxQueueSize = queueCapacity;
-    this->curQueueSize = queueCapacity;
+    this->maxQueueSize = capacity;
+    this->curQueueSize = capacity;
     this->dstID = dstID;
     this->srcID = srcID;
     queueLocation = 0;

@@ -23,7 +23,7 @@ public:
     uint64_t isAvailableToPush();
     uint64_t isAvailableToPull();
 
-    LocalChannel(int queueCapacity, uint64_t srcID, uint64_t dstID, uint64_t fixedOffset);
+    LocalChannel(uint64_t srcID, uint64_t dstID, uint64_t fixedOffset);
 };
 
 template <typename T, int capacity> class LocalChannel<std::vector <T> ,capacity>: public Channel<std::vector<T>, capacity>
@@ -38,25 +38,25 @@ public:
     uint64_t isAvailableToPush();
     uint64_t isAvailableToPull();
 
-    LocalChannel(int queueCapacity, uint64_t srcID, uint64_t dstID, uint64_t fixedOffset);
+    LocalChannel(uint64_t srcID, uint64_t dstID, uint64_t fixedOffset);
 };
 
-template <typename T, int capacity> LocalChannel<T, capacity>::LocalChannel(int queueCapacity, uint64_t srcID, uint64_t dstID, uint64_t fixedOffset)
+template <typename T, int capacity> LocalChannel<T, capacity>::LocalChannel(uint64_t srcID, uint64_t dstID, uint64_t fixedOffset)
 {
     this->currConnectionType = ActorConnectionType::LOCAL_LOCAL;
-    this->maxQueueSize = queueCapacity;
-    this->curQueueSize = queueCapacity;
+    this->maxQueueSize = capacity;
+    this->curQueueSize = capacity;
     this->dstID = dstID;
     this->srcID = srcID;
     this->fixedDataOffset = fixedOffset;
     this->initialized = false;
 }
 
-template <typename T, int capacity> LocalChannel<std::vector<T>, capacity>::LocalChannel(int queueCapacity, uint64_t srcID, uint64_t dstID, uint64_t fixedOffset)
+template <typename T, int capacity> LocalChannel<std::vector<T>, capacity>::LocalChannel(uint64_t srcID, uint64_t dstID, uint64_t fixedOffset)
 {
     this->currConnectionType = ActorConnectionType::LOCAL_LOCAL;
-    this->maxQueueSize = queueCapacity;
-    this->curQueueSize = queueCapacity;
+    this->maxQueueSize = capacity;
+    this->curQueueSize = capacity;
     this->dstID = dstID;
     this->srcID = srcID;
     this->fixedDataOffset = fixedOffset;

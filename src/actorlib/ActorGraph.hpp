@@ -134,7 +134,7 @@ template <typename T, int capacity> void ActorGraph :: connectPorts(uint64_t src
 			Actor* ac1 = getLocalActor(srcGlobID);
 			Actor* ac2 = getLocalActor(destGlobID);
 			//establish channel
-			LocalChannel<T, capacity> *channel = new LocalChannel<T, capacity>(capacity, srcGlobID, destGlobID, localChannelCt);
+			LocalChannel<T, capacity> *channel = new LocalChannel<T, capacity>(srcGlobID, destGlobID, localChannelCt);
 			channel->name = std::to_string(srcGlobID) + " " + srcPortLabel + " " + std::to_string(destGlobID) + " " + destPortLabel;
 			channel->triggerQueue = &localChannelTriggers;
 			localChannelList.push_back(channel);
@@ -159,7 +159,7 @@ template <typename T, int capacity> void ActorGraph :: connectPorts(uint64_t src
 				//get actor
 				Actor* ac1 = getLocalActor(srcGlobID);
 				//create outgoing channel
-				RemoteChannel<T, capacity> *channel = new RemoteChannel<T, capacity> (capacity, currentConnectionType, srcGlobID, destGlobID);
+				RemoteChannel<T, capacity> *channel = new RemoteChannel<T, capacity> (currentConnectionType, srcGlobID, destGlobID);
 				//add channel to channel list
 				channel->name = std::to_string(srcGlobID) + srcPortLabel + std::to_string(destGlobID) + destPortLabel;
 				remoteChannelList.push_back(channel);
@@ -175,7 +175,7 @@ template <typename T, int capacity> void ActorGraph :: connectPorts(uint64_t src
 				//get actor
 				Actor* ac1 = getLocalActor(destGlobID);
 				//create outgoing channel
-				RemoteChannel<T, capacity> *channel = new RemoteChannel<T, capacity> (capacity, currentConnectionType, srcGlobID, destGlobID);
+				RemoteChannel<T, capacity> *channel = new RemoteChannel<T, capacity> (currentConnectionType, srcGlobID, destGlobID);
 				channel->name = std::to_string(srcGlobID) + srcPortLabel + std::to_string(destGlobID) + destPortLabel;
 				//add channel to channel list
 				remoteChannelList.push_back(channel);
@@ -188,7 +188,7 @@ template <typename T, int capacity> void ActorGraph :: connectPorts(uint64_t src
 			}
 			else //current connection type is remote remote
 			{
-				RemoteChannel<T, capacity> *channel = new RemoteChannel<T, capacity> (capacity, currentConnectionType, srcGlobID, destGlobID);
+				RemoteChannel<T, capacity> *channel = new RemoteChannel<T, capacity> (currentConnectionType, srcGlobID, destGlobID);
 				channel->name = std::to_string(srcGlobID) + srcPortLabel + std::to_string(destGlobID) + destPortLabel;
 				//add channel to channel list
 				remoteChannelList.push_back(channel);
