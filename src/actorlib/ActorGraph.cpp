@@ -452,6 +452,7 @@ void ActorGraph::finalizeInitialization()
 	for(AbstractChannel* temp : localChannelList)
 	{
 		temp->fixedTriggerOffset += noRemoteLocalChannels;
+		temp->minBlockSize = minBlockSize;
 		temp->initialized = true;
 	}
 }

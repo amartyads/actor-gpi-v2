@@ -94,9 +94,9 @@ void ActorOrchestrator::initializeActors() {
         a->initializeBlock();
         auto blockSafeTs = a->getMaxBlockTimestepSize();
         safeTimestep = std::min(safeTimestep, blockSafeTs);
-//#ifndef NDEBUG
+#ifndef NDEBUG
         std::cout << "Safe timestep on actor " << a->getName() << " is " << blockSafeTs << " current min: " << safeTimestep << std::endl;
-//#endif
+#endif
     }
     float globalSafeTs = 0.0;
     gaspi_pointer_t local = &safeTimestep;
@@ -104,9 +104,9 @@ void ActorOrchestrator::initializeActors() {
     ASSERT( gaspi_allreduce(local, global, 1, GASPI_OP_MIN, GASPI_TYPE_FLOAT, GASPI_GROUP_ALL, GASPI_BLOCK) );
 
     //globalSafeTs = mpi::allReduce(safeTimestep, MPI_MIN);
-//#ifndef NDEBUG
+#ifndef NDEBUG
     l.cout() << "Received safe timestep: " << globalSafeTs << " local was " << safeTimestep << std::endl;
-//#endif
+#endif
     for (SimulationActor *a : localActors) {
         a->setTimestepBaseline(globalSafeTs);
     }
