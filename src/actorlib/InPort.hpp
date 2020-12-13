@@ -52,7 +52,9 @@ template <typename T, int capacity> T InPort <T, capacity> :: read()
 
 template <typename T, int capacity> uint64_t InPort <T, capacity> :: available()
 {
-    return (connChannel->isAvailableToPull());
+    if(dataStash.empty())
+        return (connChannel->isAvailableToPull());
+    return (connChannel->isAvailableToPull() + 1);
 }
 
 template <typename T, int capacity> T InPort <T, capacity> :: peek()
