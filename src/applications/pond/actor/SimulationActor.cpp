@@ -108,9 +108,9 @@ void SimulationActor::act() {
   loadPorts();
 
   if (currentState == SimulationActorState::INITIAL && mayWrite()) {
-//#ifndef NDEBUG
+#ifndef NDEBUG
         l.cout() << name << " sending initial data to neighbors." << std::endl;
-//#endif
+#endif
 #ifndef NOWRITE
         writeTimeStep(0.0f);
 #endif
@@ -118,9 +118,9 @@ void SimulationActor::act() {
         currentState = SimulationActorState::RUNNING;
     } else if (currentState == SimulationActorState::RUNNING && currentTime < endTime
                 && !hasReceivedTerminationSignal() && mayRead() && mayWrite() ) {
-//#ifndef NDEBUG
+#ifndef NDEBUG
         l.cout() << name << " iteration at " << currentTime << std::endl;
-//#endif
+#endif
         receiveData();
         block.setGhostLayer();
         block.computeNumericalFluxes();
@@ -135,16 +135,16 @@ void SimulationActor::act() {
 #endif
         patchUpdates++;
         if (currentTime > endTime) {
-//#ifndef NDEBUG
+#ifndef NDEBUG
             l.cout() << name << "\treached endTime." << std::endl;
-//#endif
+#endif
             currentState = SimulationActorState::FINISHED;
             trigger();
         }
     } else if ((currentState == SimulationActorState::FINISHED || hasReceivedTerminationSignal())) {
-//#ifndef NDEBUG
+#ifndef NDEBUG
         l.cout() << name << " terminating at " << currentTime << std::endl;
-//#endif
+#endif
 //        sendTerminationSignal();
         currentState = SimulationActorState::TERMINATED;
         stop();
@@ -163,19 +163,19 @@ void SimulationActor::writeTimeStep(float currentTime) {
 }
 
 bool SimulationActor::mayRead() {
-    std::stringstream ss;
+    //std::stringstream ss;
     bool res = true;
-    ss << "Actor no: " << this->actorGlobID << " Name: " << this->name << std::endl;
+    //ss << "Actor no: " << this->actorGlobID << " Name: " << this->name << std::endl;
     for (int i = 0; i < 4; i++) {
         res &= (!this->dataIn[i] || this->dataIn[i]->available() > 0);
-        ss << "i: " << i << " port at i: " << this->dataIn[i];
-        if(this->dataIn[i])
-            ss << " data avail: " << this->dataIn[i]->available();
-        ss << std::endl;
+        //ss << "i: " << i << " port at i: " << this->dataIn[i];
+        //if(this->dataIn[i])
+            //ss << " data avail: " << this->dataIn[i]->available();
+        //ss << std::endl;
         
     }
-    ss << " mayread: " << res << std::endl;
-    std::cout << ss.str();
+    //ss << " mayread: " << res << std::endl;
+    //std::cout << ss.str();
     return res;
 }
 
@@ -184,7 +184,7 @@ bool SimulationActor::mayWrite() {
     for (int i = 0; i < 4; i++) {
         res &= (!this->dataOut[i] || this->dataOut[i]->freeCapacity() > 0);
     }
-    std::cout << "Actor no: " << this->actorGlobID << " Name: " << this->name << " maywrite: " << res << std::endl;
+    //std::cout << "Actor no: " << this->actorGlobID << " Name: " << this->name << " maywrite: " << res << std::endl;
     return res;
 }
 
@@ -196,7 +196,7 @@ bool SimulationActor::hasReceivedTerminationSignal() {
             dataIn[i]->read();
         }
     }
-    std::cout << "Actor no: " << this->actorGlobID << " Name: " << this->name << " hasrecdtermsig: " << res << std::endl;
+    //std::cout << "Actor no: " << this->actorGlobID << " Name: " << this->name << " hasrecdtermsig: " << res << std::endl;
     return res;
 }
 

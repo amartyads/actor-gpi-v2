@@ -83,13 +83,13 @@ template <typename T, int capacity> RemoteChannel<std::vector<T>, capacity>::Rem
     queue_id = 0;
     pulledDataoffset = -1;
     this->initialized = false;
-    std::cout << "Max queue: " << this->maxQueueSize << " cur queue: " << this->curQueueSize << std::endl;
+    //std::cout << "Max queue: " << this->maxQueueSize << " cur queue: " << this->curQueueSize << std::endl;
 }
 
 template<typename T, int capacity> std::vector<T> RemoteChannel <std::vector<T>, capacity> :: pullData()
 {
     //data availability already checked
-    std::cout << "in pull Max queue: " << this->maxQueueSize << " cur queue: " << this->curQueueSize << std::endl;
+    //std::cout << "in pull Max queue: " << this->maxQueueSize << " cur queue: " << this->curQueueSize << std::endl;
     gpi_util::wait_for_queue_entries(&queue_id, 1);
     ASSERT (gaspi_read ( 4, 0
                         , this->remoteRank, 0, ((this->fixedDataOffset * this->maxQueueSize) + queueLocation) *sizeof(uint64_t)
@@ -249,7 +249,7 @@ template <typename T, int capacity> T RemoteChannel <T, capacity> :: pullData()
 
 template <typename T, int capacity> void RemoteChannel <std::vector<T>, capacity> :: pushData (std::vector<T> &ndata)
 {
-    std::cout << "in push Max queue: " << this->maxQueueSize << " cur queue: " << this->curQueueSize << std::endl;
+    //std::cout << "in push Max queue: " << this->maxQueueSize << " cur queue: " << this->curQueueSize << std::endl;
     this->noOfDatablocksUsed = (((ndata.size() * sizeof(T) )- 1) / this->minBlockSize) + 1;
     uint64_t slot;
     bool notFound = true;
