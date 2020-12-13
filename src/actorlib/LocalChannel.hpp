@@ -130,7 +130,7 @@ template <typename T, int capacity> uint64_t LocalChannel <T, capacity> :: isAva
 }
 template <typename T, int capacity> uint64_t LocalChannel <T, capacity> ::isAvailableToPush()
 {
-    return (this->curQueueSize * this->minBlockSize);
+    return (this->curQueueSize);
 }
 
 template <typename T, int capacity> uint64_t LocalChannel <std::vector<T>, capacity> :: isAvailableToPull()
@@ -139,6 +139,6 @@ template <typename T, int capacity> uint64_t LocalChannel <std::vector<T>, capac
 }
 template <typename T, int capacity> uint64_t LocalChannel <std::vector<T>, capacity> ::isAvailableToPush()
 {
-    return (this->curQueueSize * this->minBlockSize);
+    return (this->curQueueSize);
 }
 #endif
