@@ -150,7 +150,7 @@ template<typename T, int capacity> std::vector<T> RemoteChannel <std::vector<T>,
     //gaspi write to localClear the databank offset, local actorgraph will divide by blocksize
     gpi_util::wait_for_queue_entries(&queue_id, 2);
     ASSERT (gaspi_write ( 4, 0
-                        , this->remoteRank, 1, ((this->fixedTriggerOffset * this->maxQueueSize) + queueLocation) *sizeof(uint64_t)
+                        , this->remoteRank, 1, ((this->fixedDataOffset * this->maxQueueSize) + queueLocation) *sizeof(uint64_t)
                         , sizeof(uint64_t), queue_id, GASPI_BLOCK
                         )
             );
@@ -225,7 +225,7 @@ template <typename T, int capacity> T RemoteChannel <T, capacity> :: pullData()
     //gaspi write to localClear the databank offset, local actorgraph will divide by blocksize
     gpi_util::wait_for_queue_entries(&queue_id, 2);
     ASSERT (gaspi_write ( 4, 0
-                        , this->remoteRank, 1, ((this->fixedTriggerOffset * this->maxQueueSize) + queueLocation) *sizeof(uint64_t)
+                        , this->remoteRank, 1, ((this->fixedDataOffset * this->maxQueueSize) + queueLocation) *sizeof(uint64_t)
                         , sizeof(uint64_t), queue_id, GASPI_BLOCK
                         )
             );
