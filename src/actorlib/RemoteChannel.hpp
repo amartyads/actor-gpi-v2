@@ -302,10 +302,9 @@ template <typename T, int capacity> void RemoteChannel <std::vector<T>, capacity
     else
     {
         gaspi_pointer_t tempData[this->noOfDatablocksUsed];
-        tempData[0] = ((char*)(this->fixedDatabankInitPtr))  + localDatabankOffset;
-        for(int i = 1; i < this->noOfDatablocksUsed; i++)
+        for(int i = 0; i < this->noOfDatablocksUsed; i++)
         {
-            tempData[i] = tempData[i-1] + this->minBlockSize;
+            tempData[i] = ((char*)(this->fixedDatabankInitPtr)) + ((slot + i) * this->minBlockSize);
         }
         int64_t ndataIdx = 0, databankIdx = 0, curDataCount = 0;
         while(ndataIdx < ndata.size() && databankIdx < this->noOfDatablocksUsed) //second condition should never be triggered, kept for sanity
