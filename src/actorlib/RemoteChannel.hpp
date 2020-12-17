@@ -306,17 +306,19 @@ template <typename T, int capacity> void RemoteChannel <std::vector<T>, capacity
         {
             tempData[i] = ((char*)(this->fixedDatabankInitPtr)) + ((slot + i) * this->minBlockSize);
         }
-        int64_t ndataIdx = 0, databankIdx = 0, curDataCount = 0;
+        int64_t ndataIdx = 0, databankIdx = 0, databankDataIdx = 0, curDataCount = 0;
         while(ndataIdx < ndata.size() && databankIdx < this->noOfDatablocksUsed) //second condition should never be triggered, kept for sanity
         {
-            ((T *)(tempData[databankIdx]))[ndataIdx] = ndata[ndataIdx];
+            ((T *)(tempData[databankIdx]))[databankDataIdx] = ndata[ndataIdx];
             curDataCount += sizeof(T);
+            databankDataIdx++;
+            ndataIdx++;
             if(this->minBlockSize - curDataCount < sizeof(T)) //remaining space in block not enough, move to next block
             {
                 curDataCount = 0;
                 databankIdx++;
+                databankDataIdx = 0;
             }
-            ndataIdx++;
         }
     }
     
