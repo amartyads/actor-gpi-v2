@@ -21,9 +21,9 @@ void PrimeSourceActor::act()
 	if(numList.size() == 0)
     {
         numList.push_back(12);
-        numList.push_back(500);
+        numList.push_back(30);
         numList.push_back(7);
-        numList.push_back(1000);
+        numList.push_back(60);
         numList.push_back(50);
         this->triggers = 5; //one is for running now
     }
