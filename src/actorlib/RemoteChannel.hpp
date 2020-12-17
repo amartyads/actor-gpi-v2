@@ -289,15 +289,38 @@ template <typename T, int capacity> void RemoteChannel <std::vector<T>, capacity
     auto commPtr = (uint64_t *)(this->fixedCommInitPtr);
     commPtr[(this->fixedDataOffset * this->maxQueueSize) + queueLocation] = localDatabankOffset;
     //write to databank (localdataptr + index*minblock)
-    gaspi_pointer_t tempData = ((char*)(this->fixedDatabankInitPtr))  + localDatabankOffset;
 
     //must split ndata into mindatablock sizes so as to not split data across edge
-
-    for(int i = 0; i < ndata.size(); i++)
+    if((this->minBlockSize % sizeof(T)) == 0 || this->noOfDataBlocksUsed <= 1)
     {
-        ((T *)(tempData))[i] = ndata[i];
+        gaspi_pointer_t tempData = ((char*)(this->fixedDatabankInitPtr))  + localDatabankOffset;
+        for(int64_t i = 0; i < ndata.size(); i++)
+        {
+            ((T *)(tempData))[i] = ndata[i];
+        }
     }
-
+    else
+    {
+        gaspi_pointer_t tempData[this->noOfDataBlocksUsed];
+        tempData[0] = ((char*)(this->fixedDatabankInitPtr))  + localDatabankOffset;
+        for(int i = 1; i < this->noOfDataBlocksUsed; i++)
+        {
+            tempData[i] = tempData[i-1] + this->minBlockSize;
+        }
+        int64_t ndataIdx = 0, databankIdx = 0, curDataCount = 0;
+        while(ndataIdx < ndata.size() && databankIdx < this->noOfDataBlocksUsed) //second condition should never be triggered, kept for sanity
+        {
+            ((T *)(tempData[databankIdx]))[ndataIdx] = ndata[ndataIdx];
+            curDataCount += sizeof(T);
+            if(this->minBlockSize - curDataCount < sizeof(T)) //remaining space in block not enough, move to next block
+            {
+                curDataCount = 0;
+                databankIdx++;
+            }
+            ndataIdx++;
+        }
+    }
+    
     //write to vec size segment
     uint64_t bytesUsed;
     bytesUsed = ndata.size() * sizeof(T);

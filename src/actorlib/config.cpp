@@ -39,7 +39,8 @@ const std::string gitRevision = S(ACTORLIB_GIT_REVISION);
 const std::string gitCommitDate = S(ACTORLIB_GIT_DATE);
 const std::string gitCommitMessage = S(ACTORLIB_GIT_COMMIT_MSG);
 
-const uint64_t dataBlockSize = sizeof(int8_t) * 1024 ; // 1 kB
+//const uint64_t dataBlockSize = sizeof(int8_t) * 1024 ; // 1 kB
+const uint64_t dataBlockSize = 47;
 const uint64_t numBlocksInBank = 1024 * 2;
 const uint64_t numBlocksInCache = 1;
 
