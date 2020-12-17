@@ -20,6 +20,7 @@
 #include "Channel.hpp"
 #include "LocalChannel.hpp"
 #include "RemoteChannel.hpp"
+#include "config.hpp"
 
 #ifndef ASSERT
 #define ASSERT(ec) gpi_util::success_or_exit(__FILE__,__LINE__,ec)
@@ -378,12 +379,15 @@ void ActorGraph::finalizeInitialization()
 	//calculate no of blocks
 	fullSizeOfSpace = minBlockSize * maxBlocksNeeded;
 
-	uint64_t hardlimit = sizeof(int8_t) * 1024 * 1024 * 2;  //2 MB
+	//uint64_t hardlimit = sizeof(int8_t) * 1024 * 1024 * 2;  //2 MB
 	//fullSizeOfSpace = (fullSizeOfSpace < hardlimit)? fullSizeOfSpace : hardlimit;
-	fullSizeOfSpace = hardlimit;
-	minBlockSize = sizeof(int8_t) * 1024 ; // 1 kB
+	//fullSizeOfSpace = hardlimit;
+	//minBlockSize = sizeof(int8_t) * 1024 ; // 1 kB
 
-	noBlocks = fullSizeOfSpace / minBlockSize;
+	//noBlocks = fullSizeOfSpace / minBlockSize;
+
+	minBlockSize = config::dataBlockSize;
+	noBlocks = config::numBlocksInBank;
 	fullSizeOfSpace = noBlocks * minBlockSize;
 
 	// initialize block lookup array
@@ -391,7 +395,7 @@ void ActorGraph::finalizeInitialization()
 
 	//calculate max incoming block size
 	//maxIncomingBlockSize = *std::max_element(dataBlockSize.begin(), dataBlockSize.end());
-	maxIncomingBlockSize = minBlockSize;
+	maxIncomingBlockSize = minBlockSize * config::numBlocksInCache;
 	//std::cout << "rank " <<threadRank << " sizes calced" <<std::endl;
 	/* Segment list:
 		1: LOCAL_REMOTE: Store block number for reading data, local access (remoteLookup)

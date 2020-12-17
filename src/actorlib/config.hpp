@@ -25,10 +25,12 @@
  *
  * TODO
  */
-
+#ifndef ACTORLIB_CONFIG_HPP
+#define ACTORLIB_CONFIG_HPP
 #pragma once
 
 #include <string>
+#include <cstdint>
 
 namespace config {
 
@@ -36,5 +38,11 @@ extern const std::string gitRevision;
 extern const std::string gitCommitDate;
 extern const std::string gitCommitMessage;
 
+extern const uint64_t dataBlockSize;
+extern const uint64_t numBlocksInBank;
+extern const uint64_t numBlocksInCache;
+
 std::string configToString();
 } // namespace config
+
+#endif

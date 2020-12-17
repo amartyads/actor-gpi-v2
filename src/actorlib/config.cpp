@@ -39,15 +39,22 @@ const std::string gitRevision = S(ACTORLIB_GIT_REVISION);
 const std::string gitCommitDate = S(ACTORLIB_GIT_DATE);
 const std::string gitCommitMessage = S(ACTORLIB_GIT_COMMIT_MSG);
 
+const uint64_t dataBlockSize = sizeof(int8_t) * 1024 ; // 1 kB
+const uint64_t numBlocksInBank = 1024 * 2;
+const uint64_t numBlocksInCache = 1;
+
 std::string configToString() {
   std::stringstream ss;
-  std::string parallelizationStr = "OpenMP Tasks";
-  ss << "MPI Actor Library Configuration" << std::endl;
+  std::string parallelizationStr = "MPI-GPI Hybrid";
+  ss << "GPI Actor Library Configuration" << std::endl;
   ss << "=================================" << std::endl;
-  ss << "Actorlib mode:        " << parallelizationStr << std::endl;
-  ss << "Git revision:         " << gitRevision << std::endl;
-  ss << "Git revision date:    " << gitCommitDate << std::endl;
-  ss << "Git revision message: " << gitCommitMessage << std::endl;
+  ss << "Actorlib mode:           " << parallelizationStr << std::endl;
+  ss << "Data block size (bytes): " << dataBlockSize << std::endl;
+  ss << "Blocks in bank:          " << numBlocksInBank << std::endl;
+  ss << "Cache size in blocks:    " << numBlocksInCache << std::endl;
+  ss << "Git revision:            " << gitRevision << std::endl;
+  ss << "Git revision date:       " << gitCommitDate << std::endl;
+  ss << "Git revision message:    " << gitCommitMessage << std::endl;
   return ss.str();
 }
 
