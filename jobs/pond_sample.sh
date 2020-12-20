@@ -1,16 +1,16 @@
 #!/bin/bash
 #SBATCH -J pond_sample
 #SBATCH -o ./%x.%j.%N.out
-#SBATCH -D ./../build/
+#SBATCH -D ./
 #SBATCH --get-user-env
 #SBATCH --clusters=cm2
 #SBATCH --partition=cm2_std
-#SBATCH --nodes=16
-#SBATCH --ntasks-per-node=1
+#SBATCH --nodes=8
+#SBATCH --ntasks-per-node=4
 #SBATCH --mail-type=end
 #SBATCH --mail-user=ga53qud@mytum.de
 #SBATCH --export=NONE
-#SBATCH --time=01:00:00
+#SBATCH --time=03:00:00
   
 module load slurm_setup
 
@@ -21,4 +21,6 @@ module load metis/5.1.0-intel19-i32-r32
 module load netcdf-hdf5-all/4.6_hdf5-1.10-intel19-impi
 module load gcc/8
 
-mpiexec -n 16 ./pond -x 16384 -y 16384 -p 2048 -e 1 -c 1 --scenario 2 -o output/out
+cd ../build/
+
+mpiexec -n 8 --perhost 4 ./pond -x 16384 -y 16384 -p 2048 -e 1 -c 1 --scenario 2 -o output/out
