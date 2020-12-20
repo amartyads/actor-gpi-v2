@@ -4,6 +4,7 @@
 #SBATCH -D ./../build/
 #SBATCH --get-user-env
 #SBATCH --clusters=cm2
+#SBATCH --partition=cm2_std
 #SBATCH --nodes=16
 #SBATCH --ntasks-per-node=1
 #SBATCH --mail-type=end
