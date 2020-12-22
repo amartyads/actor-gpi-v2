@@ -1,0 +1,204 @@
+
+*************************************************************
+Welcome to Pond
+
+Pond Copyright (C) 2012-2018
+  Technical University of Munich
+  Department of Informatics
+  Chair of Scientific Computing
+
+Pond comes with ABSOLUTELY NO WARRANTY.
+Pond is free software, and you are welcome to redistribute it
+under certain conditions.
+Details can be found in the file 'gpl.txt'.
+*************************************************************
+#### POND Configuration ####
+Total Grid Size:          16384x16384 = 268435456 cells. (x*y)
+Patch Size:               2048x2048
+Number of checkpoints:    1
+File name Prefix:         output/out
+Scenario simulation area: {X: 0.000 - 100.000, Y: 0.000 - 100.000}
+Cell Size:                0.00610352m * 0.00610352m (dx * dy)
+Mon Dec 21 16:12:27 2020	process 0 - Size difference in the size of idx_t and mpi::rank. Copying and casting.
+Mon Dec 21 16:12:27 2020	process 0 - 
+
+ 93  93  93  93  93  93  93  93 
+ 93  57  57  57  93  93  57  93 
+ 93  93  57  93  93  57  57  93 
+ 93  93  57  57  57  57  57  93 
+ 93  93  57  57  93  93  93  93 
+ 93  93  93  57  57  57  57  93 
+ 93  57  57  57  57  57  93  93 
+ 93  93  93  93  93  93  93  93 
+
+********************* Start Simulation **********************
+********************** End Simulation ***********************
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Too much data in channel
+mlx5: i22r05c02s08: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 0803c818 0521d4d2
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 84 PID 33867 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 85 PID 33868 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 86 PID 33869 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 87 PID 33870 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 88 PID 33871 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 89 PID 33872 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 90 PID 33873 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 91 PID 33874 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 92 PID 33875 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 94 PID 33877 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 95 PID 33878 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 96 PID 33879 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 97 PID 33880 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 98 PID 33881 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 99 PID 33882 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 100 PID 33883 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 101 PID 33884 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 102 PID 33885 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 103 PID 33886 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 104 PID 33887 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 105 PID 33888 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 106 PID 33889 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 107 PID 33890 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 108 PID 33891 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 109 PID 33892 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 110 PID 33893 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 111 PID 33894 RUNNING AT i22r05c02s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
