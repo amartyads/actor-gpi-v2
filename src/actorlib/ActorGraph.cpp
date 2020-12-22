@@ -76,6 +76,7 @@ void ActorGraph::syncActors()
 
     //set up exchange for array sizes
     int* locSize = (int*) (gpi_util::create_segment_return_ptr(segment_id_loc_size, sizeof(int)));
+	gaspi_printf("Segment remote sizes : %" PRIu64 "\n", totNoThreads * sizeof(int));
 	int* remoteNoActors = (int*) (gpi_util::create_segment_return_ptr(segment_id_rem_size, totNoThreads * sizeof(int)));
 
     *locSize = localActorRefList.size();
@@ -112,7 +113,9 @@ void ActorGraph::syncActors()
 
     //overlap some computation before flushing queues
 	//create segments
+	gaspi_printf("Segment local array : %" PRIu64 "\n", actorElemSize * localActorRefList.size());
     uint64_t *localArray = (uint64_t*) (gpi_util::create_segment_return_ptr(segment_id_loc_array, actorElemSize * localActorRefList.size()));
+	gaspi_printf("Segment local names : %" PRIu64 "\n", localActorRefList.size() * globalMaxNameSize * sizeof(char));
 	char* localNameSegment = (char *)(gpi_util::create_segment_return_ptr(segment_id_loc_names, localActorRefList.size() * globalMaxNameSize * sizeof(char)));
 	
 	//copy local IDs
@@ -149,7 +152,9 @@ void ActorGraph::syncActors()
 	}
 
 	//declare segs
+	gaspi_printf("Segment remote sizes store : %" PRIu64 "\n", segSize);
     uint64_t *remoteArray = (uint64_t*) (gpi_util::create_segment_return_ptr(segment_id_rem_array, segSize));
+	gaspi_printf("Segment remote names store : %" PRIu64 "\n", segSize2);
     char* remoteNameSegment = (char *)(gpi_util::create_segment_return_ptr(segment_id_rem_names, segSize2));
 
     int localOffset = 0;
@@ -412,17 +417,17 @@ void ActorGraph::finalizeInitialization()
 	segmentIDDatabank = 3;
 	segmentIDLocalCache = 4;
 	segmentIDRemoteVecSize = 5;
-	gaspi_printf("Segment no 0 size %" PRIu64 "\n",MAX(noLocalRemoteChannels,1) * sizeof(uint64_t) * dataQueueLen);
+	//gaspi_printf("Segment no 0 size %" PRIu64 "\n",MAX(noLocalRemoteChannels,1) * sizeof(uint64_t) * dataQueueLen);
 	gasptrRemoteLookup = gpi_util::create_segment_return_ptr(segmentIDRemoteLookup, MAX(noLocalRemoteChannels,1) * sizeof(uint64_t) * dataQueueLen); // will have databank offset (minBlockSize * fixedOffset)
-	gaspi_printf("Segment no 1 size %" PRIu64 "\n",MAX(noLocalRemoteChannels,1) * sizeof(uint64_t) * dataQueueLen);
+	//gaspi_printf("Segment no 1 size %" PRIu64 "\n",MAX(noLocalRemoteChannels,1) * sizeof(uint64_t) * dataQueueLen);
 	gasptrLocalClear = gpi_util::create_segment_return_ptr(segmentIDLocalClear, MAX(noLocalRemoteChannels,1) * sizeof(uint64_t) * dataQueueLen); // will paste tha read databank offset
-	gaspi_printf("Segment no 2 size %" PRIu64 "\n", MAX(noRemoteLocalChannels,1) * sizeof(uint64_t) * dataQueueLen);
+	//gaspi_printf("Segment no 2 size %" PRIu64 "\n", MAX(noRemoteLocalChannels,1) * sizeof(uint64_t) * dataQueueLen);
 	gasptrLocalTrigger = gpi_util::create_segment_return_ptr(segmentIDLocalTrigger, MAX(noRemoteLocalChannels,1) * sizeof(uint64_t) * dataQueueLen);	//will paste dstID
-	gaspi_printf("Segment no 3 size %" PRIu64 "\n", fullSizeOfSpace);
+	//gaspi_printf("Segment no 3 size %" PRIu64 "\n", fullSizeOfSpace);
 	gasptrDatabank = gpi_util::create_segment_return_ptr(segmentIDDatabank, fullSizeOfSpace);
-	gaspi_printf("Segment no 4 size %" PRIu64 "\n", maxIncomingBlockSize);
+	//gaspi_printf("Segment no 4 size %" PRIu64 "\n", maxIncomingBlockSize);
 	gasptrLocalCache = gpi_util::create_segment_return_ptr(segmentIDLocalCache, maxIncomingBlockSize);
-	gaspi_printf("Segment no 5 size %" PRIu64 "\n",MAX(noLocalRemoteChannels,1) * sizeof(uint64_t) * dataQueueLen);
+	//gaspi_printf("Segment no 5 size %" PRIu64 "\n",MAX(noLocalRemoteChannels,1) * sizeof(uint64_t) * dataQueueLen);
 	gasptrRemoteVecSize = gpi_util::create_segment_return_ptr(segmentIDRemoteVecSize, MAX(noLocalRemoteChannels,1) * sizeof(uint64_t) * dataQueueLen); // will have size of vector
 
 	//std::cout << "rank " <<threadRank << " segs made" <<std::endl;
