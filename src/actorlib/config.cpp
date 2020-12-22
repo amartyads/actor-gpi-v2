@@ -41,7 +41,7 @@ const std::string gitCommitMessage = S(ACTORLIB_GIT_COMMIT_MSG);
 
 const uint64_t dataBlockSize = sizeof(int8_t) * 1024 * 10; // 10 kB
 //const uint64_t dataBlockSize = 47;
-const uint64_t numBlocksInBank = 1024 * 100; //with datablocksize, 100 MB
+const uint64_t numBlocksInBank = 1024 * 20; //with datablocksize, 20 MB
 const uint64_t numBlocksInCache = 1;
 
 std::string configToString() {
