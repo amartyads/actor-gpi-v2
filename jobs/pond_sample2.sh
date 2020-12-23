@@ -22,4 +22,4 @@ module load netcdf-hdf5-all/4.6_hdf5-1.10-intel19-impi
 module load gcc/8
 
 gaspi_logger &
-mpiexec -n 112 --perhost 28 ./pond -x 16384 -y 16384 -p 2048 -e 1 -c 1 --scenario 2 -o output/out
+mpiexec -n 112 --perhost 28 ./pond -x 16384 -y 16384 -p 512 -e 1 -c 1 --scenario 2 -o output/out
