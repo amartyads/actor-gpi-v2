@@ -67,7 +67,7 @@ template <typename T, int capacity> RemoteChannel<T, capacity>::RemoteChannel(Ac
     this->dstID = dstID;
     this->srcID = srcID;
     queueLocation = 0;
-    queue_id = 0;
+    queue_id = gpi_util::get_local_rank() % gpi_util::get_total_queues();
     pulledDataoffset = -1;
     this->initialized = false;
 }
@@ -80,7 +80,7 @@ template <typename T, int capacity> RemoteChannel<std::vector<T>, capacity>::Rem
     this->dstID = dstID;
     this->srcID = srcID;
     queueLocation = 0;
-    queue_id = 0;
+    queue_id = gpi_util::get_local_rank() % gpi_util::get_total_queues();
     pulledDataoffset = -1;
     this->initialized = false;
     //std::cout << "Max queue: " << this->maxQueueSize << " cur queue: " << this->curQueueSize << std::endl;

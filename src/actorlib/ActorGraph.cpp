@@ -76,7 +76,7 @@ void ActorGraph::syncActors()
 
     //set up exchange for array sizes
     int* locSize = (int*) (gpi_util::create_segment_return_ptr(segment_id_loc_size, sizeof(int)));
-	gaspi_printf("Segment remote sizes : %" PRIu64 "\n", totNoThreads * sizeof(int));
+	//gaspi_printf("Segment remote sizes : %" PRIu64 "\n", totNoThreads * sizeof(int));
 	int* remoteNoActors = (int*) (gpi_util::create_segment_return_ptr(segment_id_rem_size, totNoThreads * sizeof(int)));
 
     *locSize = localActorRefList.size();
@@ -113,9 +113,9 @@ void ActorGraph::syncActors()
 
     //overlap some computation before flushing queues
 	//create segments
-	gaspi_printf("Segment local array : %" PRIu64 "\n", actorElemSize * localActorRefList.size());
+	//gaspi_printf("Segment local array : %" PRIu64 "\n", actorElemSize * localActorRefList.size());
     uint64_t *localArray = (uint64_t*) (gpi_util::create_segment_return_ptr(segment_id_loc_array, actorElemSize * localActorRefList.size()));
-	gaspi_printf("Segment local names : %" PRIu64 "\n", localActorRefList.size() * globalMaxNameSize * sizeof(char));
+	//gaspi_printf("Segment local names : %" PRIu64 "\n", localActorRefList.size() * globalMaxNameSize * sizeof(char));
 	char* localNameSegment = (char *)(gpi_util::create_segment_return_ptr(segment_id_loc_names, localActorRefList.size() * globalMaxNameSize * sizeof(char)));
 	
 	//copy local IDs
@@ -152,9 +152,9 @@ void ActorGraph::syncActors()
 	}
 
 	//declare segs
-	gaspi_printf("Segment remote sizes store : %" PRIu64 "\n", segSize);
+	//gaspi_printf("Segment remote sizes store : %" PRIu64 "\n", segSize);
     uint64_t *remoteArray = (uint64_t*) (gpi_util::create_segment_return_ptr(segment_id_rem_array, segSize));
-	gaspi_printf("Segment remote names store : %" PRIu64 "\n", segSize2);
+	//gaspi_printf("Segment remote names store : %" PRIu64 "\n", segSize2);
     char* remoteNameSegment = (char *)(gpi_util::create_segment_return_ptr(segment_id_rem_names, segSize2));
 
     int localOffset = 0;
@@ -500,7 +500,7 @@ double ActorGraph::run()
 		//std::cout << "Rank " <<threadRank << " Run " << runNo << " actor finish checked " << std::endl;
 		if(finished)
 		{
-			gaspi_printf("Rank %d done running.\n",threadRank);
+			//gaspi_printf("Rank %d done running.\n",threadRank);
 			clearDataAreas();
 			auto end = std::chrono::steady_clock::now();
 			double runTime = std::chrono::duration<double, std::ratio<1>>(end - start).count();
