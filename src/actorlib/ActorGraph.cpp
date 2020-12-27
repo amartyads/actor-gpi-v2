@@ -132,7 +132,7 @@ void ActorGraph::syncActors()
 
     //flush queues
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
-	gaspi_printf("FQ1\n");
+	//gaspi_printf("FQ1\n");
     gpi_util::wait_for_flush_queues();
 
 	//segsize for IDs
@@ -198,9 +198,9 @@ void ActorGraph::syncActors()
 	         );
 		localOffset += globalMaxNameSize * remoteNoActors[i] * sizeof(char);
 	}
-	gaspi_printf("FQ2\n");
+	//gaspi_printf("FQ2\n");
 	gpi_util::wait_for_flush_queues();
-	gaspi_printf("FQDoneeeeeeeeee\n");
+	//gaspi_printf("FQDoneeeeeeeeee\n");
 	//use segment pointer and push back actors
 	for(int j = 0; j < (segSize/actorElemSize); j++)
 	{
