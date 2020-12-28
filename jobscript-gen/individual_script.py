@@ -67,7 +67,7 @@ def generateGPI(jobName, numNodes, xlen, ylen, patchSize):
     cluster = 'cm2' if numNodes > 2 else 'cm2_tiny'
     partition = 'cm2_tiny' if cluster == 'cm2_tiny' else 'cm2_large' if numNodes > 24 else 'cm2'
     numTasksPerNode = 28
-    buildDir = homeDir + '/actorgpicmake/actor-gpi-v2/build'
+    buildDir = homeDir + '/actor-gpi-v2/build'
     totRanks = numNodes * numTasksPerNode
     return gpiraw.format(
         jobName = jobName,
