@@ -14,6 +14,7 @@ namespace gpi_util
 	{
 		static gaspi_rank_t local_rank = 65535;
 		static gaspi_rank_t total_ranks = 65535;
+		static gaspi_number_t total_queues = 0;
 	}
 
 	static void success_or_exit(const char* file, const int line, const gaspi_return_t ec)
@@ -38,6 +39,12 @@ namespace gpi_util
 			success_or_exit(__FILE__, __LINE__, gaspi_proc_num(&total_ranks));
 		return total_ranks;
 	}
+	static gaspi_number_t get_total_queues()
+	{
+		if(total_queues == 0)
+			success_or_exit(__FILE__, __LINE__, gaspi_queue_num(&total_queues));
+		return total_queues;
+	}
 	static gaspi_pointer_t create_segment_return_ptr(int segmentID, uint64_t segmentSize)
 	{
 		const gaspi_segment_id_t tempID = segmentID;
@@ -54,10 +61,8 @@ namespace gpi_util
 	}
 	static void wait_for_flush_queues()
 	{
-		gaspi_number_t queue_num;
-		success_or_exit(__FILE__, __LINE__, gaspi_queue_num(&queue_num));
 		gaspi_queue_id_t queue = 0;
-		while(queue < queue_num)
+		while(queue < get_total_queues())
 		{
 			// gaspi_printf("flushing queue %d\n",queue);
 			success_or_exit(__FILE__, __LINE__, gaspi_wait(queue, GASPI_BLOCK));
@@ -66,13 +71,13 @@ namespace gpi_util
 	}
 	static void wait_for_queue_entries(gaspi_queue_id_t* queue, int wanted_entries)
 	{
-		gaspi_number_t queue_size_max, queue_size, queue_num;
+		gaspi_number_t queue_size_max, queue_size;
 		success_or_exit(__FILE__, __LINE__, gaspi_queue_size_max(&queue_size_max));
 		success_or_exit(__FILE__, __LINE__, gaspi_queue_size(*queue, &queue_size));
 
 		if(!(queue_size + wanted_entries <= queue_size_max))
 		{
-			*queue = (*queue + 1) % queue_num;
+			*queue = (*queue + 1) % (get_total_queues());
 			success_or_exit(__FILE__, __LINE__, gaspi_wait(*queue, GASPI_BLOCK));
 		}
 	}
