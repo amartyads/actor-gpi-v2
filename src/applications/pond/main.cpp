@@ -53,14 +53,19 @@ static tools::Logger &l = tools::Logger::logger;
 int main(int argc, char **argv) {
     mpi::init();
     {
+        gaspi_printf("init\n");
         ASSERT( gaspi_proc_init(GASPI_BLOCK));
+        gaspi_printf("init done\n");
         gaspi_rank_t rank = gpi_util::get_local_rank();
         initLogger(rank);
+        gaspi_printf("preconfig\n");
         auto config = Configuration::build(argc, argv, rank);
         if (!rank) cout << config.toString();
+        gaspi_printf("preorch\n");
         ActorOrchestrator orch(config);
         orch.initActorGraph();
         ASSERT(gaspi_barrier(GASPI_GROUP_ALL, GASPI_BLOCK));
+        gaspi_printf("presim\n");
         orch.simulate();
         ASSERT( gaspi_proc_term(GASPI_BLOCK));
     }
