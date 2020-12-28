@@ -64,7 +64,9 @@ void ActorGraph::addActor(Actor* newActor)
 void ActorGraph::syncActors()
 {
     int actorElemSize = sizeof(uint64_t);
-
+	//create all possible queues
+	gaspi_number_t queue_num;
+	ASSERT( gaspi_queue_num(&queue_num));
     //declare segment IDs
     const gaspi_segment_id_t segment_id_loc_size = 0;
   	const gaspi_segment_id_t segment_id_rem_size = 1;
