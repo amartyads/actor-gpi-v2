@@ -64,21 +64,6 @@ void ActorGraph::addActor(Actor* newActor)
 void ActorGraph::syncActors()
 {
     int actorElemSize = sizeof(uint64_t);
-	//create all possible queues
-	gaspi_number_t queue_num, queue_max;
-	ASSERT( gaspi_queue_num(&queue_num));
-	ASSERT( gaspi_queue_max(&queue_max));
-	if(threadRank == 0)
-		std::cout << queue_num << " " << queue_max << std::endl;
-	while(queue_num < queue_max || queue_num < 10)
-	{
-		gaspi_queue_id_t one;
-		ASSERT( gaspi_queue_create(&one, GASPI_BLOCK));
-		ASSERT( gaspi_queue_num(&queue_num));
-		ASSERT( gaspi_queue_max(&queue_max));
-		if(threadRank == 0)
-			std::cout << (int)one << " " << queue_num << " " <<queue_max << std::endl;
-	}
 
     //declare segment IDs
     const gaspi_segment_id_t segment_id_loc_size = 0;
