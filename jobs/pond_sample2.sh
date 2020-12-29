@@ -7,7 +7,7 @@
 #SBATCH --partition=cm2_std
 #SBATCH --nodes=8
 #SBATCH --ntasks-per-node=28
-#SBATCH --exclude=i22r06c02s05
+#SBATCH --exclude=i22r06c02s[04-05],i22r04c03s11
 #SBATCH --mail-type=end
 #SBATCH --mail-user=ga53qud@mytum.de
 #SBATCH --export=NONE
