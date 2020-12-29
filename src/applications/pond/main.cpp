@@ -53,6 +53,7 @@ static tools::Logger &l = tools::Logger::logger;
 int main(int argc, char **argv) {
     mpi::init();
     {
+        mpi::barrier();
         ASSERT( gaspi_proc_init(GASPI_BLOCK));
         gaspi_rank_t rank = gpi_util::get_local_rank();
         initLogger(rank);
