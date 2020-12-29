@@ -20,4 +20,6 @@ module load metis/5.1.0-intel19-i32-r32
 module load netcdf-hdf5-all/4.6_hdf5-1.10-intel19-impi
 module load gcc/8
 
+export OMP_NUM_THREADS=1
+
 mpiexec -n 56 ./pond -x 1024 -y 1024 -p 128 -e 1 -c 1 --scenario 2 -o output/out
