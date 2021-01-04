@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 	}
 
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
-
+	gaspi_printf("Presync");
 	ag.syncActors();
 	ag.printActors();
 

@@ -87,8 +87,9 @@ void ActorGraph::syncActors()
 		localMaxNameSize = std::max(localMaxNameSize, (int)localActorRefList[i]->name.size());
 	gaspi_pointer_t loc_size_ptr = &localMaxNameSize;
 	gaspi_pointer_t glob_max_size_ptr = &globalMaxNameSize;
+	gaspi_printf("prereduce\n");
 	ASSERT( gaspi_allreduce(loc_size_ptr, glob_max_size_ptr, 1, GASPI_OP_MAX, GASPI_TYPE_INT, GASPI_GROUP_ALL, GASPI_BLOCK) );
-	
+	gaspi_printf("postreduce\n");
 	globalMaxNameSize += 2;
 
     //exchange array sizes
@@ -113,6 +114,7 @@ void ActorGraph::syncActors()
 	//create segments
 	if(localActorRefList.size() != 0)
 	{
+		gaspi_printf("in create\n");
 		//gaspi_printf("Segment local array : %" PRIu64 "\n", actorElemSize * localActorRefList.size());
     	uint64_t *localArray = (uint64_t*) (gpi_util::create_segment_return_ptr(segment_id_loc_array, actorElemSize * localActorRefList.size()));
 		gaspi_printf("Segment local names : %" PRIu64 "\n", localActorRefList.size() * globalMaxNameSize * sizeof(char));
@@ -129,6 +131,7 @@ void ActorGraph::syncActors()
 			tempName = localActorRefList[i]->name;
 			tempName.copy(&localNameSegment[i * globalMaxNameSize], tempName.size(), 0);
 		}
+		gaspi_printf("post create\n");
 	}
     //flush queues
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));

@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
         localActor1 = new PrimePrintActor(rank, 0);
     }
     
-	ag.addActor(localActor1);
+	if(rank < 3) ag.addActor(localActor1);
 
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
 
