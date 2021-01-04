@@ -111,23 +111,25 @@ void ActorGraph::syncActors()
 
     //overlap some computation before flushing queues
 	//create segments
-	//gaspi_printf("Segment local array : %" PRIu64 "\n", actorElemSize * localActorRefList.size());
-    uint64_t *localArray = (uint64_t*) (gpi_util::create_segment_return_ptr(segment_id_loc_array, actorElemSize * localActorRefList.size()));
-	gaspi_printf("Segment local names : %" PRIu64 "\n", localActorRefList.size() * globalMaxNameSize * sizeof(char));
-	char* localNameSegment = (char *)(gpi_util::create_segment_return_ptr(segment_id_loc_names, localActorRefList.size() * globalMaxNameSize * sizeof(char)));
-	
-	//copy local IDs
-    for(int i = 0; i < *locSize; i++)
-		localArray[i] = localActorIDList[i];
-	
-	//copy local names
-	std::string tempName;
-	for(int i = 0; i < localActorRefList.size(); i++)
+	if(localActorRefList.size() != 0)
 	{
-		tempName = localActorRefList[i]->name;
-		tempName.copy(&localNameSegment[i * globalMaxNameSize], tempName.size(), 0);
+		//gaspi_printf("Segment local array : %" PRIu64 "\n", actorElemSize * localActorRefList.size());
+    	uint64_t *localArray = (uint64_t*) (gpi_util::create_segment_return_ptr(segment_id_loc_array, actorElemSize * localActorRefList.size()));
+		gaspi_printf("Segment local names : %" PRIu64 "\n", localActorRefList.size() * globalMaxNameSize * sizeof(char));
+		char* localNameSegment = (char *)(gpi_util::create_segment_return_ptr(segment_id_loc_names, localActorRefList.size() * globalMaxNameSize * sizeof(char)));
+	
+		//copy local IDs
+    	for(int i = 0; i < *locSize; i++)
+			localArray[i] = localActorIDList[i];
+	
+		//copy local names
+		std::string tempName;
+		for(int i = 0; i < localActorRefList.size(); i++)
+		{
+			tempName = localActorRefList[i]->name;
+			tempName.copy(&localNameSegment[i * globalMaxNameSize], tempName.size(), 0);
+		}
 	}
-
     //flush queues
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
 	if(threadRank== 0) gaspi_printf("FQ1\n");
@@ -152,9 +154,19 @@ void ActorGraph::syncActors()
 
 	//declare segs
 	//gaspi_printf("Segment remote sizes store : %" PRIu64 "\n", segSize);
-    uint64_t *remoteArray = (uint64_t*) (gpi_util::create_segment_return_ptr(segment_id_rem_array, segSize));
+    int64_t *remoteArray = (int64_t*) (gpi_util::create_segment_return_ptr(segment_id_rem_array, segSize));
 	gaspi_printf("Segment remote names store : %" PRIu64 "\n", segSize2);
     char* remoteNameSegment = (char *)(gpi_util::create_segment_return_ptr(segment_id_rem_names, segSize2));
+
+	//reset segments
+	for(int j = 0; j < (segSize/actorElemSize); j++)
+	{
+		remoteArray[j] = -1;
+	}
+	for(int i = 0; i < segSize2/sizeof(char); i++)
+	{
+		remoteNameSegment[i] = '\0';
+	}
 
     int localOffset = 0;
 	//queue_id = 0;
@@ -162,7 +174,7 @@ void ActorGraph::syncActors()
 	//read in remote actor IDs
 	for(int i = 0; i < totNoThreads; i++)
 	{
-		if(i == threadRank)
+		if(i == threadRank || remoteNoActors[i] == 0)
 			continue;
 
 		const gaspi_size_t segment_size_cur_rem_arr = actorElemSize * remoteNoActors[i];
@@ -183,7 +195,7 @@ void ActorGraph::syncActors()
 
 	for(int i = 0; i < totNoThreads; i++)
 	{
-		if(i == threadRank)
+		if(i == threadRank || remoteNoActors[i] == 0)
 			continue;
 
 		const gaspi_size_t segment_size_cur_rem_arr = globalMaxNameSize * remoteNoActors[i] * sizeof(char);
@@ -203,12 +215,14 @@ void ActorGraph::syncActors()
 	//use segment pointer and push back actors
 	for(int j = 0; j < (segSize/actorElemSize); j++)
 	{
-		remoteActorIDList.push_back(remoteArray[j]);
+		if(remoteArray[j] == -1) continue;
+		remoteActorIDList.push_back( (uint64_t) remoteArray[j]);
 	}
 	for(int i = 0; i < segSize2/sizeof(char); i+= globalMaxNameSize)
 	{
 		std::string temp(&remoteNameSegment[i], globalMaxNameSize);
 		temp.erase(std::find(temp.begin(), temp.end(), '\0'), temp.end());
+		if(temp == "") continue;
 		remoteActorNameList.push_back(temp);
 	}
 	
@@ -221,10 +235,13 @@ void ActorGraph::syncActors()
     //clean up
 	ASSERT (gaspi_segment_delete(segment_id_loc_size) );
 	ASSERT (gaspi_segment_delete(segment_id_rem_size) );
-	ASSERT (gaspi_segment_delete(segment_id_loc_array ) );
+	if(localActorRefList.size() > 0) ASSERT (gaspi_segment_delete(segment_id_loc_array ) );
 	ASSERT (gaspi_segment_delete(segment_id_rem_array ) );
-	ASSERT (gaspi_segment_delete(segment_id_loc_names ) );
+	if(localActorRefList.size() > 0) ASSERT (gaspi_segment_delete(segment_id_loc_names ) );
 	ASSERT (gaspi_segment_delete(segment_id_rem_names ) );
+
+	if(threadRank == 0)
+		printActors();
 
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
 }
@@ -473,7 +490,10 @@ void ActorGraph::finalizeInitialization()
 
 double ActorGraph::run()
 {
-	this->finalizeInitialization();
+	if(localActorRefList.size() != 0)
+	{
+		this->finalizeInitialization();
+	}
 	//trigger all local actors
 	for (int i = 0; i < localActorRefList.size(); i++)
 	{
@@ -501,7 +521,7 @@ double ActorGraph::run()
 		if(finished)
 		{
 			//gaspi_printf("Rank %d done running.\n",threadRank);
-			clearDataAreas();
+			if(localActorRefList.size() > 0) clearDataAreas();
 			auto end = std::chrono::steady_clock::now();
 			double runTime = std::chrono::duration<double, std::ratio<1>>(end - start).count();
 			return runTime;
