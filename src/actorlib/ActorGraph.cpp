@@ -238,9 +238,9 @@ void ActorGraph::syncActors()
     //clean up
 	ASSERT (gaspi_segment_delete(segment_id_loc_size) );
 	ASSERT (gaspi_segment_delete(segment_id_rem_size) );
-	if(localActorRefList.size() > 0) ASSERT (gaspi_segment_delete(segment_id_loc_array ) );
+	ASSERT (gaspi_segment_delete(segment_id_loc_array ) );
 	ASSERT (gaspi_segment_delete(segment_id_rem_array ) );
-	if(localActorRefList.size() > 0) ASSERT (gaspi_segment_delete(segment_id_loc_names ) );
+	ASSERT (gaspi_segment_delete(segment_id_loc_names ) );
 	ASSERT (gaspi_segment_delete(segment_id_rem_names ) );
 
 	if(threadRank == 0)
@@ -493,10 +493,7 @@ void ActorGraph::finalizeInitialization()
 
 double ActorGraph::run()
 {
-	if(localActorRefList.size() != 0)
-	{
-		this->finalizeInitialization();
-	}
+	this->finalizeInitialization();
 	//trigger all local actors
 	for (int i = 0; i < localActorRefList.size(); i++)
 	{
