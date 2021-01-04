@@ -191,7 +191,7 @@ void ActorGraph::syncActors()
 	         );
 		localOffset += actorElemSize * remoteNoActors[i];
 	}
-	if(threadRank == 0) gaspi_printf("FQ2\n");
+	//if(threadRank == 0) gaspi_printf("FQ2\n");
 	gpi_util::wait_for_flush_queues();
 	//read in names
 	localOffset = 0;
