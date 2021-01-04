@@ -4,7 +4,7 @@
 #SBATCH -D ./
 #SBATCH --get-user-env
 #SBATCH --clusters=cm2
-#SBATCH --partition=cm2
+#SBATCH --partition=cm2_std
 #SBATCH --nodes=16
 #SBATCH --tasks-per-node=28
 #SBATCH --mail-type=all

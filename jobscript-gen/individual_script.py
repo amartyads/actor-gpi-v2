@@ -65,7 +65,7 @@ upcxx-run -n {totRanks} ./pond -x {xlen} -y {ylen} -p {patchSize} -e 1 -c 1 --sc
 
 def generateGPI(jobName, numNodes, xlen, ylen, patchSize):
     cluster = 'cm2' if numNodes > 2 else 'cm2_tiny'
-    partition = 'cm2_tiny' if cluster == 'cm2_tiny' else 'cm2_large' if numNodes > 24 else 'cm2'
+    partition = 'cm2_tiny' if cluster == 'cm2_tiny' else 'cm2_large' if numNodes > 24 else 'cm2_std'
     numTasksPerNode = 28
     buildDir = homeDir + '/actor-gpi-v2/build'
     totRanks = numNodes * numTasksPerNode
@@ -84,7 +84,7 @@ def generateGPI(jobName, numNodes, xlen, ylen, patchSize):
 
 def generateUPCtask(jobName, numNodes, xlen, ylen, patchSize):
     cluster = 'cm2' if numNodes > 2 else 'cm2_tiny'
-    partition = 'cm2_tiny' if cluster == 'cm2_tiny' else 'cm2_large' if numNodes > 24 else 'cm2'
+    partition = 'cm2_tiny' if cluster == 'cm2_tiny' else 'cm2_large' if numNodes > 24 else 'cm2_std'
     numTasksPerNode = 1
     ompThreads = 28
     buildDir = homeDir + '/actor-upcxx/build'
@@ -107,7 +107,7 @@ def generateUPCtask(jobName, numNodes, xlen, ylen, patchSize):
 
 def generateUPCrank(jobName, numNodes, xlen, ylen, patchSize):
     cluster = 'cm2' if numNodes > 2 else 'cm2_tiny'
-    partition = 'cm2_tiny' if cluster == 'cm2_tiny' else 'cm2_large' if numNodes > 24 else 'cm2'
+    partition = 'cm2_tiny' if cluster == 'cm2_tiny' else 'cm2_large' if numNodes > 24 else 'cm2_std'
     numTasksPerNode = 28
     ompThreads = 1
     buildDir = homeDir + '/actor-upcxx/build'
