@@ -59,7 +59,7 @@ namespace gpi_util
 		gaspi_queue_id_t queue = 0;
 		while(queue < queue_num)
 		{
-			gaspi_printf("flushing queue %d\n",queue);
+			//gaspi_printf("flushing queue %d\n",queue);
 			success_or_exit(__FILE__, __LINE__, gaspi_wait(queue, GASPI_BLOCK));
 			++queue;
 		}
