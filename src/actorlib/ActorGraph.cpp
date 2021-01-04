@@ -157,7 +157,7 @@ void ActorGraph::syncActors()
     char* remoteNameSegment = (char *)(gpi_util::create_segment_return_ptr(segment_id_rem_names, segSize2));
 
     int localOffset = 0;
-	queue_id = 0;
+	//queue_id = 0;
 
 	//read in remote actor IDs
 	for(int i = 0; i < totNoThreads; i++)
@@ -176,7 +176,8 @@ void ActorGraph::syncActors()
 	         );
 		localOffset += actorElemSize * remoteNoActors[i];
 	}
-
+	if(threadRank == 0) gaspi_printf("FQ2\n");
+	gpi_util::wait_for_flush_queues();
 	//read in names
 	localOffset = 0;
 
@@ -196,7 +197,7 @@ void ActorGraph::syncActors()
 	         );
 		localOffset += globalMaxNameSize * remoteNoActors[i] * sizeof(char);
 	}
-	if(threadRank == 0) gaspi_printf("FQ2\n");
+	if(threadRank == 0) gaspi_printf("FQ3\n");
 	gpi_util::wait_for_flush_queues();
 	if(threadRank == 0) gaspi_printf("FQDoneeeeeeeeee\n");
 	//use segment pointer and push back actors
