@@ -35,16 +35,19 @@ int main(int argc, char *argv[])
 	num = gpi_util::get_total_ranks();
 	//std::cout << "Rank " << rank << " Num " << num << std::endl;
 
-	Actor *localActor1 = new PingPongActor();
-	Actor *localActor2 = new PingPongActor();
-	Actor *localActor3 = new PingPongActor();
-	Actor *localActor4 = new PingPongActor();
+	if(rank < 3)
+	{
+		Actor *localActor1 = new PingPongActor();
+		Actor *localActor2 = new PingPongActor();
+		Actor *localActor3 = new PingPongActor();
+		Actor *localActor4 = new PingPongActor();
 
-	//ag.addActor(localActor3);
-	ag.addActor(localActor1);
-	ag.addActor(localActor2);
-	ag.addActor(localActor3);
-	ag.addActor(localActor4);
+		//ag.addActor(localActor3);
+		ag.addActor(localActor1);
+		ag.addActor(localActor2);
+		ag.addActor(localActor3);
+		ag.addActor(localActor4);
+	}
 
 	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
 

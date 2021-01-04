@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
         localActor1 = new PrimeCalcActor(rank, 0);
     }
     
-    else
+    else if (rank == 2)
     {
         localActor1 = new PrimePrintActor(rank, 0);
     }
