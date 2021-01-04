@@ -113,7 +113,7 @@ void ActorGraph::syncActors()
 	//create segments
 	//gaspi_printf("Segment local array : %" PRIu64 "\n", actorElemSize * localActorRefList.size());
     uint64_t *localArray = (uint64_t*) (gpi_util::create_segment_return_ptr(segment_id_loc_array, actorElemSize * localActorRefList.size()));
-	//gaspi_printf("Segment local names : %" PRIu64 "\n", localActorRefList.size() * globalMaxNameSize * sizeof(char));
+	gaspi_printf("Segment local names : %" PRIu64 "\n", localActorRefList.size() * globalMaxNameSize * sizeof(char));
 	char* localNameSegment = (char *)(gpi_util::create_segment_return_ptr(segment_id_loc_names, localActorRefList.size() * globalMaxNameSize * sizeof(char)));
 	
 	//copy local IDs
@@ -153,7 +153,7 @@ void ActorGraph::syncActors()
 	//declare segs
 	//gaspi_printf("Segment remote sizes store : %" PRIu64 "\n", segSize);
     uint64_t *remoteArray = (uint64_t*) (gpi_util::create_segment_return_ptr(segment_id_rem_array, segSize));
-	//gaspi_printf("Segment remote names store : %" PRIu64 "\n", segSize2);
+	gaspi_printf("Segment remote names store : %" PRIu64 "\n", segSize2);
     char* remoteNameSegment = (char *)(gpi_util::create_segment_return_ptr(segment_id_rem_names, segSize2));
 
     int localOffset = 0;
