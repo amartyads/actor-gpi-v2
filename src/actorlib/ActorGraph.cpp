@@ -79,6 +79,8 @@ void ActorGraph::syncActors()
 
     *locSize = localActorRefList.size();
 
+	if(localActorRefList.size() == 0) gaspi_printf("no actors on rank %d \n", threadRank);
+
     gaspi_queue_id_t queue_id = 0;
     
 	//find max name size
@@ -216,9 +218,14 @@ void ActorGraph::syncActors()
 	gpi_util::wait_for_flush_queues();
 	//if(threadRank == 0) gaspi_printf("FQDoneeeeeeeeee\n");
 	//use segment pointer and push back actors
+	int negCount = 0;
 	for(int j = 0; j < (segSize/actorElemSize); j++)
 	{
-		if(remoteArray[j] == -1) continue;
+		if(remoteArray[j] == -1)
+		{
+			negCount++;
+			continue;
+		}
 		remoteActorIDList.push_back( (uint64_t) remoteArray[j]);
 	}
 	for(int i = 0; i < segSize2/sizeof(char); i+= globalMaxNameSize)
@@ -228,6 +235,8 @@ void ActorGraph::syncActors()
 		if(temp == "") continue;
 		remoteActorNameList.push_back(temp);
 	}
+	if(negCount > 0)
+		gaspi_printf("negcount %d at rank %d\n", negCount, threadRank);
 	
 	for(int i = 0; i < remoteActorIDList.size(); i++)
 	{
