@@ -5,7 +5,7 @@
 #SBATCH --get-user-env
 #SBATCH --clusters=cm2
 #SBATCH --partition=cm2_std
-#SBATCH --nodes=8
+#SBATCH --nodes=4
 #SBATCH --ntasks-per-node=28
 #SBATCH --exclude=i22r06c02s[04-05],i22r04c03s11
 #SBATCH --mail-type=end
@@ -25,4 +25,4 @@ module load gcc/8
 export OMP_NUM_THREADS=1
 
 gaspi_logger &
-mpiexec -n 224 --perhost 28 ./pond -x 16384 -y 16384 -p 512 -e 1 -c 1 --scenario 2 -o output/out
+mpiexec -n 112 ./pond -x 16384 -y 16384 -p 512 -e 1 -c 1 --scenario 2 -o output/out

@@ -1,0 +1,73 @@
+WARNING: ODP disabled on 112 of 112 processes which are missing support.
+         To suppress this message set environment variable
+         GASNET_ODP_VERBOSE=0 or reconfigure with --disable-ibv-odp
+         (see ibv-conduit's README for more information).
+         To see additional details set environment variable
+         GASNET_ODP_VERBOSE=2 (or higher).
+WARNING: Beginning a potentially slow probe of max pinnable memory...
+WARNING: Probe of max pinnable memory completed in 102.63s.
+WARNING:   Probe of max pinnable memory has yielded '41 GB'.
+WARNING:   If you have the same memory configuration on all nodes, then
+WARNING:   to avoid this probe in the future either reconfigure using
+WARNING:      --with-ibv-physmem-max='41 GB'
+WARNING:   or run with environment variable
+WARNING:      GASNET_PHYSMEM_MAX='41 GB'.
+WARNING: For more information see "Slow PHYSMEM probe at start-up"
+WARNING: in ibv-conduit's README.
+
+*************************************************************
+Welcome to Pond
+
+Pond Copyright (C) 2012-2018
+  Technical University of Munich
+  Department of Informatics
+  Chair of Scientific Computing
+
+Pond comes with ABSOLUTELY NO WARRANTY.
+Pond is free software, and you are welcome to redistribute it
+under certain conditions.
+Details can be found in the file 'gpl.txt'.
+*************************************************************
+#### POND Configuration ####
+Total Grid Size:          16384x16384 = 268435456 cells. (x*y)
+Patch Size:               1024x1024
+Number of checkpoints:    1
+File name Prefix:         output/out
+Scenario simulation area: {X: 0.000 - 100.000, Y: 0.000 - 100.000}
+Cell Size:                0.00610352m * 0.00610352m (dx * dy)
+UPC++ Actor Library Configuration
+=================================
+Actorlib mode:        UPC++ rank-sequential
+Git revision:         d320f4efde87758567e3c5db2b85c15afd1ac9a6-dirty
+Git revision date:    Mon Apr 20 17:35:23 2020
+Git revision message: Fix strict GCC warnings
+UPC++ install:        /dss/dsshome1/lxc06/ga53qud2/upc_new/gasnet.opt
+UPC++ codemode:       O3
+UPC++ Backend type:   Sequential Backend
+UPC++ GASNET Conduit: ibv
+Mon Jan  4 22:19:31 2021	process 0 - Directly moving the data into the destination, as the size is the same
+Mon Jan  4 22:19:31 2021	process 0 - 
+
+ 86 103  90  87  85  85  85  91  91  76  74  74  59  57  57  58 
+ 86 103  90  87  92  92  97  97  91  76  76  72  59  61  61  58 
+102 102  96  96  96  92  94  70  83  73  73  72  56  56  62  68 
+ 89  89  84  84  88  88  94  70  83  95  95  64  64  56  62  68 
+100 100  99  99  93  93 111  70  78  78  77  75  75  67  67  68 
+104 107 101 101 101  93 111 105 105  81  77  71  71  66  67  11 
+104 107 107  29 106 106 110 110  81  81  77  79  66  66  63  11 
+ 32  38  98  29 108 108 108 110  80  80   6  79  79  63  63  69 
+ 32  38  98  30  30 109   2   2   2   0   6   5   5  13  13  69 
+ 32  36  98  40  40 109  28  28  28   0   6   9  12  82  82   7 
+ 39  36  36  37   3   3  31  33   1   1   1   9  12  12   7   7 
+ 39  50  50  37  54  31  31  33  33   4   4  26  26  26   8  27 
+ 49  35  50  52  54  18  18  45  42   4  15  15  25  25   8  27 
+ 49  35  51  52  43  34  18  45  42  20  19  24  24  25  23  23 
+ 49  35  51  43  43  34  48  48  20  20  19  19  16  16  16  23 
+ 53  53  55  55  46  46  48  47  47  14  14  14  21  21  22  22 
+
+********************* Start Simulation **********************
+********************** End Simulation ***********************
+Mon Jan  4 22:33:02 2021	process 0 - Performed 1137920 patch updates in 810.982 seconds.
+Mon Jan  4 22:33:02 2021	process 0 - Performed 1193195601920 cell updates in 810.982 seconds.
+Mon Jan  4 22:33:02 2021	process 0 - => 1.4713e+09 CellUpdates/s
+Mon Jan  4 22:33:02 2021	process 0 - => 3.9725e+11 FlOps/s
