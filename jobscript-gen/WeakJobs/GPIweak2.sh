@@ -25,4 +25,4 @@ cd /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/build
 export OMP_NUM_THREADS=1
 
 gaspi_logger &
-mpiexec -n 56 --perhost 28 ./pond -x 4096 -y 4096 -p 512 -e 1 -c 1 --scenario 2 -o output/out
+mpiexec -n 56 --perhost 28 ./pond -x 4096 -y 4096 -p 256 -e 1 -c 1 --scenario 2 -o output/out
