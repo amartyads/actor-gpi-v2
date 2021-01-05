@@ -24,4 +24,4 @@ cd /dss/dsshome1/lxc06/ga53qud2/actor-upcxx/build
 
 export OMP_NUM_THREADS=1
 
-upcxx-run -n 224 ./pond -x 16384 -y 16384 -p 1024 -e 1 -c 1 --scenario 2 -o output/out
+upcxx-run -n 224 ./pond -x 16384 -y 16384 -p 512 -e 1 -c 1 --scenario 2 -o output/out

@@ -3,7 +3,7 @@ import individual_script
 numNodesArr = [1,2,4,8,16,32]
 xlen = [16384, 16384, 16384, 16384, 16384, 16384]
 ylen = [16384, 16384, 16384, 16384, 16384, 16384]
-patchSize = [2048, 2048, 1024, 1024, 512, 512]
+patchSize = [2048, 1024, 1024, 512, 512, 256]
 
 for i in range(6):
     jobtemp = 'GPIstrong' + str(numNodesArr[i])
