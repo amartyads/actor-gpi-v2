@@ -5,6 +5,7 @@
 #SBATCH --get-user-env
 #SBATCH --clusters=cm2_tiny
 #SBATCH --partition=cm2_tiny
+# no qos specification flag needed
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=28
 #SBATCH --mail-type=all

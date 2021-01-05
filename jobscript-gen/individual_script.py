@@ -10,6 +10,7 @@ gpiraw = """#!/bin/bash
 #SBATCH --get-user-env
 #SBATCH --clusters={cluster}
 #SBATCH --partition={partition}
+#{qosSpec}
 #SBATCH --nodes={numNodes}
 #SBATCH --ntasks-per-node={numTasksPerNode}
 #SBATCH --mail-type=all
@@ -40,6 +41,7 @@ upcppraw="""#!/bin/bash
 #SBATCH --get-user-env
 #SBATCH --clusters={cluster}
 #SBATCH --partition={partition}
+#{qosSpec}
 #SBATCH --nodes={numNodes}
 #SBATCH --tasks-per-node={numTasksPerNode}
 #SBATCH --mail-type=all
@@ -66,6 +68,7 @@ upcxx-run -n {totRanks} ./pond -x {xlen} -y {ylen} -p {patchSize} -e 1 -c 1 --sc
 def generateGPI(jobName, numNodes, xlen, ylen, patchSize):
     cluster = 'cm2' if numNodes > 2 else 'cm2_tiny'
     partition = 'cm2_tiny' if cluster == 'cm2_tiny' else 'cm2_large' if numNodes > 24 else 'cm2_std'
+    qosSpec = 'SBATCH --qos=cm2_large' if partition == 'cm2_large' else ' no qos specification flag needed'
     numTasksPerNode = 28
     buildDir = homeDir + '/actor-gpi-v2/build'
     totRanks = numNodes * numTasksPerNode
@@ -73,6 +76,7 @@ def generateGPI(jobName, numNodes, xlen, ylen, patchSize):
         jobName = jobName,
         cluster = cluster,
         partition = partition,
+        qosSpec = qosSpec,
         numNodes = numNodes,
         numTasksPerNode = numTasksPerNode,
         buildDir = buildDir,
@@ -85,6 +89,7 @@ def generateGPI(jobName, numNodes, xlen, ylen, patchSize):
 def generateUPCtask(jobName, numNodes, xlen, ylen, patchSize):
     cluster = 'cm2' if numNodes > 2 else 'cm2_tiny'
     partition = 'cm2_tiny' if cluster == 'cm2_tiny' else 'cm2_large' if numNodes > 24 else 'cm2_std'
+    qosSpec = 'SBATCH --qos=cm2_large' if partition == 'cm2_large' else ' no qos specification flag needed'
     numTasksPerNode = 1
     ompThreads = 28
     buildDir = homeDir + '/actor-upcxx/build'
@@ -94,6 +99,7 @@ def generateUPCtask(jobName, numNodes, xlen, ylen, patchSize):
         jobName = jobName,
         cluster = cluster,
         partition = partition,
+        qosSpec = qosSpec,
         numNodes = numNodes,
         numTasksPerNode = numTasksPerNode,
         buildDir = buildDir,
@@ -108,6 +114,7 @@ def generateUPCtask(jobName, numNodes, xlen, ylen, patchSize):
 def generateUPCrank(jobName, numNodes, xlen, ylen, patchSize):
     cluster = 'cm2' if numNodes > 2 else 'cm2_tiny'
     partition = 'cm2_tiny' if cluster == 'cm2_tiny' else 'cm2_large' if numNodes > 24 else 'cm2_std'
+    qosSpec = 'SBATCH --qos=cm2_large' if partition == 'cm2_large' else ' no qos specification flag needed'
     numTasksPerNode = 28
     ompThreads = 1
     buildDir = homeDir + '/actor-upcxx/build'
@@ -117,6 +124,7 @@ def generateUPCrank(jobName, numNodes, xlen, ylen, patchSize):
         jobName = jobName,
         cluster = cluster,
         partition = partition,
+        qosSpec = qosSpec,
         numNodes = numNodes,
         numTasksPerNode = numTasksPerNode,
         buildDir = buildDir,

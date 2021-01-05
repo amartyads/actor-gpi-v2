@@ -5,6 +5,7 @@
 #SBATCH --get-user-env
 #SBATCH --clusters=cm2
 #SBATCH --partition=cm2_large
+#SBATCH --qos=cm2_large
 #SBATCH --nodes=32
 #SBATCH --ntasks-per-node=28
 #SBATCH --mail-type=all
