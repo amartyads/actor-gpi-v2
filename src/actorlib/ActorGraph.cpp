@@ -193,6 +193,7 @@ void ActorGraph::syncActors()
 	         );
 		localOffset += actorElemSize * remoteNoActors[i];
 	}
+	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
 	//if(threadRank == 0) gaspi_printf("FQ2\n");
 	gpi_util::wait_for_flush_queues();
 	//read in names
@@ -214,6 +215,7 @@ void ActorGraph::syncActors()
 	         );
 		localOffset += globalMaxNameSize * remoteNoActors[i] * sizeof(char);
 	}
+	ASSERT (gaspi_barrier (GASPI_GROUP_ALL, GASPI_BLOCK));
 	//if(threadRank == 0) gaspi_printf("FQ3\n");
 	gpi_util::wait_for_flush_queues();
 	//if(threadRank == 0) gaspi_printf("FQDoneeeeeeeeee\n");
