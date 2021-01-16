@@ -1,0 +1,89 @@
+WARNING: ODP disabled on 112 of 112 processes which are missing support.
+         To suppress this message set environment variable
+         GASNET_ODP_VERBOSE=0 or reconfigure with --disable-ibv-odp
+         (see ibv-conduit's README for more information).
+         To see additional details set environment variable
+         GASNET_ODP_VERBOSE=2 (or higher).
+WARNING: Beginning a potentially slow probe of max pinnable memory...
+WARNING: Probe of max pinnable memory completed in 99.0441s.
+WARNING:   Probe of max pinnable memory has yielded '41 GB'.
+WARNING:   If you have the same memory configuration on all nodes, then
+WARNING:   to avoid this probe in the future either reconfigure using
+WARNING:      --with-ibv-physmem-max='41 GB'
+WARNING:   or run with environment variable
+WARNING:      GASNET_PHYSMEM_MAX='41 GB'.
+WARNING: For more information see "Slow PHYSMEM probe at start-up"
+WARNING: in ibv-conduit's README.
+
+*************************************************************
+Welcome to Pond
+
+Pond Copyright (C) 2012-2018
+  Technical University of Munich
+  Department of Informatics
+  Chair of Scientific Computing
+
+Pond comes with ABSOLUTELY NO WARRANTY.
+Pond is free software, and you are welcome to redistribute it
+under certain conditions.
+Details can be found in the file 'gpl.txt'.
+*************************************************************
+#### POND Configuration ####
+Total Grid Size:          4096x8192 = 33554432 cells. (x*y)
+Patch Size:               256x256
+Number of checkpoints:    1
+File name Prefix:         output/out
+Scenario simulation area: {X: 0.000 - 100.000, Y: 0.000 - 200.000}
+Cell Size:                0.0244141m * 0.0244141m (dx * dy)
+UPC++ Actor Library Configuration
+=================================
+Actorlib mode:        UPC++ rank-sequential
+Git revision:         d320f4efde87758567e3c5db2b85c15afd1ac9a6-dirty
+Git revision date:    Mon Apr 20 17:35:23 2020
+Git revision message: Fix strict GCC warnings
+UPC++ install:        /dss/dsshome1/lxc06/ga53qud2/upc_new/gasnet.opt
+UPC++ codemode:       O3
+UPC++ Backend type:   Sequential Backend
+UPC++ GASNET Conduit: ibv
+Tue Jan  5 21:49:55 2021	process 0 - Directly moving the data into the destination, as the size is the same
+Tue Jan  5 21:49:55 2021	process 0 - 
+
+ 15  15  14  14  17  17  17  18  18   0   0   0   0   0   6   6 
+ 15  15  14  14  19  19  17  18   2   1   1   4   4   4   6   6 
+ 16  16  16  19  19  19  17  18   2   1   3   3   4   4   5   5 
+ 16  16  26  26  20  20   2   2   2   1   3   3   3  10   5   5 
+ 25  25  26  27  20  20  20  23  23   7   7  12  12  10  10  10 
+ 25  25  26  27  22  22  22  23  23   7   7  12  12  12  11  11 
+ 24  24  27  27  21  21  22   9   9   8   8  34  13  13  11  11 
+ 24  24  24  27  21  49  49   9   8   8   8  34  13  13  11  29 
+ 52  52  55  55  21  49  49   9  51  31  31  34  34  29  29  29 
+ 52  53  55  55  55  50  51  51  51  31  31  33  28  28  30  30 
+ 52  53  53  54  54  50  50  32  32  32  33  33  28  28  30  30 
+ 46  53  53  54  54  50  50  32  41  41  41  33  33  28  37  37 
+ 46  46  46  47  42  42  42  42  41  41  39  38  38  38  37  37 
+ 46  47  47  47  44  44  43  43  40  40  39  39  38  38  37  36 
+ 48  48  47  45  44  44  43  43  40  40  39  39  35  35  36  36 
+ 48  83  83  45  45  45  75  75  40  58  58  61  35  35  36  36 
+ 48  83  83  83  76  76  75  75  58  58  61  61  35  60  60  60 
+ 80  82  82  82  76  76  74  75  57  57  61  61  62  62  60  60 
+ 80  80  82  82  76  73  74  74  57  57  56  56  62  62  59  59 
+ 80  80  81  81  73  73  74  74  65  65  56  56  62  59  59  59 
+ 77  77  79  81  73  73  70  70  65  65  64  67  67  67  68  68 
+ 77  79  79  81  72  72  70  70  66  64  64  64  67  67  68  68 
+ 77  79  78  78  72  72  71  70  66  66  66 105 105 105  69  69 
+ 77  78  78  78  86  72  71  71  71  66  63  63 110 105  69 106 
+ 84  84  86  86  86  86  71  94 109  63  63  63 110 105  69 106 
+ 84  84  85  95  95  95  94  94 109 109 109 110 110 111 106 106 
+ 85  85  85  95  95  96  96  94  94 108 109 110 111 111 107 107 
+ 88  85  89  89  96  96  97  97 108 108 108 103 111 111 107 107 
+ 88  88  89  89  93  93  97  97 102 102 103 103  99  99  99 107 
+ 88  90  90  92  93  93  91  91  91 102 103 103  99  99 100 100 
+ 87  87  90  92  92  93  91  91 101 102 104 104  98  98 100 100 
+ 87  87  90  90  92 101 101 101 101 104 104 104  98  98  98 100 
+
+********************* Start Simulation **********************
+********************** End Simulation ***********************
+Tue Jan  5 21:50:17 2021	process 0 - Performed 569344 patch updates in 21.6882 seconds.
+Tue Jan  5 21:50:17 2021	process 0 - Performed 37312528384 cell updates in 21.6882 seconds.
+Tue Jan  5 21:50:17 2021	process 0 - => 1.7204e+09 CellUpdates/s
+Tue Jan  5 21:50:17 2021	process 0 - => 4.64509e+11 FlOps/s

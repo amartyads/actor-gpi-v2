@@ -1,0 +1,557 @@
+
+*************************************************************
+Welcome to Pond
+
+Pond Copyright (C) 2012-2018
+  Technical University of Munich
+  Department of Informatics
+  Chair of Scientific Computing
+
+Pond comes with ABSOLUTELY NO WARRANTY.
+Pond is free software, and you are welcome to redistribute it
+under certain conditions.
+Details can be found in the file 'gpl.txt'.
+*************************************************************
+#### POND Configuration ####
+Total Grid Size:          16384x16384 = 268435456 cells. (x*y)
+Patch Size:               512x512
+Number of checkpoints:    1
+File name Prefix:         output/out
+Scenario simulation area: {X: 0.000 - 100.000, Y: 0.000 - 100.000}
+Cell Size:                0.00610352m * 0.00610352m (dx * dy)
+Sat Jan 16 13:16:38 2021	process 0 - Size difference in the size of idx_t and mpi::rank. Copying and casting.
+Sat Jan 16 13:16:38 2021	process 0 - 
+
+ 29  29  28  28  28  26  25  25  25  25  44  44  47  47  46  46  46  77  77  77  77  78  78  95  95  95  95  98  97  97  97  97 
+ 29  29  29  28  28  26  45  45  45  25  44  44  47  47  48  46  46  76  76  77  78  78  78  94  94  94  95  98  98  98  98  97 
+ 30  30  30  30  26  26  45  45  43  43  43  44  49  47  48  84  76  76  76  79  79  79  80  94  94  93  93  99  99  96  96  96 
+ 34  36  36  30  26  31  27  27  38  43  43  49  49  49  48  84  75  75  75  79  79  80  80  80  93  93  99  99  99  96  89  89 
+ 34  36  35  35  31  31  27  27  38  38  49  49  41  41  48  84  75  75  86  86  86  80  82  82  93  87  87  87  87  96  89  89 
+ 34  36  35  35  31  33  33  27  38  38  39  40  40  41  48  84  61  86  86  85  85  82  82  82  91  92  92  92  87  87  88  89 
+ 34  36  35  32  31  33  33  37  37  37  39  40  40  41  41  84  61  61  85  85  85  91  91  91  91  92  92  90  88  88  88  88 
+ 34  11  10  32  32  32  33  37  37  39  39  39  40  42  42  42  61  61  57  57  57  83  83  83  63  63  90  90  69  88  70  70 
+ 11  11  10   6  32  32   8  13  13  13  13  23  23  42  42  24  24  24  57  57  81  81  81  83  83  63  90  90  69  69  70  70 
+ 11  11  10   6   6   8   8  13  14  15  15  23  23  21  24  24  60  58  58  58  58  81  81  64  64  63  65  69  69  62  70  68 
+  1  10  10   6   6   8   8  14  14  14  15  23  22  21  21  20  60  60  60  58  58  56  56  64  64  63  65  62  62  62  62  68 
+  1   1   1   1   0   7   7  14  15  15  15  12  22  21  21  20  60  59  59  59  56  56  56  64  65  65  65  73  73  73  73  68 
+  1   9   0   0   0   7   7  14  16  12  12  12  22  22  22  20  59  59  54  54  54  54  55  55  55  66  66  73  71  71  71  68 
+  2   9   9   9   0   7   5   5  16  16  16  12  18  19  20  20  52  52  52  51  54  50  55  55  66  66  67  67  74  71  71  68 
+  2   9   3   3 171   5   5  17  17  16  18  18  18  19  19  19  52  52  51  51  50  50  53  53  66  67  67  74  74  72  72  72 
+  2   2   3   3 171   5   4   4  17  17  17  18 161  19 145 145 145  51  51 144  50  50  53  53  67  67 132  74  74 136  72  72 
+  2 169   3 168 171 171   4   4 159 159 159 161 161 158 158 158 145 145  51 144 144 144  53 146 146 132 132 136 136 136 129 134 
+169 169 170 168 168 171   4 174 173 173 159 161 160 158 158 157 157 157 143 144 133 133 133 133 146 146 132 132 136 135 129 134 
+169 170 170 168 168 172 174 174 173 173 159 161 160 160 156 157 157 143 143 148 149 147 147 133 133 146 146 135 135 135 129 134 
+169 170 170 165 172 172 162 174 173 155 160 160 160 156 156 137 137 143 143 148 149 149 147 147 131 131 131 131 135 129 129 134 
+165 165 165 165 172 172 162 174 155 155 153 153 152 156 156 137 137 148 148 148 149 149 140 147 127 127 131 126 126 130 130 134 
+167 167 167 167 167 162 162 162 155 153 153 153 152 152 152 152 137 138 138 142 140 140 140 140 127 107 107 126 126 128 130 130 
+166 166 177 163 163 164 164 164 155 154 154 151 151 151 150 188 138 138 139 142 142 142 142 127 127 107 107 126 128 128 128 130 
+166 177 177 163 163 163 164 154 154 154 195 151 189 150 150 188 138 139 139 139 139 141 141 141 141 107 125 125 125 128 128 110 
+166 177 177 177 178 178 164 193 193 195 195 151 189 189 150 188 114 114 114 123 123 123 123 122 141 107 108 108 125 125 110 110 
+166 176 176 176 179 178 178 193 193 195 195 194 189 189 150 188 114 114 113 112 123 122 122 122 122 108 108 108 109 125 110 110 
+175 176 176 179 179 178 180 193 197 194 194 194 189 187 187 188 113 113 113 112 112 112 122 124 121 121 100 109 109 111 111 110 
+175 175 175 179 179 180 180 180 197 197 194 196 192 192 187 187 187 187 113 112 124 124 124 124 121 100 100 109 109 106 111 111 
+175 182 181 181 181 180 184 184 197 197 196 196 196 192 191 115 115 115 117 119 119 101 101 121 121 102 100 106 106 106 111 105 
+182 182 183 181 181 184 184 184 198 198 199 199 196 192 191 191 115 115 117 119 119 120 101 101 121 102 100 103 103 106 105 105 
+182 182 183 183 186 186 185 185 185 198 199 199 190 192 191 191 116 116 117 119 120 120 101 118 118 102 104 104 103 103 103 105 
+183 183 183 186 186 186 185 185 198 198 199 190 190 190 190 116 116 116 117 117 120 120 118 118 118 102 102 104 104 104 103 105 
+
+********************* Start Simulation **********************
+GASPI Logger (v1.1)
+[i22r03c04s01:  35:10] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  38:13] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  36:11] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  42:17] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  43:18] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  44:19] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  28:3] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  41:16] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  45:20] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  37:12] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  27:2] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  26:1] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  39:14] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  46:21] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  30:5] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  32:7] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  31:6] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  29:4] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  47:22] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  34:9] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  33:8] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  40:15] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  25:0] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r03c04s01:  38:13] Error string: general error
+[i22r03c04s01:  35:10] Error string: general error
+[i22r03c04s01:  42:17] Error string: general error
+[i22r03c04s01:  36:11] Error string: general error
+[i22r03c04s01:  28:3] Error string: general error
+[i22r03c04s01:  44:19] Error string: general error
+[i22r03c04s01:  41:16] Error string: general error
+[i22r03c04s01:  43:18] Error string: general error
+[i22r03c04s01:  27:2] Error string: general error
+[i22r03c04s01:  45:20] Error string: general error
+[i22r03c04s01:  26:1] Error string: general error
+[i22r03c04s01:  37:12] Error string: general error
+[i22r03c04s01:  29:4] Error string: general error
+[i22r03c04s01:  39:14] Error string: general error
+[i22r03c04s01:  32:7] Error string: general error
+[i22r03c04s01:  40:15] Error string: general error
+[i22r03c04s01:  46:21] Error string: general error
+[i22r03c04s01:  34:9] Error string: general error
+[i22r03c04s01:  30:5] Error string: general error
+[i22r03c04s01:  47:22] Error string: general error
+[i22r03c04s01:  33:8] Error string: general error
+[i22r03c04s01:  31:6] Error string: general error
+[i22r03c04s01:  25:0] Error string: general error
+[i22r04c05s05: 173:23] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/utils/gpi_utils.hpp[46]:-1
+[i22r04c05s05: 173:23] Error string: general error
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 0 PID 10582 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 1 PID 10583 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 2 PID 10584 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 3 PID 10585 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 4 PID 10586 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 5 PID 10587 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 6 PID 10588 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 100 PID 17312 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 101 PID 17313 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 102 PID 17314 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 103 PID 17315 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 104 PID 17316 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 105 PID 17317 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 106 PID 17318 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 107 PID 17319 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 108 PID 17320 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 109 PID 17321 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 110 PID 17322 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 111 PID 17323 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 112 PID 17324 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 113 PID 17325 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 114 PID 17326 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 7 PID 10589 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 8 PID 10590 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 115 PID 17327 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 116 PID 17328 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 9 PID 10591 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 10 PID 10592 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 11 PID 10593 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 12 PID 10594 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 13 PID 10595 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 50 PID 22019 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 51 PID 22020 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 52 PID 22021 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 53 PID 22022 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 54 PID 22023 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 55 PID 22024 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 56 PID 22025 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 57 PID 22026 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 58 PID 22027 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 59 PID 22028 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 60 PID 22029 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 61 PID 22030 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 62 PID 22031 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 63 PID 22032 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 64 PID 22033 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 65 PID 22034 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 66 PID 22035 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 67 PID 22036 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 68 PID 22037 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 69 PID 22038 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 70 PID 22039 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 71 PID 22040 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 72 PID 22041 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 73 PID 22042 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 74 PID 22043 RUNNING AT i22r03c04s02
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 117 PID 17329 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 118 PID 17330 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 119 PID 17331 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 120 PID 17332 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 121 PID 17333 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 122 PID 17334 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 14 PID 10596 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 15 PID 10597 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 16 PID 10598 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 17 PID 10599 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 18 PID 10600 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 19 PID 10601 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 20 PID 10602 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 21 PID 10603 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 22 PID 10604 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 23 PID 10605 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 24 PID 10606 RUNNING AT i22r03c03s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 123 PID 17335 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 124 PID 17336 RUNNING AT i22r03c06s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================

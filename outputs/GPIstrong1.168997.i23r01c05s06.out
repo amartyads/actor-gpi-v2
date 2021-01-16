@@ -1,0 +1,47 @@
+
+*************************************************************
+Welcome to Pond
+
+Pond Copyright (C) 2012-2018
+  Technical University of Munich
+  Department of Informatics
+  Chair of Scientific Computing
+
+Pond comes with ABSOLUTELY NO WARRANTY.
+Pond is free software, and you are welcome to redistribute it
+under certain conditions.
+Details can be found in the file 'gpl.txt'.
+*************************************************************
+#### POND Configuration ####
+Total Grid Size:          16384x16384 = 268435456 cells. (x*y)
+Patch Size:               1024x1024
+Number of checkpoints:    1
+File name Prefix:         output/out
+Scenario simulation area: {X: 0.000 - 100.000, Y: 0.000 - 100.000}
+Cell Size:                0.00610352m * 0.00610352m (dx * dy)
+Tue Jan  5 21:27:16 2021	process 0 - Size difference in the size of idx_t and mpi::rank. Copying and casting.
+Tue Jan  5 21:27:16 2021	process 0 - 
+
+ 0  0  2  2  2 10 10 10 10 10 10 13 13 13 12 12 
+ 0  0  2  2  2  1  1  1 10 10 10 13 13 13 12 12 
+ 0  0  2  2  2  1  1  1 11 11 11 13 13 13 12 12 
+ 0  0  5  5  5  1  1  1 11 11 11 11 13  7 12 12 
+ 0  0  5  5  5  4  4  3  3  3 11  8  8  7  7  7 
+ 6  6  6  5  5  4  4  3  3  3  3  8  8  8  7  7 
+ 6  6  6  6  4  4  4  9  9  3  3  8  8  8  7  7 
+21 21 21  6  4  4  4  9  9  9  3  8 17 17  7  7 
+21 21 21 22 22 22 22  9  9  9 17 17 17 17 19 19 
+21 21 21 22 22 22 22  9  9 17 17 17 17 19 19 19 
+27 27 27 22 22 23 23 23 23 23 18 18 18 19 19 19 
+27 27 27 25 25 25 23 23 23 23 18 18 18 20 20 20 
+27 27 27 25 25 25 15 15 15 23 18 18 18 20 20 20 
+26 26 26 25 25 25 15 15 15 16 16 16 14 20 20 20 
+26 26 26 24 24 24 24 15 15 16 16 16 14 14 14 14 
+26 26 26 24 24 24 24 24 24 16 16 16 14 14 14 14 
+
+********************* Start Simulation **********************
+********************** End Simulation ***********************
+Tue Jan  5 22:14:24 2021	process 0 - Performed 1137920 patch updates in 2820.22 seconds.
+Tue Jan  5 22:14:24 2021	process 0 - Performed 1193195601920 cell updates in 2820.22 seconds.
+Tue Jan  5 22:14:24 2021	process 0 - => 4.23086e+08 CellUpdates/s
+Tue Jan  5 22:14:24 2021	process 0 - => 1.14233e+11 FlOps/s

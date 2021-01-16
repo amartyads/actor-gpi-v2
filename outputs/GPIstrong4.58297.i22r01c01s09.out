@@ -1,0 +1,54 @@
+
+*************************************************************
+Welcome to Pond
+
+Pond Copyright (C) 2012-2018
+  Technical University of Munich
+  Department of Informatics
+  Chair of Scientific Computing
+
+Pond comes with ABSOLUTELY NO WARRANTY.
+Pond is free software, and you are welcome to redistribute it
+under certain conditions.
+Details can be found in the file 'gpl.txt'.
+*************************************************************
+#### POND Configuration ####
+Total Grid Size:          16384x16384 = 268435456 cells. (x*y)
+Patch Size:               1024x1024
+Number of checkpoints:    1
+File name Prefix:         output/out
+Scenario simulation area: {X: 0.000 - 100.000, Y: 0.000 - 100.000}
+Cell Size:                0.00610352m * 0.00610352m (dx * dy)
+Tue Jan  5 18:48:19 2021	process 0 - Size difference in the size of idx_t and mpi::rank. Copying and casting.
+Tue Jan  5 18:48:19 2021	process 0 - 
+
+ 86 103  90  87  85  85  85  91  91  76  74  74  59  57  57  58 
+ 86 103  90  87  92  92  97  97  91  76  76  72  59  61  61  58 
+102 102  96  96  96  92  94  70  83  73  73  72  56  56  62  68 
+ 89  89  84  84  88  88  94  70  83  95  95  64  64  56  62  68 
+100 100  99  99  93  93 111  70  78  78  77  75  75  67  67  68 
+104 107 101 101 101  93 111 105 105  81  77  71  71  66  67  11 
+104 107 107  29 106 106 110 110  81  81  77  79  66  66  63  11 
+ 32  38  98  29 108 108 108 110  80  80   6  79  79  63  63  69 
+ 32  38  98  30  30 109   2   2   2   0   6   5   5  13  13  69 
+ 32  36  98  40  40 109  28  28  28   0   6   9  12  82  82   7 
+ 39  36  36  37   3   3  31  33   1   1   1   9  12  12   7   7 
+ 39  50  50  37  54  31  31  33  33   4   4  26  26  26   8  27 
+ 49  35  50  52  54  18  18  45  42   4  15  15  25  25   8  27 
+ 49  35  51  52  43  34  18  45  42  20  19  24  24  25  23  23 
+ 49  35  51  43  43  34  48  48  20  20  19  19  16  16  16  23 
+ 53  53  55  55  46  46  48  47  47  14  14  14  21  21  22  22 
+
+GASPI Logger (v1.1)
+[i22r01c01s09:  17:17] no actors on rank 17 
+[i22r01c01s09:  10:10] no actors on rank 10 
+[i22r01c01s11:  60:4] no actors on rank 60 
+[i22r01c01s11:  65:9] no actors on rank 65 
+[i22r01c01s10:  44:16] no actors on rank 44 
+[i22r01c01s10:  41:13] no actors on rank 41 
+********************* Start Simulation **********************
+********************** End Simulation ***********************
+Tue Jan  5 19:02:31 2021	process 0 - Performed 1137920 patch updates in 849.645 seconds.
+Tue Jan  5 19:02:31 2021	process 0 - Performed 1193195601920 cell updates in 849.645 seconds.
+Tue Jan  5 19:02:31 2021	process 0 - => 1.40435e+09 CellUpdates/s
+Tue Jan  5 19:02:31 2021	process 0 - => 3.79173e+11 FlOps/s
