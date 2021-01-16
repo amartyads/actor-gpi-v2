@@ -7,7 +7,7 @@
 #SBATCH --partition=cm2_std
 # no qos specification flag needed
 #SBATCH --nodes=8
-#SBATCH --ntasks-per-node=28
+#SBATCH --ntasks-per-node=25
 #SBATCH --cpus-per-task=1
 #SBATCH --mail-type=all
 #SBATCH --mail-user=ga53qud@mytum.de
@@ -27,4 +27,4 @@ cd /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/build
 export OMP_NUM_THREADS=1
 
 gaspi_logger &
-mpiexec -n 224 --perhost 28 ./pond -x 16384 -y 16384 -p 512 -e 1 -c 1 --scenario 2 -o output/out
+mpiexec -n 200 --perhost 25 ./pond -x 16384 -y 16384 -p 512 -e 1 -c 1 --scenario 2 -o output/out
