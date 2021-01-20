@@ -69,7 +69,7 @@ def generateGPI(jobName, numNodes, xlen, ylen, patchSize):
     cluster = 'cm2' if numNodes > 2 else 'cm2_tiny'
     partition = 'cm2_tiny' if cluster == 'cm2_tiny' else 'cm2_large' if numNodes > 24 else 'cm2_std'
     qosSpec = 'SBATCH --qos=cm2_large' if partition == 'cm2_large' else ' no qos specification flag needed'
-    numTasksPerNode = 28
+    numTasksPerNode = 10
     buildDir = homeDir + '/actor-gpi-v2/build'
     totRanks = numNodes * numTasksPerNode
     return gpiraw.format(
@@ -91,7 +91,7 @@ def generateUPCtask(jobName, numNodes, xlen, ylen, patchSize):
     partition = 'cm2_tiny' if cluster == 'cm2_tiny' else 'cm2_large' if numNodes > 24 else 'cm2_std'
     qosSpec = 'SBATCH --qos=cm2_large' if partition == 'cm2_large' else ' no qos specification flag needed'
     numTasksPerNode = 1
-    ompThreads = 28
+    ompThreads = 10
     buildDir = homeDir + '/actor-upcxx/build'
     totRanks = numNodes * numTasksPerNode
     upcxxPath = homeDir + '/upc_new/bin'
@@ -115,7 +115,7 @@ def generateUPCrank(jobName, numNodes, xlen, ylen, patchSize):
     cluster = 'cm2' if numNodes > 2 else 'cm2_tiny'
     partition = 'cm2_tiny' if cluster == 'cm2_tiny' else 'cm2_large' if numNodes > 24 else 'cm2_std'
     qosSpec = 'SBATCH --qos=cm2_large' if partition == 'cm2_large' else ' no qos specification flag needed'
-    numTasksPerNode = 28
+    numTasksPerNode = 10
     ompThreads = 1
     buildDir = homeDir + '/actor-upcxx/build'
     totRanks = numNodes * numTasksPerNode

@@ -7,11 +7,11 @@ patchSize = [256, 256, 256, 256, 256, 256]
 
 for i in range(6):
     jobtemp = 'GPIweak' + str(numNodesArr[i])
-    f = open('./WeakJobs/' + jobtemp + '.sh', 'w')
+    f = open('./WeakJobs10/' + jobtemp + '.sh', 'w')
     f.write(individual_script.generateGPI(jobtemp, numNodesArr[i], xlen[i], ylen[i], patchSize[i]))
     f.close()
 
     jobtemp = 'UPCweak' + str(numNodesArr[i])
-    f = open('./WeakJobs/' + jobtemp + '.sh', 'w')
+    f = open('./WeakJobs10/' + jobtemp + '.sh', 'w')
     f.write(individual_script.generateUPCrank(jobtemp, numNodesArr[i], xlen[i], ylen[i], patchSize[i]))
     f.close()
