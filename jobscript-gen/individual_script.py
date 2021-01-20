@@ -13,7 +13,7 @@ gpiraw = """#!/bin/bash
 #{qosSpec}
 #SBATCH --nodes={numNodes}
 #SBATCH --ntasks-per-node={numTasksPerNode}
-#SBATCH --exclude=i22r06c05s[09-10]
+#{nodeExclude}
 #SBATCH --mail-type=all
 #SBATCH --mail-user=ga53qud@mytum.de
 #SBATCH --export=NONE
@@ -70,6 +70,7 @@ def generateGPI(jobName, numNodes, xlen, ylen, patchSize):
     cluster = 'cm2' if numNodes > 2 else 'cm2_tiny'
     partition = 'cm2_tiny' if cluster == 'cm2_tiny' else 'cm2_large' if numNodes > 24 else 'cm2_std'
     qosSpec = 'SBATCH --qos=cm2_large' if partition == 'cm2_large' else ' no qos specification flag needed'
+    nodeExclude = 'SBATCH --exclude=i22r06c05s[09-10]' if partition != 'cm2_tiny' else ' no nodes need to be excluded'
     numTasksPerNode = 10
     buildDir = homeDir + '/actor-gpi-v2/build'
     totRanks = numNodes * numTasksPerNode
@@ -80,6 +81,7 @@ def generateGPI(jobName, numNodes, xlen, ylen, patchSize):
         qosSpec = qosSpec,
         numNodes = numNodes,
         numTasksPerNode = numTasksPerNode,
+        nodeExclude = nodeExclude,
         buildDir = buildDir,
         totRanks = totRanks,
         xlen = xlen,
