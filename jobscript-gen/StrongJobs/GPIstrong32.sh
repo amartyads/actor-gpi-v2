@@ -7,11 +7,12 @@
 #SBATCH --partition=cm2_large
 #SBATCH --qos=cm2_large
 #SBATCH --nodes=32
-#SBATCH --ntasks-per-node=28
+#SBATCH --ntasks-per-node=10
+#SBATCH --exclude=i22r06c05s[09-10]
 #SBATCH --mail-type=all
 #SBATCH --mail-user=ga53qud@mytum.de
 #SBATCH --export=NONE
-#SBATCH --time=03:00:00
+#SBATCH --time=00:15:00
   
 module load slurm_setup
 
@@ -26,4 +27,4 @@ cd /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/build
 export OMP_NUM_THREADS=1
 
 gaspi_logger &
-mpiexec -n 896 --perhost 28 ./pond -x 16384 -y 16384 -p 256 -e 1 -c 1 --scenario 2 -o output/out
+mpiexec -n 320 --perhost 10 ./pond -x 16384 -y 16384 -p 256 -e 1 -c 1 --scenario 2 -o output/out
