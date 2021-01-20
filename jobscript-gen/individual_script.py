@@ -13,6 +13,7 @@ gpiraw = """#!/bin/bash
 #{qosSpec}
 #SBATCH --nodes={numNodes}
 #SBATCH --ntasks-per-node={numTasksPerNode}
+#SBATCH --exclude=i22r06c05s[09-10]
 #SBATCH --mail-type=all
 #SBATCH --mail-user=ga53qud@mytum.de
 #SBATCH --export=NONE
