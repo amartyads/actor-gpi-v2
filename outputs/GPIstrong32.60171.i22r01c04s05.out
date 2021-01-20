@@ -1,0 +1,426 @@
+[Rank   44]: Error 11 (Resource temporarily unavailable) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  363]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 216
+GASPI Logger (v1.1)
+[i22r04c04s09: 363:3] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c04s09: 363:3] Error string: general error
+[Rank  520]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 363
+[i22r06c04s05: 520:16] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s05: 520:16] Error string: general error
+[Rank  357]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  351]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  346]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  490]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 323
+[i22r06c04s04: 490:4] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s04: 490:4] Error string: general error
+[Rank  491]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 323
+[i22r06c04s04: 491:5] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s04: 491:5] Error string: general error
+[Rank  493]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 323
+[Rank  492]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 323
+[i22r06c04s04: 493:7] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s04: 492:6] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s04: 493:7] Error string: general error
+[i22r06c04s04: 492:6] Error string: general error
+[Rank  485]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 320
+[i22r06c04s03: 485:17] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[Rank  474]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 308
+[i22r06c04s03: 474:6] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s03: 485:17] Error string: general error
+[i22r06c04s03: 474:6] Error string: general error
+[Rank  476]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 310
+[Rank  484]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 319
+[i22r06c04s03: 484:16] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s03: 476:8] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[Rank  477]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 311
+[i22r06c04s03: 477:9] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s03: 484:16] Error string: general error
+[i22r06c04s03: 476:8] Error string: general error
+[i22r06c04s03: 477:9] Error string: general error
+[Rank  482]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 315
+[i22r06c04s03: 482:14] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s03: 482:14] Error string: general error
+[Rank  478]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 312
+[i22r06c04s03: 478:10] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s03: 478:10] Error string: general error
+[Rank  479]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 313
+[i22r06c04s03: 479:11] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[Rank  483]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 316
+[i22r06c04s03: 479:11] Error string: general error
+[Rank  480]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 313
+[i22r06c04s03: 483:15] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s03: 483:15] Error string: general error
+[i22r06c04s03: 480:12] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[Rank  481]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 314
+[i22r06c04s03: 480:12] Error string: general error
+[i22r06c04s03: 481:13] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s03: 481:13] Error string: general error
+[Rank  475]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 309
+[i22r06c04s03: 475:7] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s03: 475:7] Error string: general error
+[Rank  473]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 307
+[Rank  470]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 306
+[i22r06c04s03: 473:5] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s03: 470:2] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s03: 472:4] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[Rank  467]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 306
+[Rank  472]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 307
+[i22r06c04s03: 473:5] Error string: general error
+[i22r06c04s02: 467:17] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s03: 472:4] Error string: general error
+[i22r06c04s03: 470:2] Error string: general error
+[i22r06c04s02: 467:17] Error string: general error
+[Rank  471]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 306
+[i22r06c04s03: 471:3] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s03: 471:3] Error string: general error
+[Rank  337]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  340]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  325]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  326]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  295]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  341]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  298]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  303]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  296]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  305]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  299]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  301]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank   79]: Error 11 (Resource temporarily unavailable) at (GPI2_SN.c:1605):Failed to read with 243
+
+[Rank  392]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 244
+[i22r04c04s10: 392:14] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c04s10: 392:14] Error string: general error
+[Rank  385]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 237
+[i22r04c04s10: 385:7] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c04s10: 385:7] Error string: general error
+[Rank   77]: Error at (GPI2_SN.c:1419):Erroneous event.
+[Rank   72]: Error at (GPI2_SN.c:1419):Erroneous event.
+[Rank  386]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 240
+[Rank  391]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 242
+[i22r04c04s10: 386:8] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c04s10: 391:13] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c04s10: 391:13] Error string: general error
+[i22r04c04s10: 386:8] Error string: general error
+[Rank  382]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 234
+[i22r04c04s10: 382:4] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c04s10: 382:4] Error string: general error
+[Rank  383]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 235
+[Rank  395]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 245
+[i22r04c04s10: 383:5] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c04s10: 395:17] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c04s10: 395:17] Error string: general error
+[i22r04c04s10: 383:5] Error string: general error
+[Rank  399]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 248
+[i22r05c02s06: 399:3] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r05c02s06: 399:3] Error string: general error
+[Rank  396]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 245
+[Rank  400]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 250
+[i22r05c02s06: 396:0] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[Rank  397]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 247
+[i22r05c02s06: 400:4] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r05c02s06: 396:0] Error string: general error
+[i22r05c02s06: 397:1] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r05c02s06: 400:4] Error string: general error
+[i22r05c02s06: 397:1] Error string: general error
+[Rank  390]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 242
+[Rank  346]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 198
+[i22r04c04s10: 390:12] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c04s10: 390:12] Error string: general error
+[Rank  388]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 239
+[i22r04c04s10: 388:10] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c04s10: 388:10] Error string: general error
+[i22r04c03s08: 346:4] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c03s08: 346:4] Error string: general error
+[Rank  546]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 385
+[i22r06c04s07: 546:6] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s07: 546:6] Error string: general error
+[Rank  544]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 383
+[i22r06c04s07: 544:4] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s07: 544:4] Error string: general error
+[Rank  552]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 391
+[i22r06c04s07: 552:12] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s07: 552:12] Error string: general error
+[Rank  543]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 382
+[Rank  547]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 386
+[i22r06c04s07: 543:3] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s07: 547:7] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s07: 543:3] Error string: general error
+[i22r06c04s07: 547:7] Error string: general error
+[Rank  551]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 390
+[i22r06c04s07: 551:11] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[Rank  564]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 399
+[i22r06c04s07: 551:11] Error string: general error
+[i22r06c04s08: 564:6] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s08: 564:6] Error string: general error
+[Rank  565]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 400
+[Rank  560]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 396
+[Rank  566]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 400
+[i22r06c04s08: 566:8] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s08: 565:7] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s08: 560:2] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[Rank  553]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 392
+[Rank  562]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 397
+[i22r06c04s08: 566:8] Error string: general error
+[i22r06c04s08: 560:2] Error string: general error
+[i22r06c04s08: 565:7] Error string: general error
+[i22r06c04s08: 562:4] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s07: 553:13] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s08: 562:4] Error string: general error
+[i22r06c04s07: 553:13] Error string: general error
+[Rank  561]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 396
+[i22r06c04s08: 561:3] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s08: 561:3] Error string: general error
+[Rank  556]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 395
+[Rank  557]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 395
+[i22r06c04s07: 556:16] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s07: 557:17] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s07: 556:16] Error string: general error
+[i22r06c04s07: 557:17] Error string: general error
+[Rank  549]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 388
+[i22r06c04s07: 549:9] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s07: 549:9] Error string: general error
+[Rank  558]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 395
+[Rank  559]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 395
+[i22r06c04s08: 559:1] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s08: 558:0] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s08: 559:1] Error string: general error
+[i22r06c04s08: 558:0] Error string: general error
+[Rank  538]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 379
+[i22r06c04s06: 538:16] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s06: 538:16] Error string: general error
+[Rank  539]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 380
+[i22r06c04s06: 539:17] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s06: 539:17] Error string: general error
+[Rank  537]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 378
+[i22r06c04s06: 537:15] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s06: 537:15] Error string: general error
+[Rank  406]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  401]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  297]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  446]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 288
+[i22r06c04s01: 446:14] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r06c04s01: 446:14] Error string: general error
+[Rank  293]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  292]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  364]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  402]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  271]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  304]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  303]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  282]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  290]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  305]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  406]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 256
+[i22r05c02s06: 406:10] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r05c02s06: 406:10] Error string: general error
+[Rank  289]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank   31]: Error at (GPI2_SN.c:1419):Erroneous event.
+[Rank  350]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 201
+[i22r04c03s08: 350:8] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c03s08: 350:8] Error string: general error
+[Rank  280]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  287]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  286]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  233]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  207]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  264]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  258]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  199]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  209]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  284]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  207]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  286]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  420]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 264
+[i22r05c02s07: 420:6] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r05c02s07: 420:6] Error string: general error
+[Rank  286]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank   78]: Error at (GPI2_SN.c:1419):Erroneous event.
+[Rank  417]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 263
+[i22r05c02s07: 417:3] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r05c02s07: 417:3] Error string: general error
+[Rank   99]: Error at (GPI2_SN.c:1419):Erroneous event.
+[Rank  419]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 263
+[i22r05c02s07: 419:5] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r05c02s07: 419:5] Error string: general error
+[Rank  421]: Error at (GPI2_SN.c:725):Failed to read from 265
+[Rank  423]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 265
+[i22r05c02s07: 421:7] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r05c02s07: 423:9] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r05c02s07: 423:9] Error string: general error
+[i22r05c02s07: 421:7] Error string: general error
+[Rank  414]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 259
+[Rank  101]: Error at (GPI2_SN.c:1419):Erroneous event.
+[Rank  416]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 260
+[i22r05c02s07: 414:0] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r05c02s07: 416:2] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r05c02s07: 414:0] Error string: general error
+[i22r05c02s07: 416:2] Error string: general error
+[Rank  422]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 266
+[i22r05c02s07: 422:8] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r05c02s07: 422:8] Error string: general error
+[Rank  280]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank   24]: Error at (GPI2_SN.c:1419):Erroneous event.
+[Rank  274]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  277]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  279]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  374]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 218
+[i22r04c04s09: 374:14] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c04s09: 374:14] Error string: general error
+[Rank  219]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank  221]: Error 12 (Cannot allocate memory) at (GPI2_SN.c:1419):Erroneous event.
+[Rank   36]: Error at (GPI2_SN.c:1419):Erroneous event.
+[Rank   89]: Error at (GPI2_SN.c:1419):Erroneous event.
+[Rank   80]: Error at (GPI2_SN.c:1419):Erroneous event.
+[Rank  340]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 191
+[i22r04c03s07: 340:16] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c03s07: 340:16] Error string: general error
+[Rank   20]: Error at (GPI2_SN.c:1419):Erroneous event.
+[Rank  328]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 181
+[i22r04c03s07: 328:4] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c03s07: 328:4] Error string: general error
+[Rank  339]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 190
+[i22r04c03s07: 339:15] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c03s07: 339:15] Error string: general error
+[Rank  338]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 189
+[Rank  329]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 183
+[i22r04c03s07: 329:5] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c03s07: 338:14] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c03s07: 329:5] Error string: general error
+[i22r04c03s07: 338:14] Error string: general error
+[Rank  330]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 183
+[Rank  167]: Error 104 (Connection reset by peer) at (GPI2_SN.c:1162):Failed to read from 183 (56 354 0x26ef6b8 72)
+[Rank  167]: Error 104 (Connection reset by peer) at (GPI2_GRP.c:699):Failed to commit to rank 183
+[Rank  173]: Error 104 (Connection reset by peer) at (GPI2_SN.c:1162):Failed to read from 189 (56 93 0x18cb638 72)
+[Rank  173]: Error 104 (Connection reset by peer) at (GPI2_GRP.c:699):Failed to commit to rank 189
+[i22r04c03s07: 330:6] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[Rank  174]: Error 104 (Connection reset by peer) at (GPI2_SN.c:1162):Failed to read from 182 (56 185 0x1da35a0 72)
+[Rank  174]: Error 104 (Connection reset by peer) at (GPI2_GRP.c:699):Failed to commit to rank 182
+[Rank  175]: Error 104 (Connection reset by peer) at (GPI2_SN.c:1162):Failed to read from 183 (56 186 0x169b488 72)
+[Rank  175]: Error 104 (Connection reset by peer) at (GPI2_GRP.c:699):Failed to commit to rank 183
+[i22r04c02s10: 173:11] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c03s07: 330:6] Error string: general error
+[i22r04c02s10: 175:13] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c02s10: 167:5] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c02s10: 174:12] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c02s10: 173:11] Error string: general error
+[i22r04c02s10: 167:5] Error string: general error
+[i22r04c02s10: 175:13] Error string: general error
+[i22r04c02s10: 174:12] Error string: general error
+[Rank  332]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 185
+[Rank  334]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 186
+[i22r04c03s07: 332:8] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c03s07: 334:10] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c03s07: 334:10] Error string: general error
+[Rank  333]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 185
+[i22r04c03s07: 332:8] Error string: general error
+[i22r04c03s07: 335:11] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[Rank  169]: Error 104 (Connection reset by peer) at (GPI2_SN.c:1162):Failed to read from 185 (56 175 0x203b5f8 72)
+[Rank  169]: Error 104 (Connection reset by peer) at (GPI2_GRP.c:699):Failed to commit to rank 185
+[Rank  335]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 186
+[Rank  170]: Error 104 (Connection reset by peer) at (GPI2_SN.c:1162):Failed to read from 186 (56 181 0x2195630 72)
+[Rank  170]: Error 104 (Connection reset by peer) at (GPI2_GRP.c:699):Failed to commit to rank 186
+[Rank  177]: Error 104 (Connection reset by peer) at (GPI2_SN.c:1162):Failed to read from 185 (56 94 0x280a718 72)
+[Rank  177]: Error 104 (Connection reset by peer) at (GPI2_GRP.c:699):Failed to commit to rank 185
+[i22r04c03s07: 333:9] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c03s07: 335:11] Error string: general error
+[i22r04c03s07: 333:9] Error string: general error
+[Rank  331]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 184
+[i22r04c02s10: 170:8] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c02s10: 169:7] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c02s10: 177:15] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[Rank  327]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 180
+[i22r04c03s07: 331:7] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c02s10: 169:7] Error string: general error
+[i22r04c02s10: 177:15] Error string: general error
+[i22r04c02s10: 170:8] Error string: general error
+[Rank  168]: Error 104 (Connection reset by peer) at (GPI2_SN.c:1162):Failed to read from 184 (56 201 0x2524880 72)
+[Rank  168]: Error 104 (Connection reset by peer) at (GPI2_GRP.c:699):Failed to commit to rank 184
+[i22r04c03s07: 331:7] Error string: general error
+[i22r04c03s07: 327:3] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c02s10: 168:6] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c03s07: 327:3] Error string: general error
+[i22r04c02s10: 168:6] Error string: general error
+[Rank  172]: Error 104 (Connection reset by peer) at (GPI2_SN.c:1162):Failed to read from 180 (56 181 0x1d544b0 72)
+[Rank  172]: Error 104 (Connection reset by peer) at (GPI2_GRP.c:699):Failed to commit to rank 180
+[Rank  176]: Error 104 (Connection reset by peer) at (GPI2_SN.c:1162):Failed to read from 180 (56 190 0x20bb840 72)
+[Rank  341]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 192
+[Rank  176]: Error 104 (Connection reset by peer) at (GPI2_GRP.c:699):Failed to commit to rank 180
+[Rank  178]: Error 104 (Connection reset by peer) at (GPI2_SN.c:1162):Failed to read from 180 (56 185 0x24f0730 72)
+[Rank  178]: Error 104 (Connection reset by peer) at (GPI2_GRP.c:699):Failed to commit to rank 180
+[i22r04c02s10: 172:10] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c02s10: 176:14] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c02s10: 178:16] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c03s07: 341:17] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c02s10: 172:10] Error string: general error
+[Rank  179]: Error 104 (Connection reset by peer) at (GPI2_SN.c:1162):Failed to read from 180 (56 188 0x2635790 72)
+[Rank  179]: Error 104 (Connection reset by peer) at (GPI2_GRP.c:699):Failed to commit to rank 180
+[i22r04c02s10: 176:14] Error string: general error
+[i22r04c02s10: 178:16] Error string: general error
+[i22r04c02s10: 179:17] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c03s07: 341:17] Error string: general error
+[i22r04c02s10: 179:17] Error string: general error
+[Rank  336]: Error at (GPI2_SN.c:725):Failed to read from 188
+[Rank  337]: Error 104 (Connection reset by peer) at (GPI2_SN.c:725):Failed to read from 188
+[i22r04c03s07: 336:12] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c03s07: 337:13] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[57]:-1
+[i22r04c03s07: 336:12] Error string: general error
+[i22r04c03s07: 337:13] Error string: general error
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 563 PID 15604 RUNNING AT i22r06c04s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 567 PID 15608 RUNNING AT i22r06c04s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 568 PID 15609 RUNNING AT i22r06c04s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 569 PID 15610 RUNNING AT i22r06c04s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 570 PID 15611 RUNNING AT i22r06c04s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 571 PID 15612 RUNNING AT i22r06c04s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 572 PID 15613 RUNNING AT i22r06c04s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 573 PID 15614 RUNNING AT i22r06c04s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 574 PID 15615 RUNNING AT i22r06c04s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 575 PID 15616 RUNNING AT i22r06c04s08
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
