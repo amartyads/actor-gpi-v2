@@ -70,7 +70,7 @@ def generateGPI(jobName, numNodes, xlen, ylen, patchSize):
     cluster = 'cm2' if numNodes > 2 else 'cm2_tiny'
     partition = 'cm2_tiny' if cluster == 'cm2_tiny' else 'cm2_large' if numNodes > 24 else 'cm2_std'
     qosSpec = 'SBATCH --qos=cm2_large' if partition == 'cm2_large' else ' no qos specification flag needed'
-    nodeExclude = 'SBATCH --exclude=i22r06c05s[09-10]' if partition != 'cm2_tiny' else ' no nodes need to be excluded'
+    nodeExclude = 'SBATCH --exclude=i22r06c05s[09-10],i22r07c04s12' if partition != 'cm2_tiny' else ' no nodes need to be excluded'
     numTasksPerNode = 10
     buildDir = homeDir + '/actor-gpi-v2/build'
     totRanks = numNodes * numTasksPerNode
