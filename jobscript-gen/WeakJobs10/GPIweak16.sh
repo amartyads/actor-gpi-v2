@@ -12,7 +12,7 @@
 #SBATCH --mail-type=all
 #SBATCH --mail-user=ga53qud@mytum.de
 #SBATCH --export=NONE
-#SBATCH --time=03:00:00
+#SBATCH --time=00:08:00
   
 module load slurm_setup
 

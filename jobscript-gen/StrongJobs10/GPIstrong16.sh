@@ -8,11 +8,11 @@
 # no qos specification flag needed
 #SBATCH --nodes=16
 #SBATCH --ntasks-per-node=10
-#SBATCH --exclude=i22r06c05s[09-10]
+#SBATCH --exclude=i22r06c05s[09-10],i22r05c03s01
 #SBATCH --mail-type=all
 #SBATCH --mail-user=ga53qud@mytum.de
 #SBATCH --export=NONE
-#SBATCH --time=03:00:00
+#SBATCH --time=00:10:00
   
 module load slurm_setup
 

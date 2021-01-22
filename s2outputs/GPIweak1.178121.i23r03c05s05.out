@@ -1,0 +1,39 @@
+
+*************************************************************
+Welcome to Pond
+
+Pond Copyright (C) 2012-2018
+  Technical University of Munich
+  Department of Informatics
+  Chair of Scientific Computing
+
+Pond comes with ABSOLUTELY NO WARRANTY.
+Pond is free software, and you are welcome to redistribute it
+under certain conditions.
+Details can be found in the file 'gpl.txt'.
+*************************************************************
+#### POND Configuration ####
+Total Grid Size:          2048x4096 = 8388608 cells. (x*y)
+Patch Size:               256x256
+Number of checkpoints:    1
+File name Prefix:         output/out
+Scenario simulation area: {X: 0.000 - 100.000, Y: 0.000 - 200.000}
+Cell Size:                0.0488281m * 0.0488281m (dx * dy)
+Thu Jan 21 19:19:17 2021	process 0 - Size difference in the size of idx_t and mpi::rank. Copying and casting.
+Thu Jan 21 19:19:17 2021	process 0 - 
+
+9 9 9 9 9 7 7 7 9 9 9 9 9 7 7 7 
+9 9 9 9 9 7 7 7 8 8 8 9 9 7 7 7 
+8 8 8 9 9 7 7 7 8 8 8 8 8 7 7 7 
+8 8 8 8 8 7 7 7 8 8 8 8 8 6 6 6 
+8 8 8 8 8 6 6 6 5 5 5 5 6 6 6 6 
+5 5 5 5 6 6 6 6 5 5 5 5 6 6 6 6 
+5 5 5 5 6 6 6 6 5 5 5 5 0 0 6 6 
+5 5 5 5 0 0 6 6 1 1 1 0 0 0 0 0 
+
+********************* Start Simulation **********************
+********************** End Simulation ***********************
+Thu Jan 21 19:19:46 2021	process 0 - Performed 71168 patch updates in 28.1907 seconds.
+Thu Jan 21 19:19:46 2021	process 0 - Performed 4664066048 cell updates in 28.1907 seconds.
+Thu Jan 21 19:19:46 2021	process 0 - => 1.65447e+08 CellUpdates/s
+Thu Jan 21 19:19:46 2021	process 0 - => 4.46706e+10 FlOps/s

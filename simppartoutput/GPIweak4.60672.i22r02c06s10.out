@@ -1,0 +1,125 @@
+Thu Jan 21 16:52:36 2021	process 31 - 16/ sqrt(40) = 2.52982
+Thu Jan 21 16:52:36 2021	process 31 - 2
+Thu Jan 21 16:52:36 2021	process 23 - 16/ sqrt(40) = Thu Jan 21 16:52:36 2021	process 15 - 16/ sqrt(40) = 2.529822.52982
+
+Thu Jan 21 16:52:36 2021	process 15 - 2
+Thu Jan 21 16:52:36 2021	process 23 - 2
+Thu Jan 21 16:52:36 2021	process 39 - 16/ sqrt(40) = 2.52982
+Thu Jan 21 16:52:36 2021	process 39 - 2
+Thu Jan 21 16:52:36 2021	process 27 - 16/ sqrt(40) = 2.52982Thu Jan 21 16:52:36 2021	process 7 - 16/ sqrt(40) = 
+Thu Jan 21 16:52:36 2021	process 27 - 2
+2.52982
+Thu Jan 21 16:52:36 2021	process 7 - 2
+Thu Jan 21 16:52:36 2021	process 11 - 16/ sqrt(40) = 2.52982Thu Jan 21 16:52:36 2021	process 19 - 16/ sqrt(40) = 2.52982
+Thu Jan 21 16:52:36 2021	process 19 - 
+Thu Jan 21 16:52:36 2021	process 11 - 2
+2
+Thu Jan 21 16:52:36 2021	process 35 - 16/ sqrt(40) = 2.52982Thu Jan 21 16:52:36 2021	process 3 - 16/ sqrt(40) = 2.52982
+Thu Jan 21 16:52:36 2021	process 35 - 2
+
+Thu Jan 21 16:52:36 2021	process 3 - 2
+Thu Jan 21 16:52:36 2021	process 25 - 16/ sqrt(40) = Thu Jan 21 16:52:36 2021	process 9 - 16/ sqrt(40) = 2.529822.52982
+Thu Jan 21 16:52:36 2021	
+Thu Jan 21 16:52:36 2021	process 9 - 2
+process 25 - 2
+Thu Jan 21 16:52:36 2021	process 29 - 16/ sqrt(40) = 2.52982Thu Jan 21 16:52:36 2021	process 21 - 16/ sqrt(40) = Thu Jan 21 16:52:36 2021	process 13 - 16/ sqrt(40) = 
+Thu Jan 21 16:52:36 2021	process 29 - 2
+Thu Jan 21 16:52:36 2021	process 17 - 16/ sqrt(40) = 2.52982
+Thu Jan 21 16:52:36 2021	2.529822.52982
+Thu Jan 21 16:52:36 2021	process 13 - 2
+
+process 17 - 2
+Thu Jan 21 16:52:36 2021	process 21 - 2
+Thu Jan 21 16:52:36 2021	process 5 - 16/ sqrt(40) = 2.52982
+Thu Jan 21 16:52:36 2021	Thu Jan 21 16:52:36 2021	process 37 - 16/ sqrt(40) = 2.52982process 5 - 2
+Thu Jan 21 16:52:36 2021	process 24 - 16/ sqrt(40) = 2.52982
+Thu Jan 21 16:52:36 2021	process 16 - 16/ sqrt(40) = 
+Thu Jan 21 16:52:36 2021	process 37 - 2
+Thu Jan 21 16:52:36 2021	process 8 - 16/ sqrt(40) = 2.52982Thu Jan 21 16:52:36 2021	process 28 - 16/ sqrt(40) = 2.529822.52982
+Thu Jan 21 16:52:36 2021	process 16Thu Jan 21 16:52:36 2021	process 30 - 16/ sqrt(40) = 
+Thu Jan 21 16:52:36 2021	process 8 - 2
+Thu Jan 21 16:52:36 2021	process 24 - 2
+ - 2
+2.52982
+Thu Jan 21 16:52:36 2021	process 1 - 16/ sqrt(40) = 2.52982
+Thu Jan 21 16:52:36 2021	process 28Thu Jan 21 16:52:36 2021	process 
+Thu Jan 21 16:52:36 2021	process 1 - 2
+ - 2
+Thu Jan 21 16:52:36 2021	process 14 - 16/ sqrt(40) = Thu Jan 21 16:52:36 2021	process 30 - 2
+Thu Jan 21 16:52:36 2021	process 20 - 16/ sqrt(40) = 2.52982
+Thu Jan 21 16:52:36 2021	process 20 - 2
+Thu Jan 21 16:52:36 2021	process 10 - 16/ sqrt(40) = 33 - 16/ sqrt(Thu Jan 21 16:52:36 2021	process 22 - 16/ sqrt(40) = 2.52982
+Thu Jan 21 16:52:36 2021	process 22 - 2
+Thu Jan 21 16:52:36 2021	process 12 - 16/ sqrt(40) = 2.52982
+40) = Thu Jan 21 16:52:36 2021	process 26 - 16/ sqrt(40) = 2.52982
+Thu Jan 21 16:52:36 2021	process 26 - 2
+2.52982
+Thu Jan 21 16:52:36 2021	process 14 - 2
+2.52982
+Thu Jan 21 16:52:36 2021	process 33 - 2
+2.52982
+Thu Jan 21 16:52:36 2021	process 10 - 2
+Thu Jan 21 16:52:36 2021	process 12 - 2
+Thu Jan 21 16:52:36 2021	process 18 - 16/ sqrt(40) = 2.52982
+Thu Jan 21 16:52:36 2021	process 18 - 2
+
+*************************************************************
+Welcome to Pond
+
+Pond Copyright (C) 2012-2018
+  Technical University of Munich
+  Department of Informatics
+  Chair of Scientific Computing
+
+Pond comes with ABSOLUTELY NO WARRANTY.
+Pond is free software, and you are welcome to redistribute it
+under certain conditions.
+Details can be found in the file 'gpl.txt'.
+*************************************************************
+#### POND Configuration ####
+Total Grid Size:          4096x8192 = 33554432 cells. (x*y)
+Patch Size:               256x256
+Number of checkpoints:    1
+File name Prefix:         output/out
+Scenario simulation area: {X: 0.000 - 100.000, Y: 0.000 - 200.000}
+Cell Size:                0.0244141m * 0.0244141m (dx * dy)
+Thu Jan 21 16:52:36 2021	process 32 - 16/ sqrt(Thu Jan 21 16:52:36 2021	process 040) = 2.52982 - 16/ sqrt(40) = 2.52982
+
+Thu Jan 21 16:52:36 2021	process 0 - 2Thu Jan 21 16:52:36 2021	process 32 - 
+2
+Thu Jan 21 16:52:36 2021	
+ 0  0  0  0  0  0  1  1  1  1  1  1  2  2  2  2  2  2  3  3  3  3  3  3  4  4  4  4  4  4  5  5 
+ 2  2  3  3  3  3  3  3  4  4  4  4  4  4  5  5  0  0  0  0  0  0  1  1  1  1  1  1  2  2  2  2 
+ 0  0  0  0  0  0  1  1  1  1  1  1  2  2  2  2  2  2  3  3  3  3  3  3  4  4  4  4  4  4  5  5 
+ 2  2  3  3  3  3  3  3  4  4  4  4  4  4  5  5  5  5  5  5  5  5  6  6  6  6  6  6  7  7  7  7 
+ 5  5  5  5  5  5  6  6  6  6  6  6  7  7  7  7  7  7  8  8  8  8  8  8  9  9  9  9  9  9 10 10 
+ 7  7  8  8  8  8  8  8  9  9  9  9  9  9 10 10  5  5  5  5  5  5  6  6  6  6  6  6  7  7  7  7 
+ 5  5  5  5  5  5  6  6  6  6  6  6  7  7  7  7  7  7  8  8  8  8  8  8  9  9  9  9  9  9 10 10 
+ 7  7  8  8  8  8  8  8  9  9  9  9  9  9 10 10 10 10 10 10 10 10 11 11 11 11 11 11 12 12 12 12 
+10 10 10 10 10 10 11 11 11 11 11 11 12 12 12 12 12 12 13 13 13 13 13 13 14 14 14 14 14 14 15 15 
+12 12 13 13 13 13 13 13 14 14 14 14 14 14 15 15 10 10 10 10 10 10 11 11 11 11 11 11 12 12 12 12 
+10 10 10 10 10 10 11 11 11 11 11 11 12 12 12 12 12 12 13 13 13 13 13 13 14 14 14 14 14 14 15 15 
+12 12 13 13 13 13 13 13 14 14 14 14 14 14 15 15 15 15 15 15 15 15 16 16 16 16 16 16 17 17 17 17 
+15 15 15 15 15 15 16 16 16 16 16 16 17 17 17 17 17 17 18 18 18 18 18 18 19 19 19 19 19 19 20 20 
+17 17 18 18 18 18 18 18 19 19 19 19 19 19 20 20 15 15 15 15 15 15 16 16 16 16 16 16 17 17 17 17 
+15 15 15 15 15 15 16 16 16 16 16 16 17 17 17 17 17 17 18 18 18 18 18 18 19 19 19 19 19 19 20 20 
+17 17 18 18 18 18 18 18 19 19 19 19 19 19 20 20 20 20 20 20 20 20 21 21 21 21 21 21 22 22 22 22 
+
+Thu Jan 21 16:52:36 2021	process 34 - 16/ sqrt(40) = 2.52982Thu Jan 21 16:52:36 2021	process 4 - 16/ sqrt(40) = 2.52982
+Thu Jan 21 16:52:36 2021	process 36 - 16/ sqrt(40) = 2.52982
+Thu Jan 21 16:52:36 2021	process 36 - 2
+Thu Jan 21 16:52:36 2021	process 6 - 16/ sqrt(40) = 2.52982
+Thu Jan 21 16:52:36 2021	process 6 - 2
+
+Thu Jan 21 16:52:36 2021	process 34 - 2
+Thu Jan 21 16:52:36 2021	process 2 - 16/ sqrt(40) = 2.52982Thu Jan 21 16:52:36 2021	process Thu Jan 21 16:52:36 2021	process 4 - 2
+38 - 16/ sqrt(
+Thu Jan 21 16:52:36 2021	process 2 - 2
+40) = 2.52982
+Thu Jan 21 16:52:36 2021	process 38 - 2
+********************* Start Simulation **********************
+********************** End Simulation ***********************
+Thu Jan 21 16:53:43 2021	process 0 - Performed 569344 patch updates in 65.8306 seconds.
+Thu Jan 21 16:53:43 2021	process 0 - Performed 37312528384 cell updates in 65.8306 seconds.
+Thu Jan 21 16:53:43 2021	process 0 - => 5.66796e+08 CellUpdates/s
+Thu Jan 21 16:53:43 2021	process 0 - => 1.53035e+11 FlOps/s

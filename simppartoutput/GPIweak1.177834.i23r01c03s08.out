@@ -1,0 +1,60 @@
+Thu Jan 21 14:24:47 2021	process 7 - 8/ sqrt(10) = 2.52982
+Thu Jan 21 14:24:47 2021	process 7 - 2
+Thu Jan 21 14:24:47 2021	process 3 - 8/ sqrt(10) = 2.52982
+Thu Jan 21 14:24:47 2021	process 5 - 8/ sqrt(10) = 2.52982
+Thu Jan 21 14:24:47 2021	process 5 - 2
+Thu Jan 21 14:24:47 2021	process 3 - 2
+Thu Jan 21 14:24:47 2021	process 4 - 8/ sqrt(10) = 2.52982
+Thu Jan 21 14:24:47 2021	process 6 - 8/ sqrt(10) = 2.52982
+Thu Jan 21 14:24:47 2021	process 6 - 2
+Thu Jan 21 14:24:47 2021	process 9 - 8/ sqrt(10) = 2.52982Thu Jan 21 14:24:47 2021	process 1 - 8/ sqrt(10) = Thu Jan 21 14:24:47 2021	process 2 - 8/ sqrt(10) = Thu Jan 21 14:24:47 2021	process 4 - 2
+
+Thu Jan 21 14:24:47 2021	process 9 - 2
+2.52982
+Thu Jan 21 14:24:47 2021	process 1 - 2
+2.52982
+Thu Jan 21 14:24:47 2021	process 2 - 2
+
+*************************************************************
+Welcome to Pond
+
+Pond Copyright (C) 2012-2018
+  Technical University of Munich
+  Department of Informatics
+  Chair of Scientific Computing
+
+Pond comes with ABSOLUTELY NO WARRANTY.
+Pond is free software, and you are welcome to redistribute it
+under certain conditions.
+Details can be found in the file 'gpl.txt'.
+*************************************************************
+#### POND Configuration ####
+Total Grid Size:          2048x4096 = 8388608 cells. (x*y)
+Patch Size:               256x256
+Number of checkpoints:    1
+File name Prefix:         output/out
+Scenario simulation area: {X: 0.000 - 100.000, Y: 0.000 - 200.000}
+Cell Size:                0.0488281m * 0.0488281m (dx * dy)
+Thu Jan 21 14:24:47 2021	process 8 - 8/ sqrt(10) = Thu Jan 21 14:24:47 2021	process 0 - 2.52982
+Thu Jan 21 14:24:47 2021	process 88/ sqrt(10) = 2.52982
+Thu Jan 21 14:24:47 2021	process 0 - 2
+ - 2
+Thu Jan 21 14:24:47 2021	
+0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 
+
+GASPI Logger (v1.1)
+[i23r01c03s08:   9:9] no actors on rank 9 
+[i23r01c03s08:   8:8] no actors on rank 8 
+********************* Start Simulation **********************
+********************** End Simulation ***********************
+Thu Jan 21 14:25:20 2021	process 0 - Performed 71168 patch updates in 32.1201 seconds.
+Thu Jan 21 14:25:20 2021	process 0 - Performed 4664066048 cell updates in 32.1201 seconds.
+Thu Jan 21 14:25:20 2021	process 0 - => 1.45207e+08 CellUpdates/s
+Thu Jan 21 14:25:20 2021	process 0 - => 3.92059e+10 FlOps/s
