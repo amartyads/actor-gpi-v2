@@ -345,7 +345,7 @@ template <typename T, int capacity> void RemoteChannel <std::vector<T>, capacity
     queueLocation %= this->maxQueueSize;
     this->curQueueSize--;
 
-    if(queueLocation == 0 || queueLocation == (this->maxQueueSize / 2))
+    if(this->curQueueSize == 0 || this->curQueueSize == (this->maxQueueSize / 2))
         AbstractChannel::dataClearRequested = true;
 }
 
@@ -407,7 +407,7 @@ template <typename T, int capacity> void RemoteChannel <T, capacity> :: pushData
     queueLocation %= this->maxQueueSize;
     this->curQueueSize--;
 
-    if(queueLocation == 0 || queueLocation == (this->maxQueueSize / 2))
+    if(this->curQueueSize == 0 || this->curQueueSize == (this->maxQueueSize / 2))
         AbstractChannel::dataClearRequested = true;
 }
 
@@ -442,8 +442,10 @@ template <typename T, int capacity> uint64_t RemoteChannel <T, capacity> :: isAv
 template <typename T, int capacity> uint64_t RemoteChannel <T, capacity> :: isAvailableToPush()
 {
     if (this->curQueueSize <= 0)
+    {   
+        AbstractChannel::dataClearRequested = true;
         return 0;
-    
+    }
     //find longest datablock len in bytes
     uint64_t foundSlot = 0, temp = 0;
     for(uint64_t i = 0; i < AbstractChannel::lookupTable.size(); i++)
@@ -493,7 +495,10 @@ template <typename T, int capacity> uint64_t RemoteChannel <std::vector<T>, capa
 template <typename T, int capacity> uint64_t RemoteChannel <std::vector<T>, capacity> :: isAvailableToPush()
 {
     if (this->curQueueSize <= 0)
+    {
+        AbstractChannel::dataClearRequested = true;
         return 0;
+    }
     
     //find longest datablock len in bytes
     uint64_t foundSlot = 0, temp = 0;
