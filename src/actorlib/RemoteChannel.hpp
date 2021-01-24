@@ -285,6 +285,7 @@ template <typename T, int capacity> void RemoteChannel <std::vector<T>, capacity
     }
     //multiply index with minblocksize
     uint64_t localDatabankOffset = slot * this->minBlockSize; //blocksize includes sizeof
+    AbstractChannel::dataFullness += this->noOfDatablocksUsed;
     //write to (localCommPtr) + fixedoffset * uint64 the databank offset (index*minblocksize)
     auto commPtr = (uint64_t *)(this->fixedCommInitPtr);
     commPtr[(this->fixedDataOffset * this->maxQueueSize) + queueLocation] = localDatabankOffset;
@@ -343,6 +344,9 @@ template <typename T, int capacity> void RemoteChannel <std::vector<T>, capacity
     queueLocation++;
     queueLocation %= this->maxQueueSize;
     this->curQueueSize--;
+
+    if(queueLocation == 0 || queueLocation == (this->maxQueueSize / 2))
+        AbstractChannel::dataClearRequested = true;
 }
 
 template <typename T, int capacity> void RemoteChannel <T, capacity> :: pushData(T ndata)
@@ -370,6 +374,7 @@ template <typename T, int capacity> void RemoteChannel <T, capacity> :: pushData
     }
     //multiply index with minblocksize
     uint64_t localDatabankOffset = slot * this->minBlockSize; //blocksize includes sizeof
+    AbstractChannel::dataFullness += this->noOfDatablocksUsed;
     //write to (localCommPtr) + fixedoffset * uint64 the databank offset (index*minblocksize)
     auto commPtr = (uint64_t *)(this->fixedCommInitPtr);
     commPtr[(this->fixedDataOffset * this->maxQueueSize) + queueLocation] = localDatabankOffset;
@@ -401,6 +406,9 @@ template <typename T, int capacity> void RemoteChannel <T, capacity> :: pushData
     queueLocation++;
     queueLocation %= this->maxQueueSize;
     this->curQueueSize--;
+
+    if(queueLocation == 0 || queueLocation == (this->maxQueueSize / 2))
+        AbstractChannel::dataClearRequested = true;
 }
 
 template <typename T, int capacity> uint64_t RemoteChannel <T, capacity> :: isAvailableToPull()

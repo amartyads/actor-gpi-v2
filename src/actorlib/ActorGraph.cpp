@@ -425,6 +425,8 @@ void ActorGraph::finalizeInitialization()
 
 	// initialize block lookup array
 	AbstractChannel::lookupTable.assign(noBlocks, -1);
+	AbstractChannel::dataFullness = 0;
+	AbstractChannel::dataClearRequested = false;
 
 	//calculate max incoming block size
 	//maxIncomingBlockSize = *std::max_element(dataBlockSize.begin(), dataBlockSize.end());
@@ -499,6 +501,11 @@ void ActorGraph::finalizeInitialization()
 	}
 }
 
+float ActorGraph::dataReserved()
+{
+	return ((float)AbstractChannel::dataFullness / noBlocks);
+}
+
 double ActorGraph::run()
 {
 	this->finalizeInitialization();
@@ -571,7 +578,8 @@ double ActorGraph::run()
 		//std::cout << "Rank " <<threadRank << " Run " << runNo << " post all actors run " << std::endl;
 		//clear data banks
 		//while clearing, read the channel offset in the slot, look into the channel map and increment queue current capacity
-		clearDataAreas();
+		if(dataReserved() >= 0.5 || AbstractChannel::dataClearRequested)
+			clearDataAreas();
 	}
 	//std::cout << "Rank " <<threadRank << " Run " << runNo << " post clears " << std::endl;
 	//printLookupSegment();
@@ -585,6 +593,7 @@ double ActorGraph::run()
 
 void ActorGraph::clearDataAreas()
 {
+	AbstractChannel::dataClearRequested = false;
 	int64_t *clearPtr = (int64_t *) gasptrLocalClear;
 	int64_t *offsetPtr;
 	for(uint64_t i = 0; i < noLocalRemoteChannels * dataQueueLen; i++)
@@ -598,11 +607,13 @@ void ActorGraph::clearDataAreas()
 		int64_t chId = AbstractChannel::lookupTable[slot];
 		remoteChannelMap[chId]->curQueueSize++; 
 		AbstractChannel::lookupTable[slot] = -1;
+		AbstractChannel::dataFullness--;
 		//go thru neighbouring datablocks
 		uint64_t j = 1;
 		while(AbstractChannel::lookupTable[slot + j] == -2)
 		{
 			AbstractChannel::lookupTable[slot + j] = -1;
+			AbstractChannel::dataFullness--;
 			j++;
 		}
 		clearPtr[i] = -1;

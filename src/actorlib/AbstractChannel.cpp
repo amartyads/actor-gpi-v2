@@ -1,6 +1,8 @@
 #include "AbstractChannel.hpp"
 
 std::vector<int64_t> AbstractChannel::lookupTable;
+int64_t AbstractChannel::dataFullness = 0;
+bool AbstractChannel::dataClearRequested = false;
 
 bool AbstractChannel::compareChannelNames(AbstractChannel* a, AbstractChannel* b)
 {

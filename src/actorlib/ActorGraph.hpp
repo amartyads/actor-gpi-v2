@@ -91,6 +91,7 @@ public:
 	std::string getOffsetString();
 
 	double run();
+	float dataReserved();
 	void clearDataAreas();
 
 	ActorGraph();
