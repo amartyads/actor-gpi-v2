@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -J GPIstrong32amp
+#SBATCH -J GPIstrong32amp2
 #SBATCH -o ./%x.%j.%N.out
 #SBATCH -D ./
 #SBATCH --get-user-env
@@ -28,4 +28,4 @@ cd /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/build
 export OMP_NUM_THREADS=1
 
 gaspi_logger &
-mpiexec -n 320 --perhost 10 amplxe-cl --collect hotspots -r /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/amplifier-analysis/GPIstrong32/ampli ./pond -x 16384 -y 16384 -p 256 -e 1 -c 1 --scenario 2 -o output/out
+mpiexec -n 320 --perhost 10 amplxe-cl --collect hotspots -r /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/amplifier-analysis/GPIstrong32datac/ampli ./pond -x 16384 -y 16384 -p 256 -e 1 -c 1 --scenario 2 -o output/out
