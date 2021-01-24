@@ -25,7 +25,7 @@ void PrimeSourceActor::act()
         numList.push_back(7);
         numList.push_back(1000);
         numList.push_back(50);
-        this->triggers = 5; //one is for running now
+        this->triggers = 4; //one is for running now
     }
 
     auto port = getOutPort<int, 3>("NEXT");
