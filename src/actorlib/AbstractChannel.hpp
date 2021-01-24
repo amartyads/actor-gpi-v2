@@ -34,6 +34,8 @@ public:
 
     //statics
     static std::vector<int64_t> lookupTable;
+    static int64_t dataFullness;
+    static bool dataClearRequested;
     static bool compareChannelNames(AbstractChannel* a, AbstractChannel* b);
     static uint64_t encodeGlobID(uint64_t procNo, uint64_t actNo);
 	static std::pair<uint64_t,uint64_t> decodeGlobID(uint64_t inpGlobId);

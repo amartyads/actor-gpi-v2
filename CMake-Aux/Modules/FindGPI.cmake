@@ -1,5 +1,4 @@
 # need:
-# GPI_COMPILE_FLAGS
 # GPI_INCLUDE_PATH
 # GPI_LIBRARIES
 include (FindPackageHandleStandardArgs)
