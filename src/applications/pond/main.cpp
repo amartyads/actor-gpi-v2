@@ -54,13 +54,6 @@ int main(int argc, char **argv) {
     mpi::init();
     {
         mpi::barrier();
-        gaspi_number_t queue_max;
-        ASSERT( gaspi_queue_max(&queue_max));
-        gaspi_config_t gaspi_config;
-        ASSERT( gaspi_config_get(&gaspi_config));
-        gaspi_config.queue_num = queue_max;
-        ASSERT( gaspi_config_set(gaspi_config));
-
         ASSERT( gaspi_proc_init(GASPI_BLOCK));
         gaspi_rank_t rank = gpi_util::get_local_rank();
         initLogger(rank);
