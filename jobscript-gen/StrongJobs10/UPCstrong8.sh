@@ -8,11 +8,12 @@
 # no qos specification flag needed
 #SBATCH --nodes=8
 #SBATCH --tasks-per-node=10
+#SBATCH --exclude=i22r06c05s[09-10],i22r05c03s01,i22r04c02s01,i22r06c04s03,i22r04c01s12
 #SBATCH --mail-type=all
 #SBATCH --mail-user=ga53qud@mytum.de
 #SBATCH --export=NONE
 #SBATCH --time=03:00:00
-  
+i22r06c04s03,i22r04c01s12
 module load slurm_setup
 
 module load metis/5.1.0-intel19-i32-r32

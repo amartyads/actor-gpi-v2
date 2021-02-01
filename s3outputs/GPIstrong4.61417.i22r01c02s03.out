@@ -1,0 +1,239 @@
+
+*************************************************************
+Welcome to Pond
+
+Pond Copyright (C) 2012-2018
+  Technical University of Munich
+  Department of Informatics
+  Chair of Scientific Computing
+
+Pond comes with ABSOLUTELY NO WARRANTY.
+Pond is free software, and you are welcome to redistribute it
+under certain conditions.
+Details can be found in the file 'gpl.txt'.
+*************************************************************
+#### POND Configuration ####
+Total Grid Size:          16384x16384 = 268435456 cells. (x*y)
+Patch Size:               512x512
+Number of checkpoints:    1
+File name Prefix:         output/out
+Scenario simulation area: {X: 0.000 - 100.000, Y: 0.000 - 100.000}
+Cell Size:                0.00610352m * 0.00610352m (dx * dy)
+Tue Jan 26 06:57:28 2021	process 0 - Size difference in the size of idx_t and mpi::rank. Copying and casting.
+Tue Jan 26 06:57:28 2021	process 0 - 
+
+31 31 31 31 31 31 32 32 32 32 32 32 34 34 34 34 29 29 29 29 29 29 27 27 27 27 26 26 26 26 26 26 
+31 31 31 31 31 31 32 32 32 32 32 32 34 34 34 34 29 29 29 29 29 29 27 27 27 27 26 26 26 26 26 26 
+31 31 31 31 31 31 32 32 32 32 32 32 34 34 34 34 29 29 29 29 29 29 27 27 27 27 26 26 26 26 26 26 
+31 31 31 31 31 31 32 32 32 32 32 32 34 34 34 34 29 29 29 29 29 29 27 27 27 27 26 26 26 26 26 26 
+30 30 30 30 30 30 30 33 33 33 33 33 34 34 34 34 28 28 28 28 28 28 28 27 27 27 25 25 25 25 25 25 
+30 30 30 30 30 30 30 33 33 33 33 33 33 33 34 34 28 28 28 28 28 28 28 27 27 27 25 25 25 25 25 25 
+30 30 30 30 30 30 30 33 33 33 33 33 33 33 34 34 28 28 28 28 28 28 28 27 27 27 25 25 25 25 25 25 
+30 30 30 30 30 30 30 33 33 33 33 33 33 33 34 34 28 28 28 28 28 28 28 27 27 27 25 25 25 25 25 25 
+35 35 35 35 35 35 37 37 37 37 38 38 38 38 38 38 23 23 23 23 23 24 24 24 20 20 20 20 20 20 20 20 
+35 35 35 35 35 35 37 37 37 37 38 38 38 38 38 38 23 23 23 23 23 24 24 24 20 20 20 20 20 20 20 20 
+35 35 35 35 35 35 37 37 37 37 38 38 38 38 38 38 23 23 23 23 23 24 24 24 20 20 20 20 20 20 20 20 
+35 35 35 35 35 35 37 37 37 37 38 38 38 38 38 38 23 23 23 23 23 24 24 24 24 21 21 21 21 21 21 21 
+36 36 36 36 36 36 37 37 37 39 39 39 39 39 39 39 23 23 23 23 23 24 24 24 24 21 21 21 21 21 21 21 
+36 36 36 36 36 36 37 37 37 39 39 39 39 39 39 39 22 22 22 22 22 24 24 24 24 21 21 21 21 21 21 21 
+36 36 36 36 36 36 37 37 37 39 39 39 39 39 39 39 22 22 22 22 22 22 22 24 24 21 21 21 21 21 21 21 
+36 36 36 36 36 36 37 37 37 39 39 39 39 39 39 39 22 22 22 22 22 22 22 17 17 17 17 17 17 17 17 17 
+ 8  8  8  8  8  8  8  8  8  5  5  5  5  5  5  5 22 22 22 22 22 22 22 17 17 17 17 17 17 17 17 17 
+ 8  8  8  8  8  8  8  8  8  5  5  5  5  5  5  5 16 16 16 16 16 16 16 17 17 17 17 17 17 17 17 17 
+ 8  8  8  8  8  8  8  8  8  5  5  5  5  5  5  5 16 16 16 16 16 16 16 18 18 18 18 18 19 19 19 19 
+ 9  9  9  9  9  7  7  7  7  7  5  5  5  5  5  5 16 16 16 16 16 16 16 18 18 18 18 18 19 19 19 19 
+ 9  9  9  9  9  7  7  7  7  7  6  6  6  6  6  6 15 15 15 15 15 16 16 18 18 18 18 18 19 19 19 19 
+ 9  9  9  9  9  7  7  7  7  7  6  6  6  6  6  6 15 15 15 15 15 15 15 18 18 18 18 18 19 19 19 19 
+ 9  9  9  9  9  7  7  7  7  7  6  6  6  6  6  6 15 15 15 15 15 15 15 18 18 18 18 19 19 19 19 19 
+ 9  9  9  9  9  7  7  7  7  7  6  6  6  6  6  6 15 15 15 15 15 15 15 18 18 18 18 19 19 19 19 19 
+ 0  0  0  0  0  0  0  2  2  2  3  3  3  3  3  3 10 10 10 10 10 10 10 14 14 14 14 14 14 14 14 14 
+ 0  0  0  0  0  0  0  2  2  2  3  3  3  3  3  3 10 10 10 10 10 10 10 14 14 14 14 14 14 14 14 14 
+ 0  0  0  0  0  0  0  2  2  2  3  3  3  3  3  3 10 10 10 10 10 10 10 14 14 14 14 14 14 14 14 14 
+ 0  0  0  0  0  0  0  2  2  2  3  3  3  3  3  3 10 10 10 10 10 10 12 12 12 12 12 13 13 13 13 13 
+ 1  1  1  1  1  1  2  2  2  2  4  4  4  4  4  4 11 11 11 11 11 11 12 12 12 12 12 13 13 13 13 13 
+ 1  1  1  1  1  1  2  2  2  2  4  4  4  4  4  4 11 11 11 11 11 11 12 12 12 12 12 13 13 13 13 13 
+ 1  1  1  1  1  1  2  2  2  2  4  4  4  4  4  4 11 11 11 11 11 11 12 12 12 12 12 13 13 13 13 13 
+ 1  1  1  1  1  1  2  2  2  2  4  4  4  4  4  4 11 11 11 11 11 11 12 12 12 12 12 13 13 13 13 13 
+
+********************* Start Simulation **********************
+mlx5: i22r01c02s03: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 1002c322 56cf55d3
+GASPI Logger (v1.1)
+[i22r01c02s03:   1:1] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[137]:-1
+[i22r01c02s03:   1:1] Error string: general error
+mlx5: i22r01c02s03: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 0802c327 0236c6d3
+[i22r01c02s03:   2:2] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[343]:-1
+[i22r01c02s03:   2:2] Error string: general error
+mlx5: i22r01c02s03: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 1002c37d 053a98d3
+[i22r01c02s03:   3:3] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[478]:-1
+[i22r01c02s03:   3:3] Error string: general error
+mlx5: i22r01c02s03: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 0802c408 02c7d8d3
+[i22r01c02s03:   0:0] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[343]:-1
+[i22r01c02s03:   0:0] Error string: general error
+mlx5: i22r01c02s03: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 0802c32d 085f2ed2
+[i22r01c02s03:   4:4] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[343]:-1
+[i22r01c02s03:   4:4] Error string: general error
+mlx5: i22r01c02s03: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 1002c59e 03e419d3
+[i22r01c02s03:   7:7] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[478]:-1
+[i22r01c02s03:   7:7] Error string: general error
+mlx5: i22r01c02s04: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 10021dee 02574dd3
+[i22r01c02s04:  10:0] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[478]:-1
+[i22r01c02s04:  10:0] Error string: general error
+mlx5: i22r01c02s04: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 10021dfa 057335d2
+[i22r01c02s04:  11:1] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[478]:-1
+[i22r01c02s04:  11:1] Error string: general error
+mlx5: i22r01c02s04: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 080220d0 03fa21d3
+[i22r01c02s04:  16:6] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[343]:-1
+[i22r01c02s04:  16:6] Error string: general error
+mlx5: i22r02c05s12: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 08011ead 03b941d3
+[i22r02c05s12:  39:9] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[343]:-1
+[i22r02c05s12:  39:9] Error string: general error
+mlx5: i22r01c02s04: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 10021c60 0442bdd3
+[i22r01c02s04:  15:5] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[478]:-1
+[i22r01c02s04:  15:5] Error string: general error
+mlx5: i22r02c04s04: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 1003eb95 01d27bd3
+[i22r02c04s04:  22:2] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[478]:-1
+[i22r02c04s04:  22:2] Error string: general error
+mlx5: i22r01c02s04: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 10021b9c 01c90cd3
+[i22r01c02s04:  14:4] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[478]:-1
+[i22r01c02s04:  14:4] Error string: general error
+mlx5: i22r01c02s04: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 10021a06 013c70d3
+[i22r01c02s04:  12:2] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[478]:-1
+[i22r01c02s04:  12:2] Error string: general error
+mlx5: i22r01c02s04: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 10021a13 01be3dd3
+[i22r01c02s04:  18:8] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[478]:-1
+[i22r01c02s04:  18:8] Error string: general error
+mlx5: i22r02c04s04: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 0803e16c 05a1bdd3
+[i22r02c04s04:  24:4] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[343]:-1
+[i22r02c04s04:  24:4] Error string: general error
+mlx5: i22r02c04s04: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 1003e432 050418d2
+mlx5: i22r02c04s04: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00008813 1003eaa2 053cc8d3
+[i22r02c04s04:  23:3] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[478]:-1
+[i22r02c04s04:  29:9] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/actorlib/RemoteChannel.hpp[478]:-1
+[i22r02c04s04:  23:3] Error string: general error
+[i22r02c04s04:  29:9] Error string: general error
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 30 PID 4668 RUNNING AT i22r02c05s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 31 PID 4669 RUNNING AT i22r02c05s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 32 PID 4670 RUNNING AT i22r02c05s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 33 PID 4671 RUNNING AT i22r02c05s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 34 PID 4672 RUNNING AT i22r02c05s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 35 PID 4673 RUNNING AT i22r02c05s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 36 PID 4674 RUNNING AT i22r02c05s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 37 PID 4675 RUNNING AT i22r02c05s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 38 PID 4676 RUNNING AT i22r02c05s12
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================

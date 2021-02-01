@@ -8,7 +8,7 @@
 #SBATCH --qos=cm2_large
 #SBATCH --nodes=32
 #SBATCH --ntasks-per-node=10
-#SBATCH --exclude=i22r06c05s[09-10]
+#SBATCH --exclude=i22r06c05s[09-10],i22r04c04s10,i22r06c03s07,i22r02c05s12,i22r03c04s04,i22r02c05s10,i22r02c01s05,i22r04c01s05,i22r04c01s12
 #SBATCH --mail-type=all
 #SBATCH --mail-user=ga53qud@mytum.de
 #SBATCH --export=NONE

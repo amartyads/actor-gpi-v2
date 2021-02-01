@@ -8,7 +8,7 @@
 # no qos specification flag needed
 #SBATCH --nodes=8
 #SBATCH --ntasks-per-node=10
-#SBATCH --exclude=i22r06c05s[09-10],i22r02c05s12
+#SBATCH --exclude=i22r06c05s[09-10],i22r02c05s12,i22r03c04s04,i22r02c05s10,i22r02c01s05,i22r04c01s05,i22r04c01s06
 #SBATCH --mail-type=all
 #SBATCH --mail-user=ga53qud@mytum.de
 #SBATCH --export=NONE

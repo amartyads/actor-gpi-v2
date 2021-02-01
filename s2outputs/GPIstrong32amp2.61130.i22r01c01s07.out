@@ -1,0 +1,129 @@
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r02c06s11) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r02c05s03) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r01c05s02) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r01c02s05) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r02c05s02) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r05c05s06) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r02c01s04) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r01c01s07) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r02c01s01) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r06c04s08) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r02c01s03) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r06c04s10) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r01c02s04) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r05c05s08) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r01c06s10) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r01c05s06) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r01c04s12) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r05c05s01) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r02c02s02) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r01c06s11) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r02c06s09) will be added to the result path/name.
+amplxe: Collection started.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r01c05s03) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r05c05s07) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r01c05s01) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r01c05s05) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r02c06s10) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r02c02s01) will be added to the result path/name.
+amplxe: Collection started.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r05c04s12) will be added to the result path/name.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r01c06s12) will be added to the result path/name.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r05c04s11) will be added to the result path/name.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r02c01s02) will be added to the result path/name.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Analyzing data in the node-wide mode. The hostname (i22r06c04s09) will be added to the result path/name.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+amplxe: Collection started.
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 61130.0 ON i22r01c01s07 CANCELLED AT 2021-01-25T08:05:56 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 61130 ON i22r01c01s07 CANCELLED AT 2021-01-25T08:05:56 DUE TO TIME LIMIT ***
+srun: got SIGCONT
+srun: forcing job termination
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 130 PID 42801 RUNNING AT i22r02c01s02
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 131 PID 42802 RUNNING AT i22r02c01s02
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 132 PID 42803 RUNNING AT i22r02c01s02
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 133 PID 42804 RUNNING AT i22r02c01s02
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 134 PID 42805 RUNNING AT i22r02c01s02
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 135 PID 42806 RUNNING AT i22r02c01s02
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 136 PID 42807 RUNNING AT i22r02c01s02
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 137 PID 42808 RUNNING AT i22r02c01s02
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 138 PID 42809 RUNNING AT i22r02c01s02
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 139 PID 42810 RUNNING AT i22r02c01s02
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================

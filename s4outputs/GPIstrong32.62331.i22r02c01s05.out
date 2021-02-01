@@ -1,0 +1,45 @@
+GASPI Logger (v1.1)
+[i22r06c04s02: 313:3] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[64]:-1
+[i22r06c04s02: 313:3] Error string: general error
+[i22r06c04s01: 304:4] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[64]:-1
+[i22r06c04s01: 304:4] Error string: general error
+[i22r06c04s02: 312:2] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[64]:-1
+[i22r06c04s02: 312:2] Error string: general error
+[i22r06c04s01: 306:6] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[64]:-1
+[i22r06c04s01: 306:6] Error string: general error
+[i22r06c04s02: 310:0] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[64]:-1
+[i22r06c04s02: 310:0] Error string: general error
+[i22r06c04s01: 305:5] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[64]:-1
+[i22r06c04s01: 307:7] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[64]:-1
+[i22r06c04s01: 308:8] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[64]:-1
+[i22r06c04s01: 308:8] Error string: general error
+[i22r06c04s01: 307:7] Error string: general error
+[i22r06c04s01: 305:5] Error string: general error
+[i22r06c04s02: 311:1] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[64]:-1
+[i22r06c04s02: 311:1] Error string: general error
+[i22r06c04s01: 309:9] Assertions failed in /dss/dsshome1/lxc06/ga53qud2/actor-gpi-v2/src/applications/pond/main.cpp[64]:-1
+[i22r06c04s01: 309:9] Error string: general error
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 300 PID 13941 RUNNING AT i22r06c04s01
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 301 PID 13942 RUNNING AT i22r06c04s01
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 302 PID 13943 RUNNING AT i22r06c04s01
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 303 PID 13944 RUNNING AT i22r06c04s01
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
