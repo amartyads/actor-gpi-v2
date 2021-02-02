@@ -1,0 +1,65 @@
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 62395.0 ON i22r01c04s12 CANCELLED AT 2021-02-02T01:51:11 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 62395 ON i22r01c04s12 CANCELLED AT 2021-02-02T01:51:11 DUE TO TIME LIMIT ***
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 90 PID 18058 RUNNING AT i22r04c03s11
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 91 PID 18059 RUNNING AT i22r04c03s11
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 92 PID 18060 RUNNING AT i22r04c03s11
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 93 PID 18061 RUNNING AT i22r04c03s11
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 94 PID 18062 RUNNING AT i22r04c03s11
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 95 PID 18063 RUNNING AT i22r04c03s11
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 96 PID 18064 RUNNING AT i22r04c03s11
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 97 PID 18065 RUNNING AT i22r04c03s11
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 98 PID 18066 RUNNING AT i22r04c03s11
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+srun: got SIGCONT
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 99 PID 18067 RUNNING AT i22r04c03s11
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+srun: forcing job termination
