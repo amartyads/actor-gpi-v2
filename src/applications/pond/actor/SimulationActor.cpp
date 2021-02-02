@@ -123,7 +123,7 @@ void SimulationActor::act() {
 #endif
         receiveData();
         block.setGhostLayer();
-        block.computeNumericalFluxes();
+        //block.computeNumericalFluxes();
         block.updateUnknowns(timestepBaseline);
         sendData();
         currentTime += timestepBaseline;
