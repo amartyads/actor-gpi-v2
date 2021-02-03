@@ -122,9 +122,9 @@ void SimulationActor::act() {
         l.cout() << name << " iteration at " << currentTime << std::endl;
 #endif
         receiveData();
-        block.setGhostLayer();
+        //block.setGhostLayer();
         //block.computeNumericalFluxes();
-        block.updateUnknowns(timestepBaseline);
+        //block.updateUnknowns(timestepBaseline);
         sendData();
         currentTime += timestepBaseline;
 #ifndef NOWRITE
