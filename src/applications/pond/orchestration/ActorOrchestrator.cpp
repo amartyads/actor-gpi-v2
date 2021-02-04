@@ -123,10 +123,17 @@ void ActorOrchestrator::simulate() {
     uint64_t totalPatchUpdates = 0;
     gaspi_pointer_t local = &localPatchUpdates;
     gaspi_pointer_t global = &totalPatchUpdates;
+
+    double totalRuntime = 0.0;
+    gaspi_pointer_t localRun = &runTime;
+    gaspi_pointer_t totalRun = &totalRuntime;
+
+    ASSERT( gaspi_allreduce(localRun, totalRun, 1, GASPI_OP_SUM, GASPI_TYPE_DOUBLE, GASPI_GROUP_ALL, GASPI_BLOCK) );
     ASSERT( gaspi_allreduce(local, global, 1, GASPI_OP_SUM, GASPI_TYPE_ULONG, GASPI_GROUP_ALL, GASPI_BLOCK) );//maybe keep mpi? since ulong?
     //totalPatchUpdates = mpi::allReduce(localPatchUpdates, MPI_SUM);
     if (!gpi_util::get_local_rank()) {
         l.cout() << "Performed " << totalPatchUpdates << " patch updates in " << runTime << " seconds." << std::endl;
+        l.cout() << "Total runtime is " << totalRuntime << " seconds." << std::endl;
         l.cout() << "Performed " << (totalPatchUpdates * config.patchSize * config.patchSize) << " cell updates in " << runTime << " seconds." << std::endl;
         l.cout() << "=> " <<  (static_cast<double>(totalPatchUpdates * config.patchSize * config.patchSize) / runTime)<< " CellUpdates/s" << std::endl;
         l.cout() << "=> " << (static_cast<double>(135 * 2 * totalPatchUpdates * config.patchSize * config.patchSize) / runTime) << " FlOps/s" << std::endl;
