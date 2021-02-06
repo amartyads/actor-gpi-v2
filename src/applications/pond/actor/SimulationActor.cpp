@@ -114,19 +114,19 @@ void SimulationActor::act() {
 #ifndef NOWRITE
         writeTimeStep(0.0f);
 #endif
-        //sendData();
-        trigger();
+        sendData();
+        //trigger();
         currentState = SimulationActorState::RUNNING;
     } else if (currentState == SimulationActorState::RUNNING && currentTime < endTime
                 && !hasReceivedTerminationSignal() && mayRead() && mayWrite() ) {
 #ifndef NDEBUG
         l.cout() << name << " iteration at " << currentTime << std::endl;
 #endif
-        //receiveData();
+        receiveData();
         block.setGhostLayer();
         block.computeNumericalFluxes();
         block.updateUnknowns(timestepBaseline);
-        //sendData();
+        sendData();
         currentTime += timestepBaseline;
 #ifndef NOWRITE
         if (currentTime >= nextWriteTime) {
@@ -134,7 +134,7 @@ void SimulationActor::act() {
             nextWriteTime += outputDelta;
         }
 #endif
-        trigger();
+        //trigger();
         patchUpdates++;
         if (currentTime > endTime) {
 #ifndef NDEBUG
@@ -167,7 +167,6 @@ void SimulationActor::writeTimeStep(float currentTime) {
 bool SimulationActor::mayRead() {
     //std::stringstream ss;
     bool res = true;
-    return res;
     //ss << "Actor no: " << this->actorGlobID << " Name: " << this->name << std::endl;
     for (int i = 0; i < 4; i++) {
         res &= (!this->dataIn[i] || this->dataIn[i]->available() > 0);
@@ -184,7 +183,6 @@ bool SimulationActor::mayRead() {
 
 bool SimulationActor::mayWrite() {
     bool res = true;
-    return res;
     for (int i = 0; i < 4; i++) {
         res &= (!this->dataOut[i] || this->dataOut[i]->freeCapacity() > 0);
     }
@@ -194,7 +192,6 @@ bool SimulationActor::mayWrite() {
 
 bool SimulationActor::hasReceivedTerminationSignal() {
     bool res = false;
-    return res;
     for (int i = 0; i < 4; i++) {
         if (this->dataIn[i] && this->dataIn[i]->available() > 0 && dataIn[i]->peek().empty()) {
             res |= true;
