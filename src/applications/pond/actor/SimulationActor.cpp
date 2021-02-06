@@ -115,6 +115,7 @@ void SimulationActor::act() {
         writeTimeStep(0.0f);
 #endif
         //sendData();
+        trigger();
         currentState = SimulationActorState::RUNNING;
     } else if (currentState == SimulationActorState::RUNNING && currentTime < endTime
                 && !hasReceivedTerminationSignal() && mayRead() && mayWrite() ) {
@@ -133,6 +134,7 @@ void SimulationActor::act() {
             nextWriteTime += outputDelta;
         }
 #endif
+        trigger();
         patchUpdates++;
         if (currentTime > endTime) {
 #ifndef NDEBUG
